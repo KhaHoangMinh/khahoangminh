@@ -1,0 +1,25 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+export default defineConfig({
+    plugins: [react()],
+    server: {
+        port: 3000,
+        host: '0.0.0.0', // This exposes the app to your local network
+        open: true       // Opens browser automatically
+    },
+    resolve: {
+        alias: {
+            // Define the root alias "@" -> "src"
+            "@": path.resolve(__dirname, "./src"),
+
+            // Define shortcuts
+            "components": path.resolve(__dirname, "./src/components"),
+            "utils": path.resolve(__dirname, "./src/lib/utils"),
+            "ui": path.resolve(__dirname, "./src/components/ui"),
+            "lib": path.resolve(__dirname, "./src/lib"),
+            "hooks": path.resolve(__dirname, "./src/hooks"),
+        }
+    }
+})
