@@ -4,10 +4,11 @@ import path from 'path'
 
 export default defineConfig({
     plugins: [react()],
-    server: {
-        port: 3000,
-        host: '0.0.0.0', // This exposes the app to your local network
-        open: true       // Opens browser automatically
+    build: {
+        outDir: "dist",
+        assetsDir: "assets",
+        sourcemap: false,
+        minify: "terser",
     },
     resolve: {
         alias: {
@@ -21,5 +22,10 @@ export default defineConfig({
             "lib": path.resolve(__dirname, "./src/lib"),
             "hooks": path.resolve(__dirname, "./src/hooks"),
         }
-    }
+    },
+    server: {
+        port: 3000,
+        host: '0.0.0.0', // This exposes the app to your local network
+        open: true       // Opens browser automatically
+    },
 })
