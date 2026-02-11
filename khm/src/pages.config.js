@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import __Layout from './Layout.jsx';
 
-// Use lazy() for page imports
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));

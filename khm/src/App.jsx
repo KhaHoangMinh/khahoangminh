@@ -1,8 +1,11 @@
-import { pagesConfig } from './pages.config'
+import { pagesConfig } from '@/pages.config'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import PageNotFound from './lib/PageNotFound';
-import {Suspense} from "react";
+import {lazy, Suspense} from "react";
 import ScrollToTop from "hooks/scollToTop.js";
+import { ThemeProvider } from '@/services/ThemeProvider';
+import { LanguageProvider } from '@/services/LanguageProvider';
+
+const PageNotFound = lazy(() => import('@/lib/PageNotFound'));
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -21,28 +24,34 @@ const LayoutWrapper = ({ children, currentPageName }) => Layout ?
 function App() {
     return (
         <BrowserRouter>
-            <ScrollToTop />
-            <Suspense fallback={<LoadingFallback />}>
-                <Routes>
-                    <Route path="/" element={
-                        <LayoutWrapper currentPageName={mainPageKey}>
-                            <MainPage />
-                        </LayoutWrapper>
-                    } />
-                    {Object.entries(Pages).map(([path, Page]) => (
-                        <Route
-                            key={path}
-                            path={`/${path}`}
-                            element={
-                                <LayoutWrapper currentPageName={path}>
-                                    <Page />
+            <ThemeProvider>
+                <LanguageProvider>
+                    <ScrollToTop />
+                    <Suspense fallback={<LoadingFallback />}>
+                        <Routes>
+                            <Route path="/" element={
+                                <LayoutWrapper currentPageName={mainPageKey}>
+                                    <MainPage />
                                 </LayoutWrapper>
-                            }
-                        />
-                    ))}
-                    <Route path="*" element={<PageNotFound />} />
-                </Routes>
-            </Suspense>
+                            } />
+                            {Object.entries(Pages).map(([path, Page]) => (
+                                <Route
+                                    key={path}
+                                    path={`/${path}`}
+                                    element={
+                                        <LayoutWrapper currentPageName={path}>
+                                            <Page />
+                                        </LayoutWrapper>
+                                    }
+                                />
+                            ))}
+                            <Route path="*" element={
+                                <PageNotFound />
+                            } />
+                        </Routes>
+                    </Suspense>
+                </LanguageProvider>
+            </ThemeProvider>
         </BrowserRouter>
     )
 }

@@ -1,36 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '../utils';
+import { createPageUrl } from '@/utils';
 import { ArrowRight, CheckCircle2, Phone, Mail } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
-import { useLanguage } from '../services/LanguageProvider.jsx';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function Home() {
-    const { t, language } = useLanguage();
+    const { t } = useLanguage();
 
     const products = [
-        { name: 'INOX CUỘN', image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', page: 'Products' },
-        { name: 'INOX TẤM', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', page: 'Products' },
-        { name: 'ỐNG INOX', image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', page: 'Products' },
-        { name: 'PHỤ KIỆN INOX', image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', page: 'Products' },
+        { name: t('productsPage.categories.coil'), image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', page: 'Products' },
+        { name: t('productsPage.categories.sheet'), image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', page: 'Products' },
+        { name: t('productsPage.categories.pipe'), image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', page: 'Products' },
+        { name: t('productsPage.categories.accessories'), image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', page: 'Products' },
     ];
 
-    const features = language === 'vi' ? [
-        'Chất lượng sản phẩm đảm bảo theo tiêu chuẩn quốc tế',
-        'Giá cạnh tranh, ưu đãi cho đơn hàng lớn',
-        'Giao hàng nhanh chóng trên toàn quốc',
-        'Đội ngũ tư vấn chuyên nghiệp, nhiệt tình',
-        'Dịch vụ gia công theo yêu cầu',
-        'Bảo hành, hỗ trợ sau bán hàng tận tâm'
-    ] : [
-        'Product quality guaranteed to international standards',
-        'Competitive prices, special offers for bulk orders',
-        'Fast nationwide delivery',
-        'Professional and dedicated consulting team',
-        'Custom processing services',
-        'Comprehensive warranty and after-sales support'
-    ];
+    const features = t('homePage.features.list');
 
     return (
         <div className="min-h-screen">
@@ -42,34 +28,34 @@ export default function Home() {
                 <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
                     <div className="max-w-3xl">
                         <div className="inline-block bg-orange-500/20 border border-orange-500 text-orange-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                            Uy tín - Chất lượng - Giá tốt
+                            {t('homePage.hero.tagline')}
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-pre-line">
-                            {t('heroTitle')}<br/>
-                            <span className="text-orange-500">{t('heroSubtitle')}</span>
+                            {t('homePage.hero.title')}<br/>
+                            <span className="text-orange-500">{t('homePage.hero.subtitle')}</span>
                         </h1>
                         <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                            {t('heroDesc')}
+                            {t('homePage.hero.description')}
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link to={createPageUrl('Contact')}>
                                 <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-                                    {t('contactNow')}
+                                    {t('common.contactNow')}
                                     <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
                             </Link>
                             <Link to={createPageUrl('Products')}>
-                                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
-                                    {t('viewProducts')}
+                                <Button size="lg" variant="outline" className="border-white text-black dark:text-white hover:bg-white dark:hover:text-black  hover:text-blue-900">
+                                    {t('common.viewProducts')}
                                 </Button>
                             </Link>
                         </div>
                         <div className="mt-8 flex flex-wrap gap-6">
-                            <a href="tel:0976888999" className="flex items-center gap-2 text-lg hover:text-orange-400 transition-colors">
+                            <a href="#" className="flex items-center gap-2 text-lg hover:text-orange-400 transition-colors">
                                 <Phone className="w-5 h-5" />
                                 <span className="font-semibold">0976.888.999</span>
                             </a>
-                            <a href="tel:0979866162" className="flex items-center gap-2 text-lg hover:text-orange-400 transition-colors">
+                            <a href="#" className="flex items-center gap-2 text-lg hover:text-orange-400 transition-colors">
                                 <Phone className="w-5 h-5" />
                                 <span className="font-semibold">0979.866.162</span>
                             </a>
@@ -86,23 +72,23 @@ export default function Home() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">
-                                {t('aboutIntro')}<br/>
-                                <span className="text-orange-600">{t('aboutKHM')}</span>
+                                {t('homePage.about.intro')}<br/>
+                                <span className="text-orange-600">{t('homePage.about.name')}</span>
                             </h2>
                             <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
-                                <strong>Công ty TNHH Một Thành Viên Kha Hoàng Minh</strong> được thành lập từ năm 2016 với ngành nghề kinh doanh chính là xuất nhập khẩu trực tiếp thép không gỉ (Inox) tấm, cuộn, ống công nghiệp và phụ kiện đường ống.
+                                {t('homePage.about.desc1')}
                             </p>
                             <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
-                                Trải qua gần 9 năm xây dựng và phát triển, Kha Hoàng Minh đã khẳng định được uy tín, thương hiệu trên thị trường trong nước và quốc tế, là nhà cung cấp, là đối tác tin cậy hàng đầu của các Nhà thầu, các Doanh nghiệp.
+                                {t('homePage.about.desc2')}
                             </p>
                             <div className="bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-600 p-4 mb-6">
                                 <p className="text-slate-800 dark:text-slate-200 font-semibold italic">
-                                    "Uy tín là hàng đầu, Chất lượng là mãi mãi"
+                                    {t('homePage.about.quote')}
                                 </p>
                             </div>
                             <Link to={createPageUrl('About')}>
                                 <Button className="bg-blue-600 hover:bg-blue-700">
-                                    Xem thêm
+                                    {t('common.viewMore')}
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
                             </Link>
@@ -123,10 +109,10 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            {t('productCategories')}
+                            {t('homePage.products.title')}
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                            {language === 'vi' ? 'Cung cấp đầy đủ các loại inox với mẫu mã, kích cỡ đa dạng' : 'Full range of stainless steel with diverse models and sizes'}
+                            {t('homePage.products.description')}
                         </p>
                     </div>
 
@@ -145,7 +131,7 @@ export default function Home() {
                                     <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-3">{product.name}</h3>
                                     <Link to={createPageUrl(product.page)}>
                                         <Button variant="outline" className="w-full group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors">
-                                            {t('viewAll')}
+                                            {t('common.viewAll')}
                                             <ArrowRight className="ml-2 w-4 h-4" />
                                         </Button>
                                     </Link>
@@ -161,7 +147,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            {t('whyChooseUs')}
+                            {t('homePage.features.title')}
                         </h2>
                     </div>
 
@@ -180,22 +166,16 @@ export default function Home() {
             <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-950 text-white">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                        {t('needConsulting')}
+                        {t('homePage.cta.title')}
                     </h2>
                     <p className="text-xl mb-8 text-blue-100">
-                        {t('consultDesc')}
+                        {t('homePage.cta.description')}
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <a href="tel:0976888999">
-                            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-                                <Phone className="mr-2 w-5 h-5" />
-                                0976.888.999
-                            </Button>
-                        </a>
                         <Link to={createPageUrl('Contact')}>
-                            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+                            <Button size="lg" variant="outline" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                                 <Mail className="mr-2 w-5 h-5" />
-                                Gửi yêu cầu
+                                {t('common.sendRequest')}
                             </Button>
                         </Link>
                     </div>

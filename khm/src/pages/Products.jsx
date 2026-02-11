@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {createPageUrl} from "@/utils/index.js";
+import {Link} from "react-router-dom";
 
 export default function Products() {
     const categories = [
@@ -193,18 +195,12 @@ export default function Products() {
                                     Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn 24/7
                                 </p>
                                 <div className="flex flex-wrap gap-4 justify-center">
-                                    <a href="tel:0976888999">
-                                        <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+                                    <Link to={createPageUrl('Contact')}>
+                                        <Button size="lg" variant="outline" className="border-white text-black dark:text-white hover:bg-white dark:hover:text-black hover:text-blue-900">
                                             <Phone className="mr-2 w-5 h-5" />
-                                            0976.888.999 (Ms. Hải)
+                                            Liên hệ ngay
                                         </Button>
-                                    </a>
-                                    <a href="tel:0979866162">
-                                        <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
-                                            <Phone className="mr-2 w-5 h-5" />
-                                            0979.866.162 (Ms. Uyên)
-                                        </Button>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </CardContent>
