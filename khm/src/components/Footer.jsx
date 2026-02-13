@@ -10,13 +10,13 @@ export default function Footer() {
     const mapInstanceRef = useRef(null);
 
     const navItems = [
-        { name: t('nav.home'), page: 'Home' },
-        { name: t('nav.about'), page: 'About' },
-        { name: t('nav.products'), page: 'Products' },
-        { name: t('nav.services'), page: 'Services' },
-        { name: t('nav.projects'), page: 'Projects' },
-        { name: t('nav.news'), page: 'News' },
-        { name: t('nav.contact'), page: 'Contact' },
+        { name: t('nav.home'), page: 'home' },
+        { name: t('nav.about'), page: 'about' },
+        { name: t('nav.products'), page: 'products' },
+        { name: t('nav.services'), page: 'services' },
+        { name: t('nav.projects'), page: 'projects' },
+        { name: t('nav.news'), page: 'news' },
+        { name: t('nav.contact'), page: 'contact' },
     ];
 
     useEffect(() => {
@@ -150,8 +150,8 @@ export default function Footer() {
                         <div className='flex gap-4'>
                             <img src='/img/bo-cong-thuong.png' alt='' className="h-10" />
                             <p className="flex items-center gap-2">
-                                <a href='#' className="text-orange-300 hover:text-orange-500">{t('footer.protection')}</a>
-                                <a href='#' className="hover:text-blue-400">{t('footer.privacy')}</a>
+                                <Link to={createPageUrl("protection")} className="text-orange-300 hover:text-orange-500">{t('footer.protection')}</Link>
+                                <Link to={createPageUrl("privacy")} className="hover:text-blue-400">{t('footer.privacy')}</Link>
                             </p>
                         </div>
                     </div>

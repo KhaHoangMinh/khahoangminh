@@ -10,10 +10,10 @@ export default function Home() {
     const { t } = useLanguage();
 
     const products = [
-        { name: t('productsPage.categories.coil'), image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', page: 'Products' },
-        { name: t('productsPage.categories.sheet'), image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', page: 'Products' },
-        { name: t('productsPage.categories.pipe'), image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', page: 'Products' },
-        { name: t('productsPage.categories.accessories'), image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', page: 'Products' },
+        { name: t('productsPage.categories.coil'), image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', page: 'products' },
+        { name: t('productsPage.categories.sheet'), image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', page: 'products' },
+        { name: t('productsPage.categories.pipe'), image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', page: 'products' },
+        { name: t('productsPage.categories.accessories'), image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', page: 'products' },
     ];
 
     const features = t('homePage.features.list');
@@ -38,13 +38,13 @@ export default function Home() {
                             {t('homePage.hero.description')}
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Link to={createPageUrl('Contact')}>
+                            <Link to={createPageUrl('contact')}>
                                 <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                                     {t('common.contactNow')}
                                     <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
                             </Link>
-                            <Link to={createPageUrl('Products')}>
+                            <Link to={createPageUrl('products')}>
                                 <Button size="lg" variant="outline" className="border-white text-black dark:text-white hover:bg-white dark:hover:text-black  hover:text-blue-900">
                                     {t('common.viewProducts')}
                                 </Button>
@@ -86,7 +86,7 @@ export default function Home() {
                                     {t('homePage.about.quote')}
                                 </p>
                             </div>
-                            <Link to={createPageUrl('About')}>
+                            <Link to={createPageUrl('about')}>
                                 <Button className="bg-blue-600 hover:bg-blue-700">
                                     {t('common.viewMore')}
                                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -172,7 +172,7 @@ export default function Home() {
                         {t('homePage.cta.description')}
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Link to={createPageUrl('Contact')}>
+                        <Link to={createPageUrl('contact')}>
                             <Button size="lg" variant="outline" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                                 <Mail className="mr-2 w-5 h-5" />
                                 {t('common.sendRequest')}

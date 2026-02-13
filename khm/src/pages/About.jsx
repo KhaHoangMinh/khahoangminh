@@ -1,36 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '../utils';
+import { createPageUrl } from '@/utils';
 import { Building2, Award, Users, Target, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '../services/LanguageProvider.jsx';
+import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function About() {
-    const { t, language } = useLanguage();
+    const { t } = useLanguage();
 
     const values = [
         {
             icon: Award,
-            title: t('topReputation'),
-            description: t('topReputationDesc')
+            title: t('aboutPage.values.items.reputation'),
+            description: t('aboutPage.values.items.reputationDesc')
         },
         {
             icon: Target,
-            title: t('qualityForever'),
-            description: t('qualityForeverDesc')
+            title: t('aboutPage.values.items.quality'),
+            description: t('aboutPage.values.items.qualityDesc')
         },
         {
             icon: Users,
-            title: t('professionalTeam'),
-            description: t('professionalTeamDesc')
+            title: t('aboutPage.values.items.team'),
+            description: t('aboutPage.values.items.teamDesc')
         },
         {
             icon: Building2,
-            title: t('facilities'),
-            description: t('facilitiesDesc')
+            title: t('aboutPage.values.items.facilities'),
+            description: t('aboutPage.values.items.facilitiesDesc')
         }
     ];
+
+    const productList = t('aboutPage.scope.products.list');
+    const serviceList = t('aboutPage.scope.services.list');
 
     return (
         <div className="min-h-screen">
@@ -40,10 +43,10 @@ export default function About() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            {t('aboutUs')} <span className="text-orange-500">{t('aboutKHM')}</span>
+                            {t('aboutPage.hero.title')} <span className="text-orange-500">{t('aboutPage.hero.subtitle')}</span>
                         </h1>
                         <p className="text-xl text-slate-300">
-                            {t('trustedPartner')}
+                            {t('aboutPage.hero.description')}
                         </p>
                     </div>
                 </div>
@@ -56,34 +59,34 @@ export default function About() {
                         <div>
                             <div className="mb-8">
                                 <div className="inline-block bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-500 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                                    {t('establishedYear')}
+                                    {t('aboutPage.info.established')}
                                 </div>
                                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">
-                                    {t('companyFullName')}<br/>
-                                    <span className="text-orange-600">{t('aboutKHM').toUpperCase()}</span>
+                                    {t('aboutPage.info.fullName')}<br/>
+                                    <span className="text-orange-600">{t('aboutPage.hero.subtitle').toUpperCase()}</span>
                                 </h2>
                             </div>
 
                             <div className="space-y-6 text-slate-700 dark:text-slate-300">
                                 <p className="leading-relaxed">
-                                    <strong className="text-slate-900 dark:text-white">{t('companyFullName')} {t('aboutKHM')}</strong> {t('companyIntro1')}
+                                    <strong className="text-slate-900 dark:text-white">{t('aboutPage.hero.subtitle')}</strong> {t('aboutPage.info.intro1')}
                                 </p>
 
                                 <p className="leading-relaxed">
-                                    {t('companyIntro2')}
+                                    {t('aboutPage.info.intro2')}
                                 </p>
 
                                 <div className="bg-gradient-to-r from-orange-50 to-blue-50 dark:from-orange-900/20 dark:to-blue-900/20 border-l-4 border-orange-600 p-6 rounded-r-lg">
                                     <p className="text-slate-800 dark:text-slate-200 font-bold text-lg italic">
-                                        {t('companyMotto')}
+                                        {t('aboutPage.info.motto')}
                                     </p>
                                     <p className="text-slate-600 dark:text-slate-400 mt-2">
-                                        {t('companyMottoDesc')}
+                                        {t('aboutPage.info.mottoDesc')}
                                     </p>
                                 </div>
 
                                 <p className="leading-relaxed font-medium text-slate-900 dark:text-white">
-                                    {t('thankYouMessage')}
+                                    {t('aboutPage.info.thankYou')}
                                 </p>
                             </div>
                         </div>
@@ -116,10 +119,10 @@ export default function About() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            {t('coreValues')}
+                            {t('aboutPage.values.title')}
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                            {t('coreValuesDesc')}
+                            {t('aboutPage.values.description')}
                         </p>
                     </div>
 
@@ -145,55 +148,35 @@ export default function About() {
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                                {t('businessScope')}
+                                {t('aboutPage.scope.title')}
                             </h2>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-6">
                             <Card className="border-l-4 border-orange-600 shadow-lg">
                                 <CardContent className="p-6">
-                                    <h3 className="text-xl font-bold mb-4 text-slate-800 dark:text-white">{t('mainProducts')}</h3>
+                                    <h3 className="text-xl font-bold mb-4 text-slate-800 dark:text-white">{t('aboutPage.scope.products.title')}</h3>
                                     <ul className="space-y-3 text-slate-700 dark:text-slate-300">
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-orange-600 rounded-full mt-2"></span>
-                                            <span>{t('product1')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-orange-600 rounded-full mt-2"></span>
-                                            <span>{t('product2')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-orange-600 rounded-full mt-2"></span>
-                                            <span>{t('product3')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-orange-600 rounded-full mt-2"></span>
-                                            <span>{t('product4')}</span>
-                                        </li>
+                                        {Array.isArray(productList) && productList.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-2">
+                                                <span className="w-2 h-2 bg-orange-600 rounded-full mt-2"></span>
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </CardContent>
                             </Card>
 
                             <Card className="border-l-4 border-blue-600 shadow-lg">
                                 <CardContent className="p-6">
-                                    <h3 className="text-xl font-bold mb-4 text-slate-800 dark:text-white">{t('service')}</h3>
+                                    <h3 className="text-xl font-bold mb-4 text-slate-800 dark:text-white">{t('aboutPage.scope.services.title')}</h3>
                                     <ul className="space-y-3 text-slate-700 dark:text-slate-300">
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                                            <span>{t('service1')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                                            <span>{t('service2')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                                            <span>{t('service3')}</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                                            <span>{t('service4')}</span>
-                                        </li>
+                                        {Array.isArray(serviceList) && serviceList.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-2">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </CardContent>
                             </Card>
@@ -206,14 +189,14 @@ export default function About() {
             <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-950 text-white">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                        {t('becomePartner')}
+                        {t('aboutPage.cta.title')}
                     </h2>
                     <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-                        {t('partnerDesc')}
+                        {t('aboutPage.cta.description')}
                     </p>
-                    <Link to={createPageUrl('Contact')}>
+                    <Link to={createPageUrl('contact')}>
                         <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-                            {t('contactNow')}
+                            {t('common.contactNow')}
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                     </Link>

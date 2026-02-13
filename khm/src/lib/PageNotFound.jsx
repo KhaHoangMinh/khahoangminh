@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Home, Search, Package, Info, Briefcase, Phone, Construction } from 'lucide-react';
 import { useLanguage } from '@/services/LanguageProvider';
+import {createPageUrl} from "@/utils/index.js";
 
 export default function PageNotFound() {
     const location = useLocation();
@@ -9,12 +10,12 @@ export default function PageNotFound() {
     const pageName = location.pathname.substring(1);
 
     const quickLinks = [
-        { name: t('nav.home'), path: '/', icon: Home, desc: t('pageNotFound.links.home') },
-        { name: t('nav.products'), path: '/Products', icon: Package, desc: t('pageNotFound.links.products') },
-        { name: t('nav.services'), path: '/Services', icon: Construction, desc: t('pageNotFound.links.services') },
-        { name: t('nav.projects'), path: '/Projects', icon: Briefcase, desc: t('pageNotFound.links.projects') },
-        { name: t('nav.about'), path: '/About', icon: Info, desc: t('pageNotFound.links.about') },
-        { name: t('nav.contact'), path: '/Contact', icon: Phone, desc: t('pageNotFound.links.contact') },
+        { name: t('nav.home'), path: 'home', icon: Home, desc: t('pageNotFound.links.home') },
+        { name: t('nav.products'), path: 'products', icon: Package, desc: t('pageNotFound.links.products') },
+        { name: t('nav.services'), path: 'services', icon: Construction, desc: t('pageNotFound.links.services') },
+        { name: t('nav.projects'), path: 'projects', icon: Briefcase, desc: t('pageNotFound.links.projects') },
+        { name: t('nav.about'), path: 'about', icon: Info, desc: t('pageNotFound.links.about') },
+        { name: t('nav.contact'), path: 'contact', icon: Phone, desc: t('pageNotFound.links.contact') },
     ];
 
     return (
@@ -73,7 +74,7 @@ export default function PageNotFound() {
                                 {quickLinks.map((link) => (
                                     <Link
                                         key={link.name}
-                                        to={link.path}
+                                        to={createPageUrl(link.path)}
                                         className="group flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 hover:border-orange-200 dark:hover:border-orange-900/50 hover:shadow-lg transition-all duration-300"
                                     >
                                         <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center group-hover:bg-orange-100 group-hover:text-orange-600 dark:group-hover:bg-orange-900/30 dark:group-hover:text-orange-400 transition-colors">

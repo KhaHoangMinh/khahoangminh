@@ -1,33 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '../utils';
+import { createPageUrl } from '@/utils';
 import { Users, TrendingUp, Heart, Award, ArrowRight, Mail } from 'lucide-react';
-import { Card, CardContent } from '../components/ui/card';
-import { Button } from '../components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from "@/services/LanguageProvider";
 
 export default function Careers() {
+    const { t } = useLanguage();
+
     const benefits = [
         {
             icon: TrendingUp,
-            title: 'Cơ hội phát triển',
-            description: 'Môi trường làm việc năng động, nhiều cơ hội thăng tiến'
+            title: t('careersPage.benefits.items.growth'),
+            description: t('careersPage.benefits.items.growthDesc')
         },
         {
             icon: Heart,
-            title: 'Chế độ đãi ngộ',
-            description: 'Lương thưởng cạnh tranh, đầy đủ chế độ BHXH, BHYT'
+            title: t('careersPage.benefits.items.welfare'),
+            description: t('careersPage.benefits.items.welfareDesc')
         },
         {
             icon: Users,
-            title: 'Đồng nghiệp thân thiện',
-            description: 'Văn hóa doanh nghiệp tích cực, đồng đội hỗ trợ nhiệt tình'
+            title: t('careersPage.benefits.items.colleagues'),
+            description: t('careersPage.benefits.items.colleaguesDesc')
         },
         {
             icon: Award,
-            title: 'Đào tạo & Phát triển',
-            description: 'Được đào tạo kỹ năng chuyên môn và phát triển nghề nghiệp'
+            title: t('careersPage.benefits.items.training'),
+            description: t('careersPage.benefits.items.trainingDesc')
         }
     ];
+
+    const cultureList = t('careersPage.culture.list');
 
     return (
         <div className="min-h-screen">
@@ -37,10 +42,10 @@ export default function Careers() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Tuyển dụng & <span className="text-orange-500">Cơ hội nghề nghiệp</span>
+                            {t('careersPage.hero.title')} <span className="text-orange-500">{t('careersPage.hero.highlight')}</span>
                         </h1>
                         <p className="text-xl text-slate-300">
-                            Gia nhập đội ngũ Kha Hoàng Minh - Nơi bạn phát triển sự nghiệp
+                            {t('careersPage.hero.subtitle')}
                         </p>
                     </div>
                 </div>
@@ -51,10 +56,10 @@ export default function Careers() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            Tại sao làm việc tại <span className="text-orange-600">Kha Hoàng Minh?</span>
+                            {t('careersPage.benefits.title')} <span className="text-orange-600">{t('careersPage.benefits.highlight')}</span>
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                            Chúng tôi không chỉ tìm kiếm nhân viên, mà tìm kiếm những đối tác đồng hành lâu dài
+                            {t('careersPage.benefits.subtitle')}
                         </p>
                     </div>
 
@@ -80,7 +85,7 @@ export default function Careers() {
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                                Vị trí đang tuyển
+                                {t('careersPage.openings.title')}
                             </h2>
                         </div>
 
@@ -90,22 +95,21 @@ export default function Careers() {
                                     <Users className="w-10 h-10 text-white" />
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-white">
-                                    Hiện chúng tôi đang cập nhật các vị trí tuyển dụng
+                                    {t('careersPage.openings.emptyTitle')}
                                 </h3>
                                 <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                    Nếu bạn quan tâm đến cơ hội làm việc tại Kha Hoàng Minh, vui lòng gửi CV của bạn về email
-                                    hoặc liên hệ trực tiếp với chúng tôi. Chúng tôi luôn chào đón những ứng viên tài năng và nhiệt huyết.
+                                    {t('careersPage.openings.emptyDesc')}
                                 </p>
                                 <div className="flex flex-wrap gap-4 justify-center">
-                                    <a href="mailto:info@khahoangminh.com.vn">
+                                    <a href="#">
                                         <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
                                             <Mail className="mr-2 w-5 h-5" />
-                                            Gửi CV ngay
+                                            {t('careersPage.openings.sendCv')}
                                         </Button>
                                     </a>
-                                    <Link to={createPageUrl('Contact')}>
-                                        <Button size="lg" variant="outline">
-                                            Liên hệ tư vấn
+                                    <Link to={createPageUrl('contact')}>
+                                        <Button size="lg" variant="outline" className="border-slate-300 dark:border-slate-700">
+                                            {t('careersPage.openings.contact')}
                                             <ArrowRight className="ml-2 w-5 h-5" />
                                         </Button>
                                     </Link>
@@ -122,19 +126,13 @@ export default function Careers() {
                     <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">
-                                Văn hóa <span className="text-orange-600">Doanh nghiệp</span>
+                                {t('careersPage.culture.title')} <span className="text-orange-600">{t('careersPage.culture.highlight')}</span>
                             </h2>
                             <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
-                                Tại Kha Hoàng Minh, chúng tôi xây dựng một môi trường làm việc chuyên nghiệp, thân thiện,
-                                nơi mọi người có thể phát huy tối đa năng lực của mình.
+                                {t('careersPage.culture.description')}
                             </p>
                             <ul className="space-y-4">
-                                {[
-                                    'Tôn trọng và tin tưởng lẫn nhau',
-                                    'Làm việc theo tinh thần đội nhóm',
-                                    'Khuyến khích sáng tạo và đổi mới',
-                                    'Cam kết phát triển bền vững'
-                                ].map((item, index) => (
+                                {Array.isArray(cultureList) && cultureList.map((item, index) => (
                                     <li key={index} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                                         <span className="w-6 h-6 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
                                         <span>{item}</span>

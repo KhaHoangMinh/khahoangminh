@@ -1,8 +1,13 @@
 import React from 'react';
-import { Play } from 'lucide-react';
-import { Card, CardContent } from '../components/ui/card';
+import { Play, Facebook, Mail } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from "@/services/LanguageProvider.jsx";
+import { Link } from "react-router-dom";
+import {createPageUrl} from "@/utils/index.js";
 
 export default function Videos() {
+    const { t } = useLanguage();
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -11,10 +16,10 @@ export default function Videos() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Video <span className="text-orange-500">Giới thiệu</span>
+                            {t('videosPage.hero.title')} <span className="text-orange-500">{t('videosPage.hero.highlight')}</span>
                         </h1>
                         <p className="text-xl text-slate-300">
-                            Tìm hiểu thêm về sản phẩm và dịch vụ của chúng tôi qua video
+                            {t('videosPage.hero.subtitle')}
                         </p>
                     </div>
                 </div>
@@ -30,19 +35,31 @@ export default function Videos() {
                                     <Play className="w-12 h-12 text-white" />
                                 </div>
                                 <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-800 dark:text-white">
-                                    Video đang được cập nhật
+                                    {t('videosPage.content.title')}
                                 </h2>
                                 <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                                    Chúng tôi đang chuẩn bị các video giới thiệu về sản phẩm, dịch vụ và quy trình sản xuất.
-                                    Vui lòng quay lại sau hoặc liên hệ trực tiếp để biết thêm chi tiết.
+                                    {t('videosPage.content.description')}
                                 </p>
                                 <div className="flex flex-wrap gap-4 justify-center">
-                                    <a href="tel:0976888999" className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors">
-                                        Hotline: 0976.888.999
+                                    {/* Facebook Button */}
+                                    <a
+                                        href="https://www.facebook.com/profile.php?id=100054573575093"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                                    >
+                                        <Facebook className="w-5 h-5" />
+                                        {t('videosPage.content.facebook')}
                                     </a>
-                                    <a href="tel:0979866162" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
-                                        Hotline: 0979.866.162
-                                    </a>
+
+                                    {/* Contact Page Button */}
+                                    <Link
+                                        to={createPageUrl('Contact')}
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
+                                    >
+                                        <Mail className="w-5 h-5" />
+                                        {t('videosPage.content.contact')}
+                                    </Link>
                                 </div>
                             </CardContent>
                         </Card>

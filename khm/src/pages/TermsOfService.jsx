@@ -1,0 +1,267 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
+import {
+    Scale, FileSignature, AlertTriangle, Landmark, Package,
+    Ban, RefreshCw, ChevronRight, Mail, UserRoundXIcon, Brain
+} from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/services/LanguageProvider';
+
+export default function TermsOfService() {
+    const { t } = useLanguage();
+    const [activeSection, setActiveSection] = useState('acceptance');
+
+    // Scroll Spy for Sidebar
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['acceptance', 'changes', 'usage', 'products', 'ip', 'liability', 'law', 'termination'];
+            const scrollPosition = window.scrollY + 150;
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element && element.offsetTop <= scrollPosition) {
+                    setActiveSection(section);
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const sidebarItems = [
+        { id: 'acceptance', label: t('termsOfServicePage.toc.acceptance'), icon: FileSignature },
+        { id: 'changes', label: t('termsOfServicePage.toc.changes'), icon: RefreshCw },
+        { id: 'usage', label: t('termsOfServicePage.toc.usage'), icon: UserRoundXIcon },
+        { id: 'products', label: t('termsOfServicePage.toc.products'), icon: Package },
+        { id: 'ip', label: t('termsOfServicePage.toc.ip'), icon: Brain },
+        { id: 'liability', label: t('termsOfServicePage.toc.liability'), icon: AlertTriangle },
+        { id: 'law', label: t('termsOfServicePage.toc.law'), icon: Landmark },
+        { id: 'termination', label: t('termsOfServicePage.toc.termination'), icon: Ban },
+    ];
+
+    const usageList = t('termsOfServicePage.usage.list') || [];
+
+    return (
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
+            {/* Hero Section */}
+            <section className="relative bg-gradient-to-br from-blue-900 to-slate-900 dark:from-blue-950 dark:to-slate-950 text-white py-16">
+                <div className="absolute inset-0 bg-[url('http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg')] bg-cover bg-center opacity-10"></div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <div className="inline-block bg-orange-500/20 border border-orange-500 text-orange-400 px-4 py-1 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider">
+                            {t('termsOfServicePage.hero.badge')}
+                        </div>
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                            {t('termsOfServicePage.hero.title1')} <span className="text-orange-500">{t('termsOfServicePage.hero.title2')}</span>
+                        </h1>
+                        <p className="text-lg text-slate-300">
+                            {t('termsOfServicePage.hero.updated')}
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Main Content */}
+            <div className="container mx-auto px-4 py-12">
+                <div className="flex flex-col lg:flex-row gap-8">
+
+                    {/* Sidebar Navigation (Sticky) */}
+                    <div className="lg:w-1/4">
+                        <div className="sticky top-24 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 border border-slate-100 dark:border-slate-700">
+                            <h3 className="font-bold text-slate-800 dark:text-white mb-4 px-2 flex items-center gap-2">
+                                <Scale className="w-5 h-5 text-orange-500" />
+                                {t('termsOfServicePage.toc.title')}
+                            </h3>
+                            <nav className="space-y-1">
+                                {sidebarItems.map((item) => (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => scrollToSection(item.id)}
+                                        className={`w-full flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${
+                                            activeSection === item.id
+                                                ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400 border-l-4 border-orange-500'
+                                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border-l-4 border-transparent'
+                                        }`}
+                                    >
+                                        <item.icon className="w-4 h-4" />
+                                        <span className="text-left">{item.label}</span>
+                                        {activeSection === item.id && <ChevronRight className="w-4 h-4 ml-auto" />}
+                                    </button>
+                                ))}
+                            </nav>
+                        </div>
+                    </div>
+
+                    {/* Terms Content */}
+                    <div className="lg:w-3/4 space-y-8">
+
+                        {/* 1. Acceptance */}
+                        <section id="acceptance" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">1.</span> {t('termsOfServicePage.acceptance.title')}
+                                    </h2>
+                                    <p
+                                        className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4"
+                                        dangerouslySetInnerHTML={{ __html: t('termsOfServicePage.acceptance.text') }}
+                                    />
+                                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-100 dark:border-blue-900">
+                                        <p className="text-sm text-blue-800 dark:text-blue-300 font-medium">
+                                            {t('termsOfServicePage.acceptance.note')}
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 2. Changes */}
+                        <section id="changes" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">2.</span> {t('termsOfServicePage.changes.title')}
+                                    </h2>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {t('termsOfServicePage.changes.text')}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 3. User Conduct */}
+                        <section id="usage" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
+                                        <span className="text-orange-600">3.</span> {t('termsOfServicePage.usage.title')}
+                                    </h2>
+                                    <p className="text-slate-600 dark:text-slate-300 mb-4">
+                                        {t('termsOfServicePage.usage.text')}
+                                    </p>
+                                    <ul className="grid md:grid-cols-2 gap-4">
+                                        {Array.isArray(usageList) && usageList.map((item, i) => (
+                                            <li key={i} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900 p-3 rounded-lg">
+                                                <Ban className="w-5 h-5 text-red-500 flex-shrink-0" />
+                                                <span className="text-sm">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 4. Product Info */}
+                        <section id="products" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">4.</span> {t('termsOfServicePage.products.title')}
+                                    </h2>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                                        {t('termsOfServicePage.products.text1')}
+                                    </p>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {t('termsOfServicePage.products.text2')}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 5. Intellectual Property */}
+                        <section id="ip" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">5.</span> {t('termsOfServicePage.ip.title')}
+                                    </h2>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {t('termsOfServicePage.ip.text')}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 6. Limitation of Liability */}
+                        <section id="liability" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">6.</span> {t('termsOfServicePage.liability.title')}
+                                    </h2>
+                                    <div className="bg-orange-50 dark:bg-orange-900/10 border-l-4 border-orange-500 p-4 mb-4">
+                                        <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">
+                                            {t('termsOfServicePage.liability.disclaimer')}
+                                        </p>
+                                    </div>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {t('termsOfServicePage.liability.text')}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 7. Governing Law */}
+                        <section id="law" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">7.</span> {t('termsOfServicePage.law.title')}
+                                    </h2>
+                                    <p
+                                        className="text-slate-600 dark:text-slate-300 leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: t('termsOfServicePage.law.text') }}
+                                    />
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* 8. Termination */}
+                        <section id="termination" className="scroll-mt-28">
+                            <Card className="border-0 shadow-sm">
+                                <CardContent className="p-8">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                        <span className="text-orange-600">8.</span> {t('termsOfServicePage.termination.title')}
+                                    </h2>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {t('termsOfServicePage.termination.text')}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </section>
+
+                        {/* Contact Footer */}
+                        <Card className="bg-slate-900 text-white border-0 shadow-xl">
+                            <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="text-xl font-bold mb-2">{t('termsOfServicePage.contact.title')}</h3>
+                                    <p className="text-slate-400 text-sm">{t('termsOfServicePage.contact.desc')}</p>
+                                </div>
+                                <Link to={createPageUrl('contact')}>
+                                    <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+                                        <Mail className="mr-2 w-4 h-4" />
+                                        {t('termsOfServicePage.contact.button')}
+                                    </Button>
+                                </Link>
+                            </CardContent>
+                        </Card>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

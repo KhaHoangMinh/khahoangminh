@@ -1,10 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { MapPin, Phone, Mail, Clock, Send, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Facebook , Loader2, CheckCircle2, AlertCircle} from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {useLanguage} from "@/services/LanguageProvider.jsx";
+import {sendEmail} from "@/hooks/emailJS.js";
+import {validateContactForm} from "@/utils/validation.js";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -13,13 +15,47 @@ export default function Contact() {
         email: '',
         message: ''
     });
+    const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState({ type: '', message: '' });
+    const [isSending, setIsSending] = useState(false);
     const { t } = useLanguage();
     const mapContainerRef = useRef(null);
 
-    const handleSubmit = (e) => {
+    const handleInputChange = (field, value) => {
+        setFormData(prev => ({ ...prev, [field]: value }));
+        if (errors[field]) {
+            setErrors(prev => ({ ...prev, [field]: undefined }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert(t('contactPage.successMessage'));
-        setFormData({ name: '', phone: '', email: '', message: '' });
+        setErrors({});
+        setStatus({ type: '', message: '' });
+
+        const validation = validateContactForm(formData, t);
+        if (!validation.isValid) {
+            setErrors(validation.errors);
+            return;
+        }
+
+        setIsSending(true);
+        try {
+            await sendEmail(formData);
+            setStatus({
+                type: 'success',
+                message: t('contactPage.successMessage') || 'Message sent successfully!'
+            });
+            // Clear form on success
+            setFormData({ name: '', phone: '', email: '', message: '' });
+        } catch (error) {
+            setStatus({
+                type: 'error',
+                message: "Failed to send message. Please try again later."
+            });
+        } finally {
+            setIsSending(false);
+        }
     };
 
     const contactInfo = [
@@ -125,61 +161,92 @@ export default function Contact() {
                                 <p className="text-sm text-slate-500 mb-6">{t('contactPage.formDesc')}</p>
 
                                 <form onSubmit={handleSubmit} className="space-y-4">
+                                    {/* Name Field */}
                                     <div>
                                         <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 uppercase tracking-wide">
-                                            {t('contactPage.labels.name')}
+                                            {t('contactPage.labels.name')} <span className="text-red-500 ml-0.5">*</span>
                                         </label>
                                         <Input
-                                            required
                                             value={formData.name}
-                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            onChange={(e) => handleInputChange('name', e.target.value)}
                                             placeholder={t('contactPage.placeholders.name')}
-                                            className="bg-slate-50 dark:bg-slate-800"
+                                            disabled={isSending}
+                                            className={`bg-slate-50 dark:bg-slate-800 ${errors.name ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                                         />
+                                        {errors.name && <p className="text-red-500 text-xs mt-1 font-medium">{errors.name}</p> }
                                     </div>
+
+                                    {/* Phone & Email Grid */}
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 uppercase tracking-wide">
                                                 {t('contactPage.labels.phone')}
                                             </label>
                                             <Input
-                                                required
                                                 type="tel"
                                                 value={formData.phone}
-                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                onChange={(e) => handleInputChange('phone', e.target.value)}
                                                 placeholder={t('contactPage.placeholders.phone')}
-                                                className="bg-slate-50 dark:bg-slate-800"
+                                                className={`bg-slate-50 dark:bg-slate-800 ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                                             />
+                                            {errors.phone && <p className="text-red-500 text-xs mt-1 font-medium">{errors.phone}</p>}
                                         </div>
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 uppercase tracking-wide">
-                                                {t('contactPage.labels.email')}
+                                                {t('contactPage.labels.email')} <span className="text-red-500 ml-0.5">*</span>
                                             </label>
                                             <Input
                                                 type="email"
                                                 value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                onChange={(e) => handleInputChange('email', e.target.value)}
                                                 placeholder={t('contactPage.placeholders.email')}
-                                                className="bg-slate-50 dark:bg-slate-800"
+                                                disabled={isSending}
+                                                className={`bg-slate-50 dark:bg-slate-800 ${errors.email ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                                             />
+                                            {errors.email && <p className="text-red-500 text-xs mt-1 font-medium">{errors.email}</p>}
                                         </div>
                                     </div>
+
+                                    {/* Message Field */}
                                     <div>
                                         <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 uppercase tracking-wide">
-                                            {t('contactPage.labels.message')}
+                                            {t('contactPage.labels.message')} <span className="text-red-500 ml-0.5">*</span>
                                         </label>
                                         <Textarea
-                                            required
                                             value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            onChange={(e) => handleInputChange('message', e.target.value )}
                                             placeholder={t('contactPage.placeholders.message')}
                                             rows={4}
-                                            className="bg-slate-50 dark:bg-slate-800 resize-none"
+                                            disabled={isSending}
+                                            className={`bg-slate-50 dark:bg-slate-800 resize-none ${errors.message ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                                         />
+                                        {errors.message && <p className="text-red-500 text-xs mt-1 font-medium">{errors.message}</p>}
                                     </div>
-                                    <Button type="submit" size="lg" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold shadow-orange-200 shadow-lg">
-                                        <Send className="mr-2 w-4 h-4" />
-                                        {t('contactPage.button')}
+
+                                    {/* Success/Error Status Message Box */}
+                                    {status.message && (
+                                        <div className={`p-3 rounded-md flex items-start gap-2 text-sm animate-in fade-in slide-in-from-top-2 ${
+                                            status.type === 'success'
+                                                ? 'bg-green-100 text-green-700 border border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-900'
+                                                : 'bg-red-100 text-red-700 border border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-900'
+                                        }`}>
+                                            {status.type === 'success' ? <CheckCircle2 className="w-5 h-5 flex-shrink-0"/> : <AlertCircle className="w-5 h-5 flex-shrink-0"/>}
+                                            <span>{status.message}</span>
+                                        </div>
+                                    )}
+
+                                    <Button
+                                        type="submit"
+                                        size="lg"
+                                        className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold shadow-orange-200 shadow-lg"
+                                        disabled={isSending}
+                                    >
+                                        {isSending ? (
+                                            <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                                        ) : (
+                                            <Send className="mr-2 w-4 h-4" />
+                                        )}
+                                        {isSending ? 'Sending...' : t('contactPage.button')}
                                     </Button>
                                 </form>
                             </CardContent>

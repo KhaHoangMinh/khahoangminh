@@ -11,15 +11,15 @@ export default function Header({ currentPageName }) {
     const { t } = useLanguage();
 
     const navItems = [
-        { name: t('nav.home'), page: 'Home' },
-        { name: t('nav.about'), page: 'About' },
-        { name: t('nav.products'), page: 'Products' },
-        { name: t('nav.services'), page: 'Services' },
-        { name: t('nav.projects'), page: 'Projects' },
-        { name: t('nav.videos'), page: 'Videos' },
-        { name: t('nav.careers'), page: 'Careers' },
-        { name: t('nav.news'), page: 'News' },
-        { name: t('nav.contact'), page: 'Contact' },
+        { name: t('nav.home'), page: 'home' },
+        { name: t('nav.about'), page: 'about' },
+        { name: t('nav.products'), page: 'products' },
+        { name: t('nav.services'), page: 'services' },
+        { name: t('nav.projects'), page: 'projects' },
+        { name: t('nav.videos'), page: 'videos' },
+        { name: t('nav.careers'), page: 'careers' },
+        { name: t('nav.news'), page: 'news' },
+        { name: t('nav.contact'), page: 'contact' },
     ];
 
     return (
@@ -28,7 +28,8 @@ export default function Header({ currentPageName }) {
             <div className="bg-slate-900 text-slate-200 py-2 text-xs hidden lg:block">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <p className="flex items-center gap-2">
-                        <span className="bg-orange-600 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">New</span>
+                        <span className="bg-orange-600 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">KHM</span>
+                        <img src="/img/vietnamFlag.png" alt="" className="h-6"/>
                         {t('header.welcomeMessage')}
                     </p>
                     <div className="flex items-center gap-6">
