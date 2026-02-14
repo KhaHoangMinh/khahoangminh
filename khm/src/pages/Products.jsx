@@ -117,10 +117,10 @@ export default function Products() {
                                                     </div>
                                                     <CardContent className="p-6 bg-slate-50 dark:bg-slate-900">
                                                         <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">{product.description}</p>
-                                                        <Button className="w-full bg-orange-600 hover:bg-orange-700 group-hover:shadow-lg transition-all">
+                                                        <Link to={createPageUrl("contact")} className="w-full bg-orange-600 hover:bg-orange-700 group-hover:shadow-lg transition-all">
                                                             {t('productsPage.buttonQuote')}
                                                             <ArrowRight className="ml-2 w-4 h-4" />
-                                                        </Button>
+                                                        </Link>
                                                     </CardContent>
                                                 </Card>
                                             ))}
