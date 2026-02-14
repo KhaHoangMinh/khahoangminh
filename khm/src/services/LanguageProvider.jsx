@@ -152,19 +152,224 @@ export const translations = {
         },
         productsPage: {
             title: 'Sản Phẩm',
-            categories: {
-                coil: 'CUỘN INOX',
-                sheet: 'TẤM INOX',
-                pipe: 'ỐNG INOX',
-                accessories: 'PHỤ KIỆN INOX',
-                fabricated: 'Sản phẩm gia công',
-            }
+            hero: {
+                title: 'Sản phẩm',
+                highlight: 'Inox',
+                subtitle: 'Cung cấp đầy đủ các loại inox tấm, cuộn, ống với mẫu mã đa dạng'
+            },
+            tabDescStart: 'Công ty Inox Kha Hoàng Minh chuyên mua bán và cung cấp các sản phẩm',
+            tabDescEnd: 'chất lượng cao, giá cạnh tranh.',
+            buttonQuote: 'Yêu cầu báo giá',
+            searchPlaceholder: 'Tìm kiếm sản phẩm...',
+            noResultsTitle: 'Không tìm thấy sản phẩm',
+            noResultsDesc: 'Rất tiếc, không có sản phẩm nào phù hợp với từ khóa của bạn.',
+            clearSearch: 'Xóa tìm kiếm',
+            contact: {
+                title: 'Liên hệ để được tư vấn và báo giá',
+                subtitle: 'Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn',
+                buttonText: 'Liên hệ ngay'
+            },
+            categoriesData: [
+                {
+                    id: 'cuon',
+                    name: 'INOX CUỘN',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg',
+                    products: [
+                        { name: 'CUỘN INOX 304 BỀ MẶT 2B', image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', description: 'Khổ từ 35mm đến 1548mm, độ dày từ 0.3mm đến 20mm+' },
+                        { name: 'CUỘN INOX 304 BỀ MẶT NO1', image: 'http://khahoangminh.com.vn/upload/sanpham/cuon-inox-316.jpg', description: 'Bề mặt đa dạng No.1/1D / 2D/2B/ BA / No.3 / No.4 / HL' },
+                        { name: 'CUỘN INOX 430 BỀ MẶT BA', image: 'http://khahoangminh.com.vn/upload/sanpham/cuon-inox-430-ba_738.jpg', description: 'Độ dài từ 1 – 6m+, chất lượng cao' }
+                    ]
+                },
+                {
+                    id: 'tam',
+                    name: 'INOX TẤM',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg',
+                    products: [
+                        { name: 'TẤM INOX 304', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'Tấm inox 304 chất lượng cao, đa dạng kích thước' },
+                        { name: 'TẤM INOX 316', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'Chống ăn mòn tốt, phù hợp môi trường khắc nghiệt' },
+                        { name: 'TẤM INOX 201', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'Giá cả hợp lý, chất lượng ổn định' }
+                    ]
+                },
+                {
+                    id: 'ong',
+                    name: 'ỐNG INOX',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg',
+                    products: [
+                        { name: 'ỐNG INOX CÔNG NGHIỆP', image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', description: 'Ống inox 304, 316 đường kính đa dạng' },
+                        { name: 'ỐNG INOX TRANG TRÍ', image: 'http://khahoangminh.com.vn/upload/sanpham/o%CC%82%CC%81ng%20trang%20tri%CC%81%20inox.jpg', description: 'Bề mặt đẹp, độ bóng cao' },
+                        { name: 'HỘP VUÔNG INOX', image: 'http://khahoangminh.com.vn/upload/sanpham/ho%CC%A3%CC%82p%20vuo%CC%82ng%20inox.jpg', description: 'Hộp vuông inox các kích thước' }
+                    ]
+                },
+                {
+                    id: 'phukien',
+                    name: 'PHỤ KIỆN INOX',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg',
+                    products: [
+                        { name: 'PHỤ KIỆN ĐƯỜNG ỐNG', image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', description: 'Khuỷu, tê, nối, van inox' },
+                        { name: 'LÁP ĐẶC INOX', image: 'http://khahoangminh.com.vn/upload/sanpham/LA%CC%81P%20%C4%90A%CC%A3%CC%86C%20INOX.jpg', description: 'Láp đặc inox các loại' },
+                        { name: 'THANH VÊ, LA INOX', image: 'http://khahoangminh.com.vn/upload/sanpham/thanh%20ve%CC%82%20inox.jpg', description: 'Thanh vê, la inox chất lượng cao' }
+                    ]
+                },
+                {
+                    id: 'giacong',
+                    name: 'SẢN PHẨM GIA CÔNG',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg',
+                    products: [
+                        { name: 'GIA CÔNG CẮT CNC PLASMA', image: 'http://khahoangminh.com.vn/upload/sanpham/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg', description: 'Cắt CNC theo bản vẽ, độ chính xác cao' }
+                    ]
+                }
+            ]
         },
         servicesPage: {
             title: 'Dịch Vụ Gia Công',
+            hero: {
+                title: 'Dịch vụ',
+                highlight: 'Gia công',
+                subtitle: 'Cung cấp dịch vụ gia công inox chuyên nghiệp, chất lượng cao'
+            },
+            servicesList: {
+                title: 'Dịch vụ của chúng tôi',
+                subtitle: 'Đa dạng dịch vụ từ gia công, tư vấn đến vận chuyển và hỗ trợ',
+                items: [
+                    {
+                        title: 'Gia công cắt CNC Plasma',
+                        description: 'Cắt theo bản vẽ kỹ thuật với độ chính xác cao, máy móc hiện đại',
+                        features: ['Cắt CNC Plasma chính xác', 'Theo bản vẽ kỹ thuật', 'Tốc độ nhanh', 'Giá cạnh tranh']
+                    },
+                    {
+                        title: 'Cắt theo yêu cầu',
+                        description: 'Cắt inox tấm, cuộn theo kích thước yêu cầu của khách hàng',
+                        features: ['Cắt đúng kích thước', 'Bề mặt phẳng đẹp', 'Giao hàng nhanh', 'Cam kết chất lượng']
+                    },
+                    {
+                        title: 'Giao hàng toàn quốc',
+                        description: 'Vận chuyển và giao hàng tận nơi trên toàn quốc',
+                        features: ['Giao hàng nhanh chóng', 'Đóng gói cẩn thận', 'Theo dõi đơn hàng', 'Bảo hiểm hàng hóa']
+                    },
+                    {
+                        title: 'Tư vấn kỹ thuật',
+                        description: 'Đội ngũ kỹ sư giàu kinh nghiệm tư vấn giải pháp tối ưu',
+                        features: ['Tư vấn chuyên nghiệp', 'Giải pháp tối ưu', 'Hỗ trợ 24/7', 'Nhiệt tình, tận tâm']
+                    },
+                    {
+                        title: 'Kiểm tra chất lượng',
+                        description: 'Kiểm tra chất lượng nghiêm ngặt trước khi giao hàng',
+                        features: ['Tiêu chuẩn quốc tế', 'Kiểm tra kỹ lưỡng', 'Chứng nhận CO, CQ', 'Cam kết chất lượng']
+                    },
+                    {
+                        title: 'Bảo hành - Hỗ trợ',
+                        description: 'Chế độ bảo hành và hỗ trợ sau bán hàng chu đáo',
+                        features: ['Bảo hành sản phẩm', 'Đổi trả linh hoạt', 'Hỗ trợ kỹ thuật', 'Chăm sóc khách hàng']
+                    }
+                ]
+            },
+            featured: {
+                badge: 'Dịch vụ nổi bật',
+                title: 'Gia công cắt',
+                highlight: 'CNC Plasma',
+                description: 'Với máy CNC Plasma hiện đại, chúng tôi cung cấp dịch vụ cắt inox chính xác theo bản vẽ kỹ thuật. Đáp ứng mọi yêu cầu từ đơn giản đến phức tạp.',
+                features: [
+                    'Cắt theo bản vẽ CAD/DXF',
+                    'Độ chính xác cao, bề mặt cắt đẹp',
+                    'Tốc độ nhanh, hiệu quả cao',
+                    'Giá cả cạnh tranh'
+                ],
+                buttonText: 'Yêu cầu báo giá'
+            },
+            process: {
+                title: 'Quy trình làm việc',
+                subtitle: 'Quy trình chuyên nghiệp, minh bạch từ tư vấn đến giao hàng',
+                steps: [
+                    { step: '01', title: 'Tiếp nhận yêu cầu', desc: 'Lắng nghe và ghi nhận nhu cầu của khách hàng' },
+                    { step: '02', title: 'Tư vấn & Báo giá', desc: 'Tư vấn giải pháp và báo giá chi tiết' },
+                    { step: '03', title: 'Gia công sản xuất', desc: 'Tiến hành gia công theo yêu cầu' },
+                    { step: '04', title: 'Kiểm tra & Giao hàng', desc: 'Kiểm tra chất lượng và giao hàng' }
+                ]
+            },
+            cta: {
+                title: 'Cần dịch vụ gia công inox chuyên nghiệp?',
+                subtitle: 'Liên hệ ngay với chúng tôi để được tư vấn và báo giá chi tiết',
+                buttonText: 'Liên hệ ngay'
+            }
         },
         projectsPage: {
             title: 'Dự Án Tiêu Biểu',
+            hero: {
+                title: 'Dự án',
+                highlight: 'Tiêu biểu',
+                subtitle: 'Những dự án tiêu biểu của Kha Hoàng Minh'
+            },
+            projectsSection: {
+                title: 'Các dự án đã thực hiện',
+                subtitle: 'Với Kha Hoàng Minh phục vụ khách hàng tận tình, chu đáo luôn là những tiêu chí hàng đầu',
+                list: [
+                    {
+                        title: 'Sản phẩm gia công cắt CNC PLASMA',
+                        image: 'http://khahoangminh.com.vn/upload/news/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg',
+                        description: 'Gia công cắt CNC Plasma cho các chi tiết inox theo bản vẽ kỹ thuật'
+                    },
+                    {
+                        title: 'Bồn công nghiệp CH007',
+                        image: 'http://khahoangminh.com.vn/upload/news/dde8a7540501e05fb910.jpg',
+                        description: 'Sản xuất bồn công nghiệp inox 304 với dung tích lớn'
+                    },
+                    {
+                        title: 'Bồn inox 304',
+                        image: 'http://khahoangminh.com.vn/upload/news/e5897e13dc4639186057.jpg',
+                        description: 'Bồn chứa inox 304 chất lượng cao cho công nghiệp thực phẩm'
+                    }
+                ],
+                viewDetails: 'Xem chi tiết'
+            },
+            imagesSection: {
+                title: 'Hình ảnh',
+                highlight: 'Công ty',
+                subtitle: 'Hệ thống cơ sở vật chất và đội ngũ nhân viên chuyên nghiệp',
+                list: [
+                    {
+                        title: 'Kho bãi rộng rãi',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%201.jpg'
+                    },
+                    {
+                        title: 'Trang thiết bị hiện đại',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%203.jpg'
+                    },
+                    {
+                        title: 'Quy trình sản xuất',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%204.jpg'
+                    },
+                    {
+                        title: 'Đội ngũ nhân viên',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%202.jpg'
+                    }
+                ]
+            },
+            capabilitiesSection: {
+                title: 'Năng lực thực hiện',
+                completedProjects: {
+                    title: 'Dự án đã thực hiện',
+                    list: [
+                        'Cung cấp inox cho các dự án xây dựng lớn',
+                        'Gia công chi tiết inox theo bản vẽ',
+                        'Sản xuất bồn chứa công nghiệp',
+                        'Cung cấp ống và phụ kiện cho hệ thống đường ống'
+                    ]
+                },
+                typicalClients: {
+                    title: 'Khách hàng tiêu biểu',
+                    list: [
+                        'Các nhà thầu xây dựng lớn',
+                        'Nhà máy sản xuất thực phẩm',
+                        'Doanh nghiệp sản xuất công nghiệp',
+                        'Đơn vị thi công cơ điện'
+                    ]
+                }
+            },
+            cta: {
+                title: 'Bạn có dự án cần tư vấn?',
+                subtitle: 'Hãy để chúng tôi đồng hành cùng bạn trong dự án của mình',
+                buttonText: 'Liên hệ tư vấn'
+            }
         },
         videosPage: {
             title: 'Thư Viện Video',
@@ -648,19 +853,224 @@ export const translations = {
         },
         productsPage: {
             title: 'Our Products',
-            categories: {
-                coil: 'STAINLESS STEEL COIL',
-                sheet: 'STAINLESS STEEL SHEET',
-                pipe: 'STAINLESS STEEL PIPE',
-                accessories: 'STAINLESS STEEL ACCESSORIES',
-                fabricated: 'Fabricated Products',
-            }
+            hero: {
+                title: 'Stainless Steel',
+                highlight: 'Products',
+                subtitle: 'Providing a full range of stainless steel sheets, coils, and pipes with diverse designs'
+            },
+            tabDescStart: 'Kha Hoang Minh Stainless Steel Company specializes in trading and supplying high-quality, competitively priced',
+            tabDescEnd: 'products.',
+            buttonQuote: 'Request Quote',
+            searchPlaceholder: 'Search products...',
+            noResultsTitle: 'No products found',
+            noResultsDesc: 'Sorry, no products match your search keywords.',
+            clearSearch: 'Clear search',
+            contact: {
+                title: 'Contact for Consultation and Quote',
+                subtitle: 'Our team of experts is ready to support you',
+                buttonText: 'Contact Now'
+            },
+            categoriesData: [
+                {
+                    id: 'cuon',
+                    name: 'STAINLESS STEEL COILS',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg',
+                    products: [
+                        { name: '304 STAINLESS STEEL COIL 2B SURFACE', image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', description: 'Width from 35mm to 1548mm, thickness from 0.3mm to 20mm+' },
+                        { name: '304 STAINLESS STEEL COIL NO1 SURFACE', image: 'http://khahoangminh.com.vn/upload/sanpham/cuon-inox-316.jpg', description: 'Diverse surfaces No.1/1D / 2D/2B/ BA / No.3 / No.4 / HL' },
+                        { name: '430 STAINLESS STEEL COIL BA SURFACE', image: 'http://khahoangminh.com.vn/upload/sanpham/cuon-inox-430-ba_738.jpg', description: 'Length from 1 – 6m+, high quality' }
+                    ]
+                },
+                {
+                    id: 'tam',
+                    name: 'STAINLESS STEEL SHEETS',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg',
+                    products: [
+                        { name: '304 STAINLESS STEEL SHEET', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'High quality 304 stainless steel sheet, various sizes' },
+                        { name: '316 STAINLESS STEEL SHEET', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'Good corrosion resistance, suitable for harsh environments' },
+                        { name: '201 STAINLESS STEEL SHEET', image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', description: 'Reasonable price, stable quality' }
+                    ]
+                },
+                {
+                    id: 'ong',
+                    name: 'STAINLESS STEEL PIPES',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg',
+                    products: [
+                        { name: 'INDUSTRIAL STAINLESS STEEL PIPE', image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', description: '304, 316 stainless steel pipes with various diameters' },
+                        { name: 'DECORATIVE STAINLESS STEEL PIPE', image: 'http://khahoangminh.com.vn/upload/sanpham/o%CC%82%CC%81ng%20trang%20tri%CC%81%20inox.jpg', description: 'Beautiful surface, high gloss' },
+                        { name: 'STAINLESS STEEL SQUARE TUBE', image: 'http://khahoangminh.com.vn/upload/sanpham/ho%CC%A3%CC%82p%20vuo%CC%82ng%20inox.jpg', description: 'Stainless steel square tubes in all sizes' }
+                    ]
+                },
+                {
+                    id: 'phukien',
+                    name: 'STAINLESS STEEL ACCESSORIES',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg',
+                    products: [
+                        { name: 'PIPE FITTINGS', image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', description: 'Stainless steel elbows, tees, couplings, valves' },
+                        { name: 'STAINLESS STEEL SOLID ROUND BAR', image: 'http://khahoangminh.com.vn/upload/sanpham/LA%CC%81P%20%C4%90A%CC%A3%CC%86C%20INOX.jpg', description: 'Various types of stainless steel solid round bars' },
+                        { name: 'STAINLESS STEEL ANGLE & FLAT BAR', image: 'http://khahoangminh.com.vn/upload/sanpham/thanh%20ve%CC%82%20inox.jpg', description: 'High-quality stainless steel angle and flat bars' }
+                    ]
+                },
+                {
+                    id: 'giacong',
+                    name: 'FABRICATED PRODUCTS',
+                    image: 'http://khahoangminh.com.vn/upload/sanpham/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg',
+                    products: [
+                        { name: 'CNC PLASMA CUTTING', image: 'http://khahoangminh.com.vn/upload/sanpham/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg', description: 'CNC cutting according to drawings, high precision' }
+                    ]
+                }
+            ]
         },
         servicesPage: {
             title: 'Processing Services',
+            hero: {
+                title: 'Processing',
+                highlight: 'Services',
+                subtitle: 'Providing professional, high-quality stainless steel processing services'
+            },
+            servicesList: {
+                title: 'Our Services',
+                subtitle: 'Diverse services from processing, consulting to transportation and support',
+                items: [
+                    {
+                        title: 'CNC Plasma Cutting',
+                        description: 'Cutting according to technical drawings with high precision and modern machinery',
+                        features: ['Precise CNC Plasma cutting', 'According to technical drawings', 'Fast speed', 'Competitive price']
+                    },
+                    {
+                        title: 'Custom Cutting',
+                        description: 'Cutting stainless steel sheets and coils according to customer required size',
+                        features: ['Accurate sizing', 'Beautiful flat surface', 'Fast delivery', 'Quality commitment']
+                    },
+                    {
+                        title: 'Nationwide Delivery',
+                        description: 'Nationwide transportation and door-to-door delivery',
+                        features: ['Fast delivery', 'Careful packaging', 'Order tracking', 'Goods insurance']
+                    },
+                    {
+                        title: 'Technical Consulting',
+                        description: 'Experienced engineering team consulting optimal solutions',
+                        features: ['Professional consulting', 'Optimal solutions', '24/7 Support', 'Enthusiastic, dedicated']
+                    },
+                    {
+                        title: 'Quality Control',
+                        description: 'Strict quality inspection before delivery',
+                        features: ['International standards', 'Thorough inspection', 'CO, CQ certification', 'Quality commitment']
+                    },
+                    {
+                        title: 'Warranty - Support',
+                        description: 'Thoughtful warranty and after-sales support',
+                        features: ['Product warranty', 'Flexible return', 'Technical support', 'Customer care']
+                    }
+                ]
+            },
+            featured: {
+                badge: 'Featured Service',
+                title: 'Cutting Processing',
+                highlight: 'CNC Plasma',
+                description: 'With modern CNC Plasma machines, we provide accurate stainless steel cutting services according to technical drawings. Meeting all requirements from simple to complex.',
+                features: [
+                    'Cutting according to CAD/DXF drawings',
+                    'High accuracy, beautiful cutting surface',
+                    'Fast speed, high efficiency',
+                    'Competitive price'
+                ],
+                buttonText: 'Request a Quote'
+            },
+            process: {
+                title: 'Working Process',
+                subtitle: 'Professional, transparent process from consultation to delivery',
+                steps: [
+                    { step: '01', title: 'Receive Request', desc: 'Listen and record customer needs' },
+                    { step: '02', title: 'Consulting & Quoting', desc: 'Consult solutions and provide detailed quotes' },
+                    { step: '03', title: 'Manufacturing', desc: 'Process according to requirements' },
+                    { step: '04', title: 'Inspect & Deliver', desc: 'Quality inspection and delivery' }
+                ]
+            },
+            cta: {
+                title: 'Need professional stainless steel processing services?',
+                subtitle: 'Contact us now for detailed advice and quotes',
+                buttonText: 'Contact Now'
+            }
         },
         projectsPage: {
             title: 'Featured Projects',
+            hero: {
+                title: 'Featured',
+                highlight: 'Projects',
+                subtitle: 'Typical projects of Kha Hoang Minh'
+            },
+            projectsSection: {
+                title: 'Completed Projects',
+                subtitle: 'With Kha Hoang Minh, serving customers dedicatedly and thoughtfully is always the top criterion',
+                list: [
+                    {
+                        title: 'CNC PLASMA Cutting Products',
+                        image: 'http://khahoangminh.com.vn/upload/news/Sa%CC%89n%20pha%CC%82%CC%89m%20gia%20co%CC%82ng%20ca%CC%86%CC%81t%20CNC%20PLASMA%205.jpg',
+                        description: 'CNC Plasma cutting for stainless steel parts according to technical drawings'
+                    },
+                    {
+                        title: 'Industrial Tank CH007',
+                        image: 'http://khahoangminh.com.vn/upload/news/dde8a7540501e05fb910.jpg',
+                        description: 'Manufacturing 304 stainless steel industrial tanks with large capacity'
+                    },
+                    {
+                        title: '304 Stainless Steel Tank',
+                        image: 'http://khahoangminh.com.vn/upload/news/e5897e13dc4639186057.jpg',
+                        description: 'High-quality 304 stainless steel storage tank for the food industry'
+                    }
+                ],
+                viewDetails: 'View Details'
+            },
+            imagesSection: {
+                title: 'Company',
+                highlight: 'Images',
+                subtitle: 'Facilities system and professional staff',
+                list: [
+                    {
+                        title: 'Spacious Warehouse',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%201.jpg'
+                    },
+                    {
+                        title: 'Modern Equipment',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%203.jpg'
+                    },
+                    {
+                        title: 'Production Process',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%204.jpg'
+                    },
+                    {
+                        title: 'Our Staff',
+                        image: 'http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%202.jpg'
+                    }
+                ]
+            },
+            capabilitiesSection: {
+                title: 'Execution Capability',
+                completedProjects: {
+                    title: 'Implemented Projects',
+                    list: [
+                        'Supplying stainless steel for major construction projects',
+                        'Machining stainless steel parts according to drawings',
+                        'Manufacturing industrial storage tanks',
+                        'Supplying pipes and fittings for piping systems'
+                    ]
+                },
+                typicalClients: {
+                    title: 'Typical Clients',
+                    list: [
+                        'Major construction contractors',
+                        'Food manufacturing plants',
+                        'Industrial manufacturing enterprises',
+                        'M&E contractors'
+                    ]
+                }
+            },
+            cta: {
+                title: 'Do you have a project that needs consulting?',
+                subtitle: 'Let us accompany you in your project',
+                buttonText: 'Contact for Consultation'
+            }
         },
         videosPage: {
             title: 'Video Library',

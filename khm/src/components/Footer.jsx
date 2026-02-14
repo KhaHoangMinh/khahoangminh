@@ -79,18 +79,28 @@ export default function Footer() {
                     <div className="space-y-6">
                         <div className="lg:col-span-1 gap-3">
                             <div className="flex items-center gap-3 mb-6">
-                                <img src="/img/logo.png" className="w-12 h-12"  alt='logo'/>
-                                <span className="font-bold text-xl tracking-tight text-white">{t('common.companyShortName')}</span>
+                                <img src="/img/logo.png" className="w-12 h-12" alt='logo'/>
+                                <span
+                                    className="font-bold text-xl tracking-tight text-white">{t('common.companyShortName')}</span>
                             </div>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
                             {t('footer.description')}
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://www.facebook.com/profile.php?id=100054573575093" target="_blank" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
-                                <Facebook className="w-5 h-5" />
+                            <a href="https://www.facebook.com/profile.php?id=100054573575093" target="_blank"
+                               className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
+                                <Facebook className="w-5 h-5"/>
                             </a>
                         </div>
+
+                        {/*// Spotify (will remove later on)*/}
+                        {/*<iframe data-testid="embed-iframe" className="border-r-12"*/}
+                        {/*        src="https://open.spotify.com/embed/playlist/4JZEKl1YGM0IKxZpd80Ene?utm_source=generator&theme=5"*/}
+                        {/*        width="100%" height="152" frameBorder="0" allowFullScreen=""*/}
+                        {/*        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"*/}
+                        {/*        loading="lazy">*/}
+                        {/*</iframe>*/}
                     </div>
 
                     {/* Quick Links */}

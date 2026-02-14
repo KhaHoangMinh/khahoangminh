@@ -8,15 +8,26 @@ import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function Home() {
     const { t } = useLanguage();
+    const categories = t('productsPage.categoriesData');
 
-    const products = [
-        { name: t('productsPage.categories.coil'), image: 'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg', page: 'products' },
-        { name: t('productsPage.categories.sheet'), image: 'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg', page: 'products' },
-        { name: t('productsPage.categories.pipe'), image: 'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg', page: 'products' },
-        { name: t('productsPage.categories.accessories'), image: 'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg', page: 'products' },
+    // Dynamically map the categories to get their IDs for the links
+    const defaultImages = [
+        'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg'
     ];
 
-    const features = t('homePage.features.list');
+    const products = Array.isArray(categories)
+        ? categories.slice(0, 4).map((cat, index) => ({
+            id: cat.id,
+            name: cat.name,
+            image: defaultImages[index] || defaultImages[0],
+            page: 'products'
+        }))
+        : [];
+
+    const features = t('homePage.features.list') || [];
 
     return (
         <div className="min-h-screen">
@@ -129,7 +140,7 @@ export default function Home() {
                                 </div>
                                 <CardContent className="p-6">
                                     <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-3">{product.name}</h3>
-                                    <Link to={createPageUrl(product.page)}>
+                                    <Link to={`${createPageUrl(product.page)}?tab=${product.id}`}>
                                         <Button variant="outline" className="w-full group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors">
                                             {t('common.viewAll')}
                                             <ArrowRight className="ml-2 w-4 h-4" />

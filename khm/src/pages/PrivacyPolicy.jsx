@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import {
-    Shield, Lock, Eye, FileText, Cookie,
+    ShieldCheck, Lock, Eye, FileText, Cookie,
     Mail, Server, Globe, ChevronRight, CheckCircle2
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         { id: 'cookies', label: t('privacyPolicyPage.toc.cookies'), icon: Cookie },
         { id: 'sharing', label: t('privacyPolicyPage.toc.sharing'), icon: Globe },
         { id: 'security', label: t('privacyPolicyPage.toc.security'), icon: Lock },
-        { id: 'rights', label: t('privacyPolicyPage.toc.rights'), icon: Shield },
+        { id: 'rights', label: t('privacyPolicyPage.toc.rights'), icon: ShieldCheck },
         { id: 'contact', label: t('privacyPolicyPage.toc.contact'), icon: Mail },
     ];
 
