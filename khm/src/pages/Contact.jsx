@@ -322,10 +322,21 @@ export default function Contact() {
                         <Card className="h-full border-0 shadow-lg overflow-hidden flex flex-col">
                             <CardContent className="p-0 flex-grow relative">
                                 <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800">
-                                    <div
-                                        ref={mapContainerRef}
-                                        className="w-full h-full z-0"
-                                    ></div>
+                                    {/* Leaf-js */}
+                                    {/*<div*/}
+                                    {/*    ref={mapContainerRef}*/}
+                                    {/*    className="w-full h-full z-0"*/}
+                                    {/*></div>*/}
+
+                                    {/* Google Map iframe*/}
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=10.813049,106.597400&hl=en&z=15&output=embed"
+                                        className="w-full h-full border-0 z-0"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="Kha Hoang Minh Location"
+                                    ></iframe>
                                 </div>
                             </CardContent>
                         </Card>

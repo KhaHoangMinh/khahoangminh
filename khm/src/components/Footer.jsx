@@ -147,10 +147,21 @@ export default function Footer() {
                             <p>{t('footer.addressText')}</p>
                         </div>
                         <div
-                            ref={mapContainerRef}
                             className="w-full mt-3 h-48 rounded-lg overflow-hidden border border-slate-700 z-0 relative"
                             style={{ minHeight: '200px' }}
-                        ></div>
+                            // leaf-js
+                            // ref={mapContainerRef}
+                        >
+                            {/* Google Map iframe*/}
+                            <iframe
+                                src="https://maps.google.com/maps?q=10.813049,106.597400&hl=en&z=15&output=embed"
+                                className="w-full h-full border-0"
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Kha Hoang Minh Location"
+                            ></iframe>
+                        </div>
                     </div>
                 </div>
 
