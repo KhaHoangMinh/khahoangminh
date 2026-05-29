@@ -25,6 +25,5 @@ export default defineConfig({
     server: {
         port: 3000,
         host: '0.0.0.0', // This exposes the app to your local network
-        // open: true       // Opens browser automatically
     },
 })

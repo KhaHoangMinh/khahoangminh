@@ -13,7 +13,8 @@ const Contact = lazy(() => import('@/pages/Contact'));
 
 const PersonalDataProtection = lazy(() => import('@/pages/PersonalDataProtection'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('@/pages/TermsOfService'))
+const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
+
 export const PAGES = {
     "home": Home,
     "about": About,
