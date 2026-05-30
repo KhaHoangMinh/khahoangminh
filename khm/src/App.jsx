@@ -1,9 +1,8 @@
 import { pagesConfig } from '@/config'
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {lazy, Suspense} from "react";
-import ScrollToTop from "@/hooks/useScrollToTop";
-import { ThemeProvider } from '@/services/ThemeProvider';
-import { LanguageProvider } from '@/services/LanguageProvider';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from "react";
+import ScrollToTop from "@/hooks";
+import { ThemeProvider, LanguageProvider } from '@/services';
 
 const PageNotFound = lazy(() => import('@/pages/PageNotFound'));
 

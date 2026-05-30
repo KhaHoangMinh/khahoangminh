@@ -13,5 +13,4 @@ export const mainNavigation = [
 export const legalNavigation = [
     { translationKey: 'footer.protection', pageKey: 'protection' },
     { translationKey: 'footer.privacy', pageKey: 'privacy' },
-    { translationKey: 'footer.terms', pageKey: 'terms' },
 ];

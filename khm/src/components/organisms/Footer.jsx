@@ -2,22 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Facebook, MapPin, ReceiptText } from 'lucide-react';
 import { createPageUrl } from '@/utils';
-import { useLanguage } from '@/services/LanguageProvider';
+import { useLanguage } from '@/services';
+import { mainNavigation, legalNavigation } from '@/config';
 
 export function Footer() {
     const { t } = useLanguage();
     const mapContainerRef = useRef(null);
     const mapInstanceRef = useRef(null);
-
-    const navItems = [
-        { name: t('nav.home'), page: 'home' },
-        { name: t('nav.about'), page: 'about' },
-        { name: t('nav.products'), page: 'products' },
-        { name: t('nav.services'), page: 'services' },
-        { name: t('nav.projects'), page: 'projects' },
-        { name: t('nav.news'), page: 'news' },
-        { name: t('nav.contact'), page: 'contact' },
-    ];
 
     useEffect(() => {
         // Ensure Leaflet is loaded and the container exists
@@ -107,11 +98,11 @@ export function Footer() {
                     <nav>
                         <h3 className="text-lg font-bold mb-6 text-white">{t('footer.quickLinks')}</h3>
                         <ul className="space-y-3">
-                            {navItems.slice(0, 5).map((item) => (
-                                <li key={item.page}>
-                                    <Link to={createPageUrl(item.page)} className="text-slate-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2">
+                            {mainNavigation.slice(0, 5).map((item) => (
+                                <li key={item.pageKey}>
+                                    <Link to={createPageUrl(item.pageKey)} className="text-slate-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2">
                                         <span className="w-1 h-1 rounded-full bg-orange-500" />
-                                        {item.name}
+                                        {t(item.translationKey)}
                                     </Link>
                                 </li>
                             ))}
@@ -168,14 +159,15 @@ export function Footer() {
                         <p>&copy; 2016 - {new Date().getFullYear()} {t('footer.companyName')}. All rights reserved</p>
                         <div className='flex gap-4'>
                             <img src='/img/bo-cong-thuong.png' alt='' className="h-10" />
-                            <p className="flex items-center gap-2">
-                                <Link to={createPageUrl("protection")} className="text-orange-300 hover:text-orange-500">
-                                    {t('footer.protection')}
-                                </Link>
-                                <span className="text-slate-600">|</span>
-                                <Link to={createPageUrl("privacy")} className="hover:text-blue-400">
-                                    {t('footer.privacy')}
-                                </Link>
+                            <p className="flex items-center gap-3">
+                                {legalNavigation.map((item, index) => (
+                                    <React.Fragment key={item.pageKey}>
+                                        <Link to={createPageUrl(item.pageKey)} className="hover:text-orange-400 transition-colors">
+                                            {t(item.translationKey)}
+                                        </Link>
+                                        {index < legalNavigation.length - 1 && <span className="text-slate-600">|</span>}
+                                    </React.Fragment>
+                                ))}
                             </p>
                         </div>
                     </div>
