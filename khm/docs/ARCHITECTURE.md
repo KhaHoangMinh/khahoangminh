@@ -1,139 +1,339 @@
 # Architecture Overview
 
-## Project Structure
+## Architecture Pattern: Jamstack + Atomic Design
 
-This is a modern React-based web application built with Vite, featuring a component-driven architecture with Radix UI components and Tailwind CSS styling.
+This project follows a modern **Jamstack** (JavaScript, APIs, Markup) architecture combined with **Atomic Design** principles for component organization. This hybrid approach ensures scalability, maintainability, and optimal performance.
 
-### Technology Stack
+## Design Philosophy
 
-- **Frontend Framework**: React 19.2.4
-- **Build Tool**: Vite 8.0.0-beta.13
-- **Routing**: React Router DOM 7.13.0
-- **Component Library**: Radix UI (comprehensive set of unstyled, accessible components)
-- **Styling**: Tailwind CSS 3.4.19 with Typography plugin
-- **UI Utilities**: 
-  - Lucide React (icons)
-  - Class Variance Authority (component styling patterns)
-  - CLSX (conditional classnames)
-  - Tailwind Merge (class merging utilities)
-- **Data Visualization**: Recharts 3.7.0
-- **Carousel**: Embla Carousel React 8.6.0
-- **Theme Management**: Next Themes 0.4.6
-- **Panels/Layout**: React Resizable Panels 4.6.2
-- **Command Palette**: CMDK 1.1.1
-- **Notifications**: Vaul (toast notifications)
-- **Email Service**: EmailJS 4.4.1
-- **Date Picker**: React Day Picker 9.13.1
+### Jamstack Stack
+- **JavaScript**: React 19.2.4 for dynamic interactions
+- **APIs**: External services via EmailJS, Recharts for data visualization
+- **Markup**: Static page generation with route-based code splitting
+- **Pre-rendering**: Build-time optimization with Vite
 
-### Project Layout
-# Architecture Overview
+### Atomic Design Methodology
+Components are organized into five atomic levels, creating a scalable and intuitive component hierarchy:
+
+1. **Atoms** - Basic, indivisible UI elements (buttons, inputs, labels)
+2. **Molecules** - Simple component combinations (form groups, search bars)
+3. **Organisms** - Complex component groups (headers, footers, forms)
+4. **Templates** - Page-level layouts without specific content
+5. **Pages** - Complete, content-filled views
 
 ## Project Structure
 
-This is a modern React-based web application built with Vite, featuring a component-driven architecture with Radix UI components and Tailwind CSS styling.
+This is a modern React-based web application built with Vite, featuring a modular component-driven architecture with Radix UI components and Tailwind CSS styling.
 
-### Technology Stack
+## Technology Stack
 
-- **Frontend Framework**: React 19.2.4
-- **Build Tool**: Vite 8.0.0-beta.13
-- **Routing**: React Router DOM 7.13.0
-- **Component Library**: Radix UI (comprehensive set of unstyled, accessible components)
-- **Styling**: Tailwind CSS 3.4.19 with Typography plugin
-- **UI Utilities**: 
-  - Lucide React (icons)
-  - Class Variance Authority (component styling patterns)
-  - CLSX (conditional classnames)
-  - Tailwind Merge (class merging utilities)
-- **Data Visualization**: Recharts 3.7.0
-- **Carousel**: Embla Carousel React 8.6.0
-- **Theme Management**: Next Themes 0.4.6
-- **Panels/Layout**: React Resizable Panels 4.6.2
-- **Command Palette**: CMDK 1.1.1
-- **Notifications**: Vaul (toast notifications)
-- **Email Service**: EmailJS 4.4.1
-- **Date Picker**: React Day Picker 9.13.1
+### Core Framework
+- **React 19.2.4** - UI library with hooks and concurrent features
+- **Vite 8.0.0-beta.13** - Fast build tool with HMR
+- **React Router DOM 7.13.0** - Client-side routing
 
-### Project Layout
+### UI & Styling
+- **Radix UI** - Unstyled, accessible component primitives
+- **Tailwind CSS 3.4.19** - Utility-first CSS framework
+- **Class Variance Authority (CVA)** - Component variant management
+- **CLSX & Tailwind Merge** - Dynamic class utilities
+
+### Component Libraries
+- **Lucide React** - Icon library (scalable SVGs)
+- **Embla Carousel** - Carousel/slider component
+- **React Resizable Panels** - Flexible panel layouts
+- **CMDK** - Command palette
+- **React Day Picker** - Date picker component
+
+### Features & Integrations
+- **Next Themes** - Dark mode & theme management
+- **EmailJS 4.4.1** - Email service integration
+- **Recharts 3.7.0** - Data visualization charts
+- **Vaul** - Toast notifications
+
+### Project Layout (Atomic Design Structure)
 
 ```text
 khahoangminh/ 
 ├── khm/ # Main application directory 
 │ ├── src/ 
-│ │ ├── pages/ # Page components (lazy-loaded) 
-│ │ ├── components/ # Reusable UI components 
+│ │ ├── components/ # Atomic Design components 
+│ │ │ ├── atoms/ # Basic, indivisible components 
+│ │ │ │ ├── Button.jsx 
+│ │ │ │ ├── Input.jsx 
+│ │ │ │ ├── Label.jsx 
+│ │ │ │ ├── Icon.jsx 
+│ │ │ │ ├── Badge.jsx 
+│ │ │ │ ├── Avatar.jsx 
+│ │ │ │ └── index.js 
+│ │ │ ├── molecules/ # Simple component groups 
+│ │ │ │ ├── ButtonGroup.jsx 
+│ │ │ │ ├── FormField.jsx # Label + Input 
+│ │ │ │ ├── Card.jsx 
+│ │ │ │ ├── Hero.jsx 
+│ │ │ │ ├── Footer.jsx 
+│ │ │ │ ├── Navigation.jsx 
+│ │ │ │ ├── Sidebar.jsx 
+│ │ │ │ └── index.js 
+│ │ │ ├── organisms/ # Complex component groups 
+│ │ │ │ ├── Header.jsx # Full header with nav and logo 
+│ │ │ │ ├── ContactForm.jsx # Complex form with multiple fields 
+│ │ │ │ ├── ProductList.jsx 
+│ │ │ │ ├── ProjectCarousel.jsx 
+│ │ │ │ ├── TeamSection.jsx 
+│ │ │ │ └── index.js 
+│ │ │ ├── templates/
+│ │ │ │ └── index.js 
+│ │ │ └── index.js # Central export file 
+│ │ ├── pages/ # Page components (JAMstack pages) 
+│ │ │ ├── Home.jsx # Composed of organisms + molecules 
+│ │ │ ├── About.jsx 
+│ │ │ ├── Products.jsx 
+│ │ │ ├── Services.jsx 
+│ │ │ ├── Projects.jsx 
+│ │ │ ├── Videos.jsx 
+│ │ │ ├── Careers.jsx 
+│ │ │ ├── News.jsx 
+│ │ │ ├── Contact.jsx 
+│ │ │ ├── PersonalDataProtection.jsx 
+│ │ │ ├── PrivacyPolicy.jsx 
+│ │ │ ├── TermsOfService.jsx 
+│ │ │ ├── PageNotFound.jsx # 404 error page 
+│ │ │ └── index.js # Page exports 
 │ │ ├── hooks/ # Custom React hooks 
-│ │ ├── lib/ # Library utilities and helpers 
-│ │ ├── services/ # Service providers (Theme, Language) 
+│ │ │ ├── useTheme.js 
+│ │ │ ├── useLanguage.js 
+│ │ │ ├── useScrollToTop.js 
+│ │ │ ├── useResponsive.js 
+│ │ │ └── index.js 
+│ │ ├── services/ # Service providers & API utilities 
+│ │ │ ├── ThemeProvider.jsx 
+│ │ │ ├── LanguageProvider.jsx 
+│ │ │ ├── api/ # API service functions 
+│ │ │ │ ├── contact.js # Contact form submission 
+│ │ │ │ ├── products.js # Product data fetching 
+│ │ │ │ └── index.js 
+│ │ │ └── index.js 
 │ │ ├── utils/ # Utility functions 
-│ │ ├── App.jsx # Main application component with routing 
-│ │ ├── Layout.jsx # Layout wrapper component 
-│ │ ├── pages.config.js # Pages configuration 
+│ │ │ ├── cn.js # Classname utilities 
+│ │ │ ├── constants.js # Application constants 
+│ │ │ ├── formatters.js # Data formatting utilities 
+│ │ │ ├── validators.js # Form validation utilities 
+│ │ │ └── index.js 
+│ │ ├── styles/ # Global & theme styles 
+│ │ │ ├── index.css # Global styles 
+│ │ │ ├── theme.css # Theme variables 
+│ │ │ └── animations.css # Animation definitions 
+│ │ ├── context/ # React Context 
+│ │ │ ├── ThemeContext.js 
+│ │ │ └── LanguageContext.js 
+│ │ ├── config/ # Configuration files 
+│ │ │ ├── pages.config.js # Pages configuration 
+│ │ │ ├── navigation.config.js # Navigation structure 
+│ │ │ └── seo.config.js # SEO metadata 
+│ │ ├── App.jsx # Main application component 
+│ │ ├── Layout.jsx # Global layout wrapper 
 │ │ ├── main.jsx # Application entry point 
-│ │ └── index.css # Global styles 
-│ └── package.json # Project dependencies 
+│ │ └── index.css # Legacy - consolidate to styles/ 
+│ ├── public/ # Static assets (JAMstack) 
+│ │ ├── images/ 
+│ │ ├── icons/ 
+│ │ └── fonts/ │ 
+├── package.json # Project dependencies 
+│ └── vite.config.js # Vite configuration 
 ├── docs/ # Documentation 
+│ ├── ARCHITECTURE.md 
+│ ├── PAGES.md # Pages documentation 
+│ ├── COMPONENTS.md # Component documentation 
+│ ├── MIGRATION_GUIDE.md # Migration guide 
+│ └── DEVELOPMENT.md # Development guidelines 
 └── README.md # Project readme
 ```
 
+
+## Atomic Design Levels
+
+### 1. **Atoms**
+Smallest, most basic building blocks. Cannot be broken down further without losing meaning.
+
+**Examples:**
+- Button
+- Input field
+- Label
+- Icon
+- Badge
+- Avatar
+
+**Characteristics:**
+- No dependencies on other components
+- Pure, functional components
+- Accept props for customization
+- Fully styled and self-contained
+
+### 2. **Molecules**
+Groups of 2-3 atoms bonded together. Simple functional units.
+
+**Examples:**
+- FormField (Label + Input + validation message)
+- Card (Avatar + Name + Description)
+- Navigation (Logo + Menu items)
+- Hero section (Image + Title + Subtitle + CTA button)
+
+**Characteristics:**
+- Composed of atoms
+- Single responsibility principle
+- Reusable across pages
+- Handle basic logic/interaction
+
+### 3. **Organisms**
+Complex UI sections composed of multiple molecules and/or atoms. Complex functional units.
+
+**Examples:**
+- Header (Logo + Navigation + Theme toggle)
+- ContactForm (Multiple form fields + submit button)
+- ProductList (Multiple product cards + filters + pagination)
+- ProjectCarousel (Multiple project cards + carousel controls)
+
+**Characteristics:**
+- Composed of molecules and atoms
+- Handle complex interactions
+- Manage form state, API calls
+- Reusable across pages
+- Can contain business logic
+
+### 4. **Templates**
+Page-level layouts that structure organisms and molecules. Define layout structure without content.
+
+**Implementation:** Implemented as Layout wrappers and page templates.
+
+### 5. **Pages**
+Full page implementations. Instances of templates filled with real content.
+
+**Examples:**
+- Home page
+- About page
+- Contact page
+
+**Characteristics:**
+- Composed of organisms and molecules
+- Route-specific
+- Lazy-loaded for performance
+- Connected to services/APIs
+
+## JAMstack Architecture
+
+### JavaScript
+- React handles dynamic interactions
+- Vite builds optimized JavaScript bundles
+- Service providers manage state (Theme, Language)
+- Custom hooks encapsulate reusable logic
+
+### APIs
+- **Static content**: Pre-generated pages (markup)
+- **Dynamic content**: Fetched via service functions
+- **External APIs**: EmailJS for contact forms, third-party integrations
+- **Service layer**: `services/api/` contains all API calls
+
+### Markup
+- Pre-rendered page structure with Vite
+- Static HTML generated at build time
+- Server-side or static site generation compatible
+- SEO-friendly structure
+
 ## Architecture Patterns
 
-### 1. **Route-Based Code Splitting**
-Routes are configured through `pages.config.js` and automatically mapped in `App.jsx`. Each page is lazy-loaded using React's `lazy()` and `Suspense` for optimal performance.
+### 1. **Component Composition**
+Components follow the Atomic Design pattern:
+- Each level builds upon the previous
+- Clear separation of concerns
+- Reusable and testable
+- Single responsibility principle
 
-### 2. **Layout System**
-A flexible layout wrapper supports the main page and other routes with conditional layout application. The `Layout` component wraps page content and receives the current page name for context-aware rendering.
+**Example Flow:**
+```text
+Button (atom) → FormField (molecule: Label + Input + Button) → ContactForm (organism: Multiple FormFields + API integration) → Contact Page (page: ContactForm + Hero + Footer)
+```
+
+### 2. **Route-Based Code Splitting**
+- Routes configured in `config/pages.config.js`
+- Automatically mapped in `App.jsx`
+- Each page lazy-loaded using React's `lazy()` + `Suspense`
+- Optimal performance with route-level code splitting
 
 ### 3. **Service Layer**
-- **ThemeProvider**: Manages application theme (light/dark mode)
-- **LanguageProvider**: Handles internationalization
+**Context Providers:**
+- ThemeProvider: Light/dark mode management
+- LanguageProvider: Internationalization support
 
-### 4. **Component Architecture**
-- **Radix UI Integration**: Unstyled, accessible primitives with Tailwind CSS styling
-- **CVA (Class Variance Authority)**: Used for managing component variants and states
-- **Reusable Components**: Located in `components/` directory
+**API Services:**
+- Located in `services/api/`
+- Handle external API calls (EmailJS, content APIs)
+- Centralized data fetching and error handling
+
+### 4. **Layout System**
+- Global `Layout.jsx` wraps all pages
+- Consistent header, footer, and navigation
+- Responsive design with Tailwind CSS
+- Theme-aware styling
 
 ### 5. **Styling Strategy**
-- **Tailwind CSS**: Primary styling with custom configuration
-- **Global Styles**: Defined in `index.css`
-- **Component-Level**: Tailwind classes with CVA for complex variant management
+- **Tailwind CSS**: Utility-first approach
+- **CVA (Class Variance Authority)**: Component variant management
+- **Theme variables**: CSS custom properties for theming
+- **Global styles**: Base styles in `styles/index.css`
 
 ### 6. **Hook-Based State Management**
-Custom hooks in `hooks/` directory handle scroll behavior, theme switching, language management, etc.
+Custom hooks encapsulate reusable logic:
+- `useTheme()`: Theme switching
+- `useLanguage()`: Language management
+- `useScrollToTop()`: Auto-scroll behavior
+- `useResponsive()`: Responsive design helpers
 
 ### 7. **Performance Optimization**
-- **Code Splitting**: Lazy loading of pages and components
-- **Suspense Fallback**: Custom loading spinner shown during route transitions
-- **Tree Shaking**: ES module support for unused code removal
+- **Code Splitting**: Route and component-level splitting
+- **Lazy Loading**: Images and components loaded on demand
+- **Suspense**: Graceful loading states
+- **Tree Shaking**: ES modules eliminate unused code
+- **Build Optimization**: Vite minification and bundling
 
-## Key Features
+## Naming Convention
+- **Components**: PascalCase (Button.jsx, ContactForm.jsx)
+- **Hooks**: camelCase with 'use' prefix (useTheme.js)
+- **Utils**: camelCase (formatters.js, validators.js)
+- **Constants**: UPPER_SNAKE_CASE (API_ENDPOINT, DEFAULT_THEME)
 
-- **Multi-language Support**: LanguageProvider enables i18n capabilities
-- **Dark Mode**: Theme switching with next-themes
-- **Responsive Design**: Tailwind CSS ensures mobile-first approach
-- **Accessible Components**: Radix UI ensures WCAG compliance
-- **Email Integration**: EmailJS for contact form functionality
-- **Data Visualization**: Recharts for charts and graphs
-- **Resizable Layouts**: React Resizable Panels for flexible UI layouts
+## Data Flow
 
-## Configuration
-
-### Pages Configuration (`pages.config.js`)
-Central configuration file that:
-- Defines all available pages
-- Specifies the main page (default: "home")
-- Configures the layout wrapper
-- Uses lazy loading for each page
-
-### Vite Configuration
-Provides fast development experience with:
-- Hot Module Replacement (HMR)
-- Optimized build output
-- React refresh support
+```text
+User Interaction
+      ↓
+Page Component
+      ↓
+Organisms (Form, List, etc.)
+      ↓
+Molecules (Card, FormField)
+      ↓
+Atoms (Button, Input)
+      ↓
+Services/Hooks (API calls, state management)
+      ↓
+External APIs (EmailJS, Backend)
+```
 
 ## Entry Point Flow
+1. `main.jsx` → Initializes React application
+2. `App.jsx` → Sets up routing with BrowserRouter
+3. `ThemeProvider & LanguageProvider` → Context providers
+4. `Layout` → Global layout wrapper
+5. `Pages` → Lazy-loaded route components
+6. `Organisms` → Complex feature sections
+7. `Molecules` → Simple component groups
+8. `Atoms` → Basic building blocks
 
-1. **main.jsx** → Initializes React application
-2. **App.jsx** → Sets up routing with Browser Router
-3. **ThemeProvider & LanguageProvider** → Wraps application with context providers
-4. **Layout Wrapper** → Applies layout to routes
-5. **Pages** → Lazy-loaded and rendered based on route
+## References
+
+- [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.com/)
+- [JAMstack Overview](https://jamstack.org/)
+- [React Best Practices](https://react.dev/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Radix UI Documentation](https://www.radix-ui.com/)

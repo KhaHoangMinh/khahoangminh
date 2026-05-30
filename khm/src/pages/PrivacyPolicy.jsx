@@ -5,8 +5,7 @@ import {
     ShieldCheck, Lock, Eye, FileText, Cookie,
     Mail, Server, Globe, ChevronRight, CheckCircle2
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, Button } from '@/components/atoms';
 import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function PrivacyPolicy() {

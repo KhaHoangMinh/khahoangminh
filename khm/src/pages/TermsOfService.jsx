@@ -5,8 +5,7 @@ import {
     Scale, FileSignature, AlertTriangle, Landmark, Package,
     Ban, RefreshCw, ChevronRight, Mail, UserRoundXIcon, Brain
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardConten, Button } from '@/components/atoms';
 import { useLanguage } from '@/services/LanguageProvider';
 
 export default function TermsOfService() {

@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Building2, Award, Users, Target, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, Buttons } from '@/components/atoms';
 import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function About() {

@@ -17,7 +17,12 @@ export default defineConfig({
             // Define shortcuts
             "components": path.resolve(__dirname, "./src/components"),
             "utils": path.resolve(__dirname, "./src/lib/utils"),
-            "ui": path.resolve(__dirname, "./src/components/ui"),
+            "atoms": path.resolve(__dirname, "./src/components/atoms"),
+            "molecules": path.resolve(__dirname, "./src/components/molecules"),
+            "organisms": path.resolve(__dirname, "./src/components/organisms"),
+            "templates": path.resolve(__dirname, "./src/components/templates"),
+            "pages": path.resolve(__dirname, "./src/pages"),
+            "services": path.resolve(__dirname, "./src/services"),
             "lib": path.resolve(__dirname, "./src/lib"),
             "hooks": path.resolve(__dirname, "./src/hooks"),
         }

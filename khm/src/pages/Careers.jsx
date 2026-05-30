@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Users, TrendingUp, Heart, Award, ArrowRight, Mail } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, Button } from '@/components/atoms';
 import { useLanguage } from "@/services/LanguageProvider";
 
 export default function Careers() {

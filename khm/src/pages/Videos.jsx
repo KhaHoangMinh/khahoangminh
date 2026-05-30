@@ -1,6 +1,6 @@
 import React from 'react';
 import { Play, Facebook, Mail } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/atoms';
 import { useLanguage } from "@/services/LanguageProvider.jsx";
 import { Link } from "react-router-dom";
 import {createPageUrl} from "@/utils/index.js";

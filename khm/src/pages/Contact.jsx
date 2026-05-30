@@ -1,9 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { MapPin, Phone, Mail, Clock, Send, Facebook , Loader2, CheckCircle2, AlertCircle} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, Button, Input, TextArea } from '@/components/atoms';
 import {useLanguage} from "@/services/LanguageProvider.jsx";
 import {sendEmail} from "@/hooks/emailJS.js";
 import {validateContactForm} from "@/utils/validation.js";

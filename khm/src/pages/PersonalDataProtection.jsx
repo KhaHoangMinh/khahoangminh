@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ShieldCheck, Lock, Users, AlertCircle, FileKey, Scale, Building, ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, Button } from '@/components/atoms';
 import { useLanguage } from '@/services/LanguageProvider';
 
 export default function PersonalDataProtection() {

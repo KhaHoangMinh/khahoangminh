@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/atoms';
 import { useLanguage } from "@/services/LanguageProvider";
 
 export default function News() {

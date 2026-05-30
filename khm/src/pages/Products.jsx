@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { ArrowRight, Phone, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/atoms';
 import { createPageUrl } from "@/utils/index.js";
 import { Link, useSearchParams } from "react-router-dom";
 import { useLanguage } from "@/services/LanguageProvider.jsx";
