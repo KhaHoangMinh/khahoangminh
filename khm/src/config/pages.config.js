@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import __Layout from './Layout.jsx';
+import __Layout from '@/Layout.jsx';
 
 const Home = lazy(() => import('@/pages/Home'));
 const About = lazy(() => import('@/pages/About'));

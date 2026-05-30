@@ -12,14 +12,20 @@ This project follows a modern **Jamstack** (JavaScript, APIs, Markup) architectu
 - **Markup**: Static page generation with route-based code splitting
 - **Pre-rendering**: Build-time optimization with Vite
 
-### Atomic Design Methodology
-Components are organized into five atomic levels, creating a scalable and intuitive component hierarchy:
+### Visual & UX Standards
+The application enforces a premium, commercial-grade user interface:
+- **Glassmorphism & Depth**: Extensive use of frosted glass effects (`backdrop-blur`), semi-transparent borders, and layered shadows to create a sophisticated, high-end aesthetic.
+- **Dark Mode Optimization**: Deeply integrated dark mode configurations ensuring consistent contrast and visual hierarchy across all theme switches.
+- **Dimensionality**: Layouts and organisms are structurally engineered to accommodate advanced multi-layered hover animations and stunning 2.5D isometric visualizations.
 
-1. **Atoms** - Basic, indivisible UI elements (buttons, inputs, labels)
-2. **Molecules** - Simple component combinations (form groups, search bars)
-3. **Organisms** - Complex component groups (headers, footers, forms)
-4. **Templates** - Page-level layouts without specific content
-5. **Pages** - Complete, content-filled views
+### Atomic Design Methodology
+Components are organized into five atomic levels, creating a scalable and intuitive component hierarchy. Pages act purely as layout orchestrators, delegating all structure and logic to underlying Organisms and Molecules.
+
+1. **Atoms** - Basic, indivisible UI elements (buttons, inputs, labels).
+2. **Molecules** - Simple component combinations (form groups, search bars, feature cards).
+3. **Organisms** - Complex component groups (headers, footers, contact forms, hero sections).
+4. **Templates** - Page-level layouts without specific content.
+5. **Pages** - Complete, content-filled views acting as data providers and orchestrators.
 
 ## Project Structure
 
@@ -61,240 +67,88 @@ khahoangminh/
 │ │ │ ├── atoms/ # Basic, indivisible components 
 │ │ │ │ ├── Button.jsx 
 │ │ │ │ ├── Input.jsx 
-│ │ │ │ ├── Label.jsx 
-│ │ │ │ ├── Icon.jsx 
-│ │ │ │ ├── Badge.jsx 
-│ │ │ │ ├── Avatar.jsx 
-│ │ │ │ └── index.js 
+│ │ │ │ └── index.js # Barrel export
 │ │ │ ├── molecules/ # Simple component groups 
-│ │ │ │ ├── ButtonGroup.jsx 
-│ │ │ │ ├── FormField.jsx # Label + Input 
-│ │ │ │ ├── Card.jsx 
-│ │ │ │ ├── Hero.jsx 
-│ │ │ │ ├── Footer.jsx 
-│ │ │ │ ├── Navigation.jsx 
-│ │ │ │ ├── Sidebar.jsx 
-│ │ │ │ └── index.js 
+│ │ │ │ ├── ActionButtonGroup.jsx 
+│ │ │ │ ├── FeatureCard.jsx 
+│ │ │ │ └── index.js # Barrel export
 │ │ │ ├── organisms/ # Complex component groups 
-│ │ │ │ ├── Header.jsx # Full header with nav and logo 
-│ │ │ │ ├── ContactForm.jsx # Complex form with multiple fields 
-│ │ │ │ ├── ProductList.jsx 
-│ │ │ │ ├── ProjectCarousel.jsx 
-│ │ │ │ ├── TeamSection.jsx 
-│ │ │ │ └── index.js 
+│ │ │ │ ├── PremiumHero.jsx 
+│ │ │ │ ├── ContactFormSection.jsx 
+│ │ │ │ └── index.js # Barrel export
 │ │ │ ├── templates/
 │ │ │ │ └── index.js 
-│ │ │ └── index.js # Central export file 
+│ │ │ └── index.js # Central export file for all components
 │ │ ├── pages/ # Page components (JAMstack pages) 
-│ │ │ ├── Home.jsx # Composed of organisms + molecules 
+│ │ │ ├── Home.jsx # Orchestrator mapping data to organisms 
 │ │ │ ├── About.jsx 
-│ │ │ ├── Products.jsx 
-│ │ │ ├── Services.jsx 
-│ │ │ ├── Projects.jsx 
-│ │ │ ├── Videos.jsx 
-│ │ │ ├── Careers.jsx 
-│ │ │ ├── News.jsx 
 │ │ │ ├── Contact.jsx 
-│ │ │ ├── PersonalDataProtection.jsx 
-│ │ │ ├── PrivacyPolicy.jsx 
-│ │ │ ├── TermsOfService.jsx 
-│ │ │ ├── PageNotFound.jsx # 404 error page 
-│ │ │ └── index.js # Page exports 
+│ │ │ └── index.js # Barrel export (Avoid using in React.lazy)
 │ │ ├── hooks/ # Custom React hooks 
-│ │ │ ├── useTheme.js 
-│ │ │ ├── useLanguage.js 
-│ │ │ ├── useScrollToTop.js 
-│ │ │ ├── useResponsive.js 
-│ │ │ └── index.js 
+│ │ │ ├── emailJS.js 
+│ │ │ └── index.js # Barrel export
 │ │ ├── services/ # Service providers & API utilities 
 │ │ │ ├── ThemeProvider.jsx 
 │ │ │ ├── LanguageProvider.jsx 
 │ │ │ ├── api/ # API service functions 
-│ │ │ │ ├── contact.js # Contact form submission 
-│ │ │ │ ├── products.js # Product data fetching 
-│ │ │ │ └── index.js 
 │ │ │ └── index.js 
 │ │ ├── utils/ # Utility functions 
-│ │ │ ├── cn.js # Classname utilities 
-│ │ │ ├── constants.js # Application constants 
-│ │ │ ├── formatters.js # Data formatting utilities 
-│ │ │ ├── validators.js # Form validation utilities 
+│ │ │ ├── cn.js 
+│ │ │ ├── formatters.js 
 │ │ │ └── index.js 
 │ │ ├── styles/ # Global & theme styles 
-│ │ │ ├── index.css # Global styles 
-│ │ │ ├── theme.css # Theme variables 
-│ │ │ └── animations.css # Animation definitions 
+│ │ │ ├── index.css 
+│ │ │ └── theme.css 
 │ │ ├── context/ # React Context 
-│ │ │ ├── ThemeContext.js 
-│ │ │ └── LanguageContext.js 
 │ │ ├── config/ # Configuration files 
-│ │ │ ├── pages.config.js # Pages configuration 
-│ │ │ ├── navigation.config.js # Navigation structure 
-│ │ │ └── seo.config.js # SEO metadata 
+│ │ │ ├── pages.config.js # Route definitions (Direct imports required)
+│ │ │ └── seo.config.js 
 │ │ ├── App.jsx # Main application component 
 │ │ ├── Layout.jsx # Global layout wrapper 
-│ │ ├── main.jsx # Application entry point 
-│ │ └── index.css # Legacy - consolidate to styles/ 
-│ ├── public/ # Static assets (JAMstack) 
-│ │ ├── images/ 
-│ │ ├── icons/ 
-│ │ └── fonts/ │ 
+│ │ └── main.jsx # Application entry point 
+│ ├── public/ # Static assets 
 ├── package.json # Project dependencies 
-│ └── vite.config.js # Vite configuration 
-├── docs/ # Documentation 
-│ ├── ARCHITECTURE.md 
-│ ├── PAGES.md # Pages documentation 
-│ ├── COMPONENTS.md # Component documentation 
-│ ├── MIGRATION_GUIDE.md # Migration guide 
-│ └── DEVELOPMENT.md # Development guidelines 
-└── README.md # Project readme
+├── vite.config.js # Vite configuration 
+└── docs/ # Documentation
 ```
-
-
-## Atomic Design Levels
-
-### 1. **Atoms**
-Smallest, most basic building blocks. Cannot be broken down further without losing meaning.
-
-**Examples:**
-- Button
-- Input field
-- Label
-- Icon
-- Badge
-- Avatar
-
-**Characteristics:**
-- No dependencies on other components
-- Pure, functional components
-- Accept props for customization
-- Fully styled and self-contained
-
-### 2. **Molecules**
-Groups of 2-3 atoms bonded together. Simple functional units.
-
-**Examples:**
-- FormField (Label + Input + validation message)
-- Card (Avatar + Name + Description)
-- Navigation (Logo + Menu items)
-- Hero section (Image + Title + Subtitle + CTA button)
-
-**Characteristics:**
-- Composed of atoms
-- Single responsibility principle
-- Reusable across pages
-- Handle basic logic/interaction
-
-### 3. **Organisms**
-Complex UI sections composed of multiple molecules and/or atoms. Complex functional units.
-
-**Examples:**
-- Header (Logo + Navigation + Theme toggle)
-- ContactForm (Multiple form fields + submit button)
-- ProductList (Multiple product cards + filters + pagination)
-- ProjectCarousel (Multiple project cards + carousel controls)
-
-**Characteristics:**
-- Composed of molecules and atoms
-- Handle complex interactions
-- Manage form state, API calls
-- Reusable across pages
-- Can contain business logic
-
-### 4. **Templates**
-Page-level layouts that structure organisms and molecules. Define layout structure without content.
-
-**Implementation:** Implemented as Layout wrappers and page templates.
-
-### 5. **Pages**
-Full page implementations. Instances of templates filled with real content.
-
-**Examples:**
-- Home page
-- About page
-- Contact page
-
-**Characteristics:**
-- Composed of organisms and molecules
-- Route-specific
-- Lazy-loaded for performance
-- Connected to services/APIs
-
-## JAMstack Architecture
-
-### JavaScript
-- React handles dynamic interactions
-- Vite builds optimized JavaScript bundles
-- Service providers manage state (Theme, Language)
-- Custom hooks encapsulate reusable logic
-
-### APIs
-- **Static content**: Pre-generated pages (markup)
-- **Dynamic content**: Fetched via service functions
-- **External APIs**: EmailJS for contact forms, third-party integrations
-- **Service layer**: `services/api/` contains all API calls
-
-### Markup
-- Pre-rendered page structure with Vite
-- Static HTML generated at build time
-- Server-side or static site generation compatible
-- SEO-friendly structure
 
 ## Architecture Patterns
+1. *Component Composition & Orchestration*
+Components strictly follow the Atomic Design pattern:
 
-### 1. **Component Composition**
-Components follow the Atomic Design pattern:
-- Each level builds upon the previous
-- Clear separation of concerns
-- Reusable and testable
-- Single responsibility principle
+- **Pages as Orchestrators**: Pages contain minimal to no UI markup. They fetch/define data and pass it as props to Organisms.
 
-**Example Flow:**
-```text
-Button (atom) → FormField (molecule: Label + Input + Button) → ContactForm (organism: Multiple FormFields + API integration) → Contact Page (page: ContactForm + Hero + Footer)
-```
+- **Clear Separation of Concerns**: Organisms manage complex layouts and local state (e.g., forms), Molecules handle reusable visual blocks, and Atoms provide the base primitives.
 
-### 2. **Route-Based Code Splitting**
-- Routes configured in `config/pages.config.js`
-- Automatically mapped in `App.jsx`
-- Each page lazy-loaded using React's `lazy()` + `Suspense`
-- Optimal performance with route-level code splitting
+2. *Module Management (Barrel Files)*
+- `index.js` files are used extensively within /components, /hooks, and /utils to cleanly export modules.
 
-### 3. **Service Layer**
-**Context Providers:**
-- ThemeProvider: Light/dark mode management
-- LanguageProvider: Internationalization support
+- **Exception Rule**: Barrel files in /pages must never be used for route configurations in pages.config.js. Direct file paths are strictly required to preserve Vite's route-based code splitting.
 
-**API Services:**
-- Located in `services/api/`
-- Handle external API calls (EmailJS, content APIs)
-- Centralized data fetching and error handling
+3. *Route-Based Code Splitting*
+- Routes configured in `config/pages.config.js`.
 
-### 4. **Layout System**
-- Global `Layout.jsx` wraps all pages
-- Consistent header, footer, and navigation
-- Responsive design with Tailwind CSS
-- Theme-aware styling
+- Automatically mapped in `App.jsx`.
 
-### 5. **Styling Strategy**
-- **Tailwind CSS**: Utility-first approach
-- **CVA (Class Variance Authority)**: Component variant management
-- **Theme variables**: CSS custom properties for theming
-- **Global styles**: Base styles in `styles/index.css`
+- Each page is lazy-loaded using React's `lazy()` + `Suspense` pointing directly to the file path.
 
-### 6. **Hook-Based State Management**
-Custom hooks encapsulate reusable logic:
-- `useTheme()`: Theme switching
-- `useLanguage()`: Language management
-- `useScrollToTop()`: Auto-scroll behavior
-- `useResponsive()`: Responsive design helpers
+4. *Service Layer*
+**Context Providers**:
 
-### 7. **Performance Optimization**
-- **Code Splitting**: Route and component-level splitting
-- **Lazy Loading**: Images and components loaded on demand
-- **Suspense**: Graceful loading states
-- **Tree Shaking**: ES modules eliminate unused code
-- **Build Optimization**: Vite minification and bundling
+- ThemeProvider: Light/dark mode management.
+
+- LanguageProvider: Internationalization support.
+
+**API Services**:
+
+- Located in `services/api/`.
+
+- Centralized data fetching and error handling.
+
+## Performance Optimization
+- **Largest Contentful Paint (LCP) Optimization**: Hero sections and primary above-the-fold imagery utilize semantic `<img>` tags with the `fetchpriority="high"` attribute, allowing the browser's preload scanner to fetch assets immediately, significantly outperforming CSS background images.
+- **Code Splitting**: Route and component-level splitting via dynamic imports.
+- **Tree Shaking**: ES modules eliminate unused code.
 
 ## Naming Convention
 - **Components**: PascalCase (Button.jsx, ContactForm.jsx)
@@ -334,6 +188,5 @@ External APIs (EmailJS, Backend)
 
 - [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.com/)
 - [JAMstack Overview](https://jamstack.org/)
-- [React Best Practices](https://react.dev/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 - [Radix UI Documentation](https://www.radix-ui.com/)

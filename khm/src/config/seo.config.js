@@ -1,0 +1,24 @@
+export const defaultSEO = {
+    title: "Kha Hoàng Minh | Inox Tấm, Cuộn, Ống Công Nghiệp",
+    titleTemplate: "%s | Kha Hoàng Minh",
+    description: "Công ty TNHH MTV Kha Hoàng Minh chuyên nhập khẩu và phân phối thép không gỉ (Inox) Tấm, Cuộn, Ống, Phụ kiện phục vụ ngành công nghiệp và dân dụng.",
+    openGraph: {
+        type: 'website',
+        locale: 'vi_VN',
+        url: 'http://khahoangminh.com.vn',
+        site_name: 'Kha Hoang Minh',
+        images: [
+            {
+                url: 'http://khahoangminh.com.vn/img/logo.png',
+                width: 800,
+                height: 600,
+                alt: 'Kha Hoang Minh Logo',
+            },
+        ],
+    },
+    twitter: {
+        handle: '@khahoangminh',
+        site: '@khahoangminh',
+        cardType: 'summary_large_image',
+    },
+};

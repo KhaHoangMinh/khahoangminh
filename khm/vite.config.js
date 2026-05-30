@@ -15,6 +15,7 @@ export default defineConfig({
             // Define the root alias "@" -> "src"
             "@": path.resolve(__dirname, "./src"),
             // Define shortcuts
+            "config": path.resolve(__dirname, "./src/config"),
             "components": path.resolve(__dirname, "./src/components"),
             "utils": path.resolve(__dirname, "./src/lib/utils"),
             "atoms": path.resolve(__dirname, "./src/components/atoms"),

@@ -1,11 +1,11 @@
-import { pagesConfig } from '@/pages.config'
+import { pagesConfig } from '@/config'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {lazy, Suspense} from "react";
 import ScrollToTop from "@/hooks/useScrollToTop";
 import { ThemeProvider } from '@/services/ThemeProvider';
 import { LanguageProvider } from '@/services/LanguageProvider';
 
-const PageNotFound = lazy(() => import('@/lib/PageNotFound'));
+const PageNotFound = lazy(() => import('@/pages/PageNotFound'));
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
