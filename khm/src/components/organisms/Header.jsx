@@ -6,7 +6,7 @@ import { useLanguage } from '@/services/LanguageProvider';
 import ThemeToggle from '@/services/ThemeToggle';
 import LanguageToggle from '@/services/LanguageToggle';
 
-export default function Header({ currentPageName }) {
+export function Header({ currentPageName }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { t } = useLanguage();
 

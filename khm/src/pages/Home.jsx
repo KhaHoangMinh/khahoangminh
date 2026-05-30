@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ArrowRight, CheckCircle2, Phone, Mail } from 'lucide-react';
+
 import { Card, CardContent, Button } from '@/components/atoms';
 import { useLanguage } from '@/services/LanguageProvider.jsx';
 

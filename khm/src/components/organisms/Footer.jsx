@@ -4,7 +4,7 @@ import { Phone, Mail, Facebook, MapPin, ReceiptText } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '@/services/LanguageProvider';
 
-export default function Footer() {
+export function Footer() {
     const { t } = useLanguage();
     const mapContainerRef = useRef(null);
     const mapInstanceRef = useRef(null);
@@ -104,7 +104,7 @@ export default function Footer() {
                     </div>
 
                     {/* Quick Links */}
-                    <div>
+                    <nav>
                         <h3 className="text-lg font-bold mb-6 text-white">{t('footer.quickLinks')}</h3>
                         <ul className="space-y-3">
                             {navItems.slice(0, 5).map((item) => (
@@ -116,7 +116,7 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    </nav>
 
                     {/* Contact Info */}
                     <div>
@@ -149,8 +149,6 @@ export default function Footer() {
                         <div
                             className="w-full mt-3 h-48 rounded-lg overflow-hidden border border-slate-700 z-0 relative"
                             style={{ minHeight: '200px' }}
-                            // leaf-js
-                            // ref={mapContainerRef}
                         >
                             {/* Google Map iframe*/}
                             <iframe
@@ -171,8 +169,13 @@ export default function Footer() {
                         <div className='flex gap-4'>
                             <img src='/img/bo-cong-thuong.png' alt='' className="h-10" />
                             <p className="flex items-center gap-2">
-                                <Link to={createPageUrl("protection")} className="text-orange-300 hover:text-orange-500">{t('footer.protection')}</Link>
-                                <Link to={createPageUrl("privacy")} className="hover:text-blue-400">{t('footer.privacy')}</Link>
+                                <Link to={createPageUrl("protection")} className="text-orange-300 hover:text-orange-500">
+                                    {t('footer.protection')}
+                                </Link>
+                                <span className="text-slate-600">|</span>
+                                <Link to={createPageUrl("privacy")} className="hover:text-blue-400">
+                                    {t('footer.privacy')}
+                                </Link>
                             </p>
                         </div>
                     </div>

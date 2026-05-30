@@ -8,10 +8,10 @@ export function BlogLayout({ children, sidebar }) {
         <Header />
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4">
             <main className="lg:col-span-2">
-            {children}
+                {children}
             </main>
             <aside className="lg:col-span-1">
-            {sidebar}
+                {sidebar}
             </aside>
         </div>
         <Footer />
