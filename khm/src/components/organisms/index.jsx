@@ -33,10 +33,15 @@ export { ImageGallerySection } from './ImageGallerySection';
 // Videos Page
 export { VideoPlaceholderSection } from './VideoPlaceholderSection';
 
-export { ProductCard } from './ProductCard';
-export { NewsCard } from './NewsCard';
-export { HeroSection } from './HeroSection';
-export { FeatureGrid } from './FeatureGrid';
-export { TestimonialCard } from './TestimonialCard';
-export { PricingTable } from './PricingTable';
-export { TeamMember } from './TeamMember';
+// Careers Page
+export { BenefitsSection } from './BenefitsSection';
+export { CultureSection } from './CultureSection';
+export { OpeningsSection } from './OpeningsSection';
+
+// News Page
+export { NewsGridSection } from './NewsGridSection';
+
+// Contact Page
+export { ContactFormSection } from './ContactFormSection';
+export { ContactInfoSection } from './ContactInfoSection';
+export { LocationMap } from './LocationMap';
