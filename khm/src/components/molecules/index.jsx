@@ -15,3 +15,16 @@ export { ScopeCard } from './ScopeCard';
 export { SearchBar } from './SearchBar';
 export { CatalogProductCard } from './CatalogProductCard';
 export { EmptyState } from './EmptyState';
+
+// Services Page
+export { ServiceFeatureCard } from './ServiceFeatureCard';
+export { ProcessStepCard } from './ProcessStepCard';
+
+// Projects Page
+export { ProjectCard } from './ProjectCard';
+export { GalleryImage } from './GalleryImage';
+export { CapabilityCard } from './CapabilityCard';
+
+// Videos Page
+export { SocialContactButtonGroup } from './SocialContactButtonGroup';
+
