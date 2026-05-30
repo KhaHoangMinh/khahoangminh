@@ -45,3 +45,9 @@ export { NewsGridSection } from './NewsGridSection';
 export { ContactFormSection } from './ContactFormSection';
 export { ContactInfoSection } from './ContactInfoSection';
 export { LocationMap } from './LocationMap';
+
+// Legal Page
+export { LegalPageHero } from './LegalPageHero';
+export { LegalSidebarNav } from './LegalSidebarNav';
+export { PrivacyContent } from './PrivacyContent';
+export { TermsContent } from './TermsContent';

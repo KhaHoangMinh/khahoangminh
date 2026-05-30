@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLanguage } from './LanguageProvider.jsx';
-import { Button } from 'ui/button.jsx';
+import { useLanguage } from '@/services/LanguageProvider.jsx';
+import { Button } from '@/components/atoms';
 
 export default function LanguageToggle() {
     const { language, toggleLanguage } = useLanguage();

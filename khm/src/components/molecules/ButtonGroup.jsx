@@ -1,5 +1,5 @@
 import { Button } from '@/components/atoms/button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 export function ButtonGroup({ 
     buttons = [], 

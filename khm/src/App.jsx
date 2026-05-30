@@ -1,7 +1,7 @@
 import { pagesConfig } from '@/pages.config'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {lazy, Suspense} from "react";
-import ScrollToTop from "@/hooks/useScollToTop.js";
+import ScrollToTop from "@/hooks/useScrollToTop";
 import { ThemeProvider } from '@/services/ThemeProvider';
 import { LanguageProvider } from '@/services/LanguageProvider';
 

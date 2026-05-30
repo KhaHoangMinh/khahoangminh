@@ -1,7 +1,3 @@
-export { FormGroup } from './FormGroup';
-export { SearchBar } from './SearchBar';
-export { ButtonGroup } from './ButtonGroup';
-
 // Home Page
 export { ActionButtonGroup } from './ActionButtonGroup';
 export { FeatureCard } from './FeatureCard';
@@ -40,3 +36,9 @@ export { ComingSoonCard } from './ComingSoonCard';
 // Contact Page
 export { ContactInfoCard } from './ContactInfoCard';
 export { ActionRedirectCard } from './ActionRedirectCard';
+
+// Legal Page
+export { LegalSidebarItem } from './LegalSidebarItem';
+export { LegalSectionCard } from './LegalSectionCard';
+export { PrincipleCard } from './PrincipleCard';
+export { ContactDarkCard } from './ContactDarkCard';
