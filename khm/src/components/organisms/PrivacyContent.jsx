@@ -1,5 +1,9 @@
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/atoms';
+import { ContactDarkCard } from '@/components/molecules';
+import { createPageUrl } from '@/utils';
+import { CheckCircle2, Server, Lock } from 'lucide-react';
 import { LegalSectionCard } from '@/components/molecules';
 
 export function PrivacyContent({ t, personalListData, usageListData }) {
