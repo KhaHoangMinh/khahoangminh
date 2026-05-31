@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="khm/public/img/logo.png" alt="Kha Hoang Minh" width="200"/>
+    <img src="khm/public/img/logo/logo.png" alt="Kha Hoang Minh" width="200"/>
 </p>
 <h1 align="center">Kha Hoang Minh - Corporate Website</h1>
 A modern, high-performance corporate web application built with React and Vite. This project leverages a Jamstack architecture combined with Atomic Design principles to deliver a highly scalable, maintainable, and SEO-friendly platform.

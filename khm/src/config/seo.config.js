@@ -9,7 +9,7 @@ export const defaultSEO = {
         site_name: 'Kha Hoang Minh',
         images: [
             {
-                url: 'http://khahoangminh.com.vn/img/logo.png',
+                url: 'http://khahoangminh.com.vn/img/logo/logo.png',
                 width: 800,
                 height: 600,
                 alt: 'Kha Hoang Minh Logo',

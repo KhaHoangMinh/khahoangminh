@@ -10,7 +10,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
     const { t } = useLanguage();
 
     // Determine which logo to show
-    const currentLogo = activeEvent?.theme?.logo || "/img/logo.png";
+    const currentLogo = activeEvent?.theme?.logo || "/img/logo/logo.png";
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -50,7 +50,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
                         alt='logo'
                         onError={(e) => {
                             e.target.onerror = null;
-                            e.target.src = "/img/logo.png";
+                            e.target.src = "/img/logo/logo.png";
                         }}
                     />
                     <div className="flex flex-col justify-center">

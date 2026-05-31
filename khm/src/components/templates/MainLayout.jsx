@@ -23,7 +23,7 @@ export function MainLayout({ children, currentPageName, activeEvent, onOpenSpeci
             </main>
             
             {/* Footer */}
-            <Footer />
+            <Footer activeEvent={activeEvent} />
             
         </div>
     );

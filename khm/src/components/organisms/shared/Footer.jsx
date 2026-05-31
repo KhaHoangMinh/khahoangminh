@@ -10,6 +10,8 @@ export function Footer() {
     const mapContainerRef = useRef(null);
     const mapInstanceRef = useRef(null);
 
+    const currentLogo = activeEvent?.theme?.logo || "/img/logo/logo.png";
+
     useEffect(() => {
         // Ensure Leaflet is loaded and the container exists
         if (!window.L || !mapContainerRef.current) return;
@@ -70,7 +72,15 @@ export function Footer() {
                     <div className="space-y-6">
                         <div className="lg:col-span-1 gap-3">
                             <div className="flex items-center gap-3 mb-6">
-                                <img src="/img/logo.png" className="w-12 h-12" alt='logo'/>
+                                <img 
+                                    src={currentLogo} 
+                                    className="w-12 h-12 transition-all duration-500" 
+                                    alt='logo'
+                                    onError={(e) => {
+                                        e.target.onerror = null; 
+                                        e.target.src = "/img/logo/logo.png";
+                                    }}
+                                />
                                 <span
                                     className="font-bold text-xl tracking-tight text-white">{t('common.companyShortName')}</span>
                             </div>
