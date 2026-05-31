@@ -41,8 +41,11 @@ src/
 │   ├── organisms/  # Complex sections (Headers, Contact Forms, Heros)
 │   └── templates/  # Page-level layouts
 ├── pages/          # Content-filled orchestrator views
+├── config/         
 ├── hooks/          # Reusable custom React hooks
+├── lib/          
 ├── services/       # Context providers (Theme, Language) & APIs
+├── styles/          
 ├── utils/          # Helper functions and validators
 └── styles/         # Global Tailwind and Theme CSS
 ```

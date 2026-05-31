@@ -1,5 +1,5 @@
-import { Header } from '@/components/organisms/Header';
-import { Footer } from '@/components/organisms/Footer';
+import { Header } from '@/components/organisms';
+import { Footer } from '@/components/organisms';
 
 export function MainLayout({ children, currentPageName }) {
     return (

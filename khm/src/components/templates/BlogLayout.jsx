@@ -1,6 +1,6 @@
-import { Header } from '@/components/organisms/Header';
-import { Footer } from '@/components/organisms/Footer';
-import { Sidebar } from '@/components/atoms/sidebar';
+import { Header } from '@/components/organisms';
+import { Footer } from '@/components/organisms';
+import { Sidebar } from '@/components/atoms';
 
 export function BlogLayout({ children, sidebar }) {
     return (

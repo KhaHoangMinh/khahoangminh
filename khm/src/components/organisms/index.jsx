@@ -1,53 +1,53 @@
-export { Header } from './Header';
-export { Footer } from './Footer';
+export { Header } from './shared/Header';
+export { Footer } from './shared/Footer';
 
-export { PageHero } from './PageHero';
-export { SimpleCtaSection } from './SimpleCtaSection';
+export { PageHero } from './shared/PageHero';
+export { SimpleCtaSection } from './shared/SimpleCtaSection';
 
 // Home Page
-export { PremiumHero } from './PremiumHero';
-export { AboutSection } from './AboutSection';
-export { ProductsSection } from './ProductsSection';
-export { FeaturesSection } from './FeaturesSection';
-export { CtaSection } from './CtaSection';
+export { PremiumHero } from './home/PremiumHero';
+export { AboutSection } from './home/AboutSection';
+export { ProductsSection } from './home/ProductsSection';
+export { FeaturesSection } from './home/FeaturesSection';
+export { CtaSection } from './home/CtaSection';
 
 // About Page
-export { CompanyInfoSection } from './CompanyInfoSection';
-export { CoreValuesSection } from './CoreValuesSection';
-export { BusinessScopeSection } from './BusinessScopeSection';
+export { CompanyInfoSection } from './about/CompanyInfoSection';
+export { CoreValuesSection } from './about/CoreValuesSection';
+export { BusinessScopeSection } from './about/BusinessScopeSection';
 
 // Products Page
-export { ProductCatalogSection } from './ProductCatalogSection';
-export { ContactBannerSection } from './ContactBannerSection';
+export { ProductCatalogSection } from './products/ProductCatalogSection';
+export { ContactBannerSection } from './products/ContactBannerSection';
 
 // Services Page
-export { ServicesGridSection } from './ServicesGridSection';
-export { FeaturedServiceSection } from './FeaturedServiceSection';
-export { ProcessSection } from './ProcessSection';
+export { ServicesGridSection } from './services/ServicesGridSection';
+export { FeaturedServiceSection } from './services/FeaturedServiceSection';
+export { ProcessSection } from './services/ProcessSection';
 
 // Projects Page
-export { ProjectsListSection } from './ProjectsListSection';
-export { CapabilitiesSection } from './CapabilitiesSection';
-export { ImageGallerySection } from './ImageGallerySection';
+export { ProjectsListSection } from './projects/ProjectsListSection';
+export { CapabilitiesSection } from './projects/CapabilitiesSection';
+export { ImageGallerySection } from './projects/ImageGallerySection';
 
 // Videos Page
-export { VideoPlaceholderSection } from './VideoPlaceholderSection';
+export { VideoPlaceholderSection } from './videos/VideoPlaceholderSection';
 
 // Careers Page
-export { BenefitsSection } from './BenefitsSection';
-export { CultureSection } from './CultureSection';
-export { OpeningsSection } from './OpeningsSection';
+export { BenefitsSection } from './careers/BenefitsSection';
+export { CultureSection } from './careers/CultureSection';
+export { OpeningsSection } from './careers/OpeningsSection';
 
 // News Page
-export { NewsGridSection } from './NewsGridSection';
+export { NewsGridSection } from './news/NewsGridSection';
 
 // Contact Page
-export { ContactFormSection } from './ContactFormSection';
-export { ContactInfoSection } from './ContactInfoSection';
-export { LocationMap } from './LocationMap';
+export { ContactFormSection } from './contact/ContactFormSection';
+export { ContactInfoSection } from './contact/ContactInfoSection';
+export { LocationMap } from './contact/LocationMap';
 
 // Legal Page
-export { LegalPageHero } from './LegalPageHero';
-export { LegalSidebarNav } from './LegalSidebarNav';
-export { PrivacyContent } from './PrivacyContent';
-export { TermsContent } from './TermsContent';
+export { LegalPageHero } from './legal/LegalPageHero';
+export { LegalSidebarNav } from './legal/LegalSidebarNav';
+export { PrivacyContent } from './legal/PrivacyContent';
+export { TermsContent } from './legal/TermsContent';
