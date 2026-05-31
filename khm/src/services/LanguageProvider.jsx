@@ -35,9 +35,12 @@ export const translations = {
             followUs: 'KẾT NỐI VỚI CHÚNG TÔI',
             protection: 'Chính sách bảo vệ dữ liệu cá nhân',
             privacy: 'Chính sách quyền riêng tư',
-
         },
 
+        events: {
+            specialEventTag: 'Sự Kiện Đặc Biệt',
+        },
+        
         /* --- 3. COMMON --- */
         common: {
             companyShortName: 'KHA HOÀNG MINH',
@@ -49,6 +52,7 @@ export const translations = {
             readMore: 'Đọc thêm',
             viewDetails: 'Xem chi tiết',
             sendRequest: 'Gửi yêu cầu',
+            continueToSite: 'Tiếp tục vào trang web',
         },
 
         /* --- 4. PAGES --- */
@@ -739,6 +743,10 @@ export const translations = {
             privacy: 'Privacy policy',
         },
 
+        events: {
+            specialEventTag: 'Special Event',
+        },
+
         /* --- 3. COMMON --- */
         common: {
             companyShortName: 'KHA HOANG MINH',
@@ -750,6 +758,7 @@ export const translations = {
             readMore: 'Read More',
             viewDetails: 'View Details',
             sendRequest: 'Send Request',
+            continueToSite: 'Continue to Site',
         },
 
         /* --- 4. PAGES --- */

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Phone, Mail, Facebook } from 'lucide-react';
+import { Menu, X, Phone, Mail, Facebook, Sparkles } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { mainNavigation } from '@/config';
 
-export function Header({ currentPageName }) {
+export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { t } = useLanguage();
+
+    // Determine which logo to show
+    const currentLogo = activeEvent?.theme?.logo || "/img/logo.png";
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -41,7 +44,15 @@ export function Header({ currentPageName }) {
             <div className="container mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-                    <img src="/img/logo.png" className="w-8 h-8 sm:w-10 sm:h-10" alt='logo'/>
+                    <img 
+                        src={currentLogo} 
+                        className="w-8 h-8 sm:w-10 sm:h-10 transition-all duration-500" 
+                        alt='logo'
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "/img/logo.png";
+                        }}
+                    />
                     <div className="flex flex-col justify-center">
                         <span className="font-bold text-lg sm:text-xl leading-none text-slate-900 dark:text-white group-hover:text-orange-600 transition-colors">
                             {t('common.companyShortName')}
@@ -70,6 +81,15 @@ export function Header({ currentPageName }) {
 
                 {/* Desktop Actions */}
                 <div className="hidden xl:flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
+                    {activeEvent && (
+                        <button 
+                            onClick={onOpenSpecialEvent}
+                            className="p-2 mr-2 rounded-full bg-gradient-to-r from-orange-500/10 to-red-500/10 text-orange-600 hover:scale-110 transition-transform"
+                            title={t(`${activeEvent.translationKey}.title`)}
+                        >
+                            <Sparkles className="w-5 h-5 animate-pulse" />
+                        </button>
+                    )}
                     <LanguageToggle />
                     <ThemeToggle />
                 </div>

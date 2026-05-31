@@ -13,11 +13,16 @@
   "aliases": {
     "components": "@/components",
     "config": "@/config",
+    "lib": "@/lib",
+    "hooks": "@/hooks",
+    "pages": "@/pages",
+    "services": "@/services",
     "styles": "@/styles",
     "utils": "@/lib",
     "atoms": "@/components/atoms",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "molecules": "@/components/molecules",
+    "organisms": "@/components/organisms",
+    "templates": "@/components/templates"
   },
   "iconLibrary": "lucide-react"
 }

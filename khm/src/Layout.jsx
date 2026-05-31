@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
-import { MainLayout } from '@/components/templates/index';
+import { MainLayout } from '@/components/templates';
+import { SpecialEventModal } from '@/components/organisms';
+import { useSpecialEvent } from '@/hooks';
 
 export default function Layout({ children, currentPageName }) {
+
+    const { activeEvent, isModalOpen, openModal, closeModal } = useSpecialEvent();
 
     // Global hook to prevent right-clicking on images
     useEffect(() => {
@@ -21,8 +25,20 @@ export default function Layout({ children, currentPageName }) {
     }, []);
 
     return (
-        <MainLayout currentPageName={currentPageName}>          
-            {children}
-        </MainLayout>
+        <>
+            <MainLayout 
+                currentPageName={currentPageName} 
+                activeEvent={activeEvent}
+                onOpenSpecialEvent={openModal}
+            >
+                {children}
+            </MainLayout>
+
+            <SpecialEventModal 
+                event={activeEvent} 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+            />
+        </>
     );
 }

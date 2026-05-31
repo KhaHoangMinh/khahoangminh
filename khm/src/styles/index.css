@@ -95,3 +95,12 @@
         -ms-user-select: none;
     }
 }
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+.animate-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+}

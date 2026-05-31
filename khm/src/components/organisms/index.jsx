@@ -4,6 +4,8 @@ export { Footer } from './shared/Footer';
 export { PageHero } from './shared/PageHero';
 export { SimpleCtaSection } from './shared/SimpleCtaSection';
 
+export { SpecialEventModal } from './shared/SpecialEventModal';
+
 // Home Page
 export { PremiumHero } from './home/PremiumHero';
 export { AboutSection } from './home/AboutSection';
