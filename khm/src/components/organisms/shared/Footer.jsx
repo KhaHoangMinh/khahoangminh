@@ -5,7 +5,7 @@ import { createPageUrl } from '@/utils';
 import { useLanguage } from '@/services';
 import { mainNavigation, legalNavigation } from '@/config';
 
-export function Footer() {
+export function Footer({ activeEvent }) {
     const { t } = useLanguage();
     const mapContainerRef = useRef(null);
     const mapInstanceRef = useRef(null);
