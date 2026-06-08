@@ -46,7 +46,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
                 <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
                     <img 
                         src={currentLogo} 
-                        className="w-8 h-8 sm:w-10 sm:h-10 transition-all duration-500" 
+                        className="w-12 h-12 sm:w-12 sm:h-12 transition-all duration-500" 
                         alt='logo'
                         onError={(e) => {
                             e.target.onerror = null;

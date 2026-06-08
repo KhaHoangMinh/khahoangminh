@@ -74,7 +74,7 @@ export function Footer({ activeEvent }) {
                             <div className="flex items-center gap-3 mb-6">
                                 <img 
                                     src={currentLogo} 
-                                    className="w-12 h-12 transition-all duration-500" 
+                                    className="w-14 h-14 sm:w-14 sm:h-14 transition-all duration-500" 
                                     alt='logo'
                                     onError={(e) => {
                                         e.target.onerror = null; 

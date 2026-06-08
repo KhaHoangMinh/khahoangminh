@@ -10,7 +10,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-red-600 via-red-500 to-yellow-500 dark:from-red-900 dark:via-red-800 dark:to-orange-700",
             iconColor: "text-yellow-400",
-            logo: "/img/logo-tet.png"
+            logo: "/img/logo/logo-tet.png"
         },
         translations: {
             vi: {
@@ -31,7 +31,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-amber-700 via-orange-600 to-yellow-600 dark:from-amber-900 dark:via-amber-800 dark:to-yellow-800",
             iconColor: "text-amber-200",
-            logo: "/img/logo-hungvuong.png"
+            logo: "/img/logo/logo-hungvuong.png"
         },
         translations: {
             vi: {
@@ -52,7 +52,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-indigo-900 via-purple-800 to-amber-500 dark:from-indigo-950 dark:via-purple-900 dark:to-amber-700",
             iconColor: "text-amber-400",
-            logo: "/img/logo-midautumn.png"
+            logo: "/img/logo/logo-midautumn.png"
         },
         translations: {
             vi: {
@@ -77,7 +77,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-blue-600 via-blue-500 to-cyan-400 dark:from-blue-900 dark:via-blue-800 dark:to-cyan-700",
             iconColor: "text-cyan-200",
-            logo: "/img/logo-newyear.png"
+            logo: "/img/logo/logo-newyear.png"
         },
         translations: {
             vi: {
@@ -98,7 +98,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-pink-500 via-rose-400 to-red-400 dark:from-pink-900 dark:via-rose-800 dark:to-red-800",
             iconColor: "text-pink-100",
-            logo: "/img/logo-womensday.png"
+            logo: "/img/logo/logo-womensday.png"
         },
         translations: {
             vi: {
@@ -119,7 +119,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-red-600 via-red-500 to-orange-500 dark:from-red-900 dark:via-red-800 dark:to-orange-800",
             iconColor: "text-yellow-400",
-            logo: "/img/logo-reunification.png"
+            logo: "/img/logo/logo-reunification.png"
         },
         translations: {
             vi: {
@@ -140,7 +140,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-sky-600 via-blue-500 to-indigo-500 dark:from-sky-900 dark:via-blue-800 dark:to-indigo-900",
             iconColor: "text-sky-200",
-            logo: "/img/logo-labor.png"
+            logo: "/img/logo/logo-labor.png"
         },
         translations: {
             vi: {
@@ -161,7 +161,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-red-600 via-red-500 to-red-400 dark:from-red-950 dark:via-red-900 dark:to-red-800",
             iconColor: "text-yellow-400",
-            logo: "/img/logo-national.png"
+            logo: "/img/logo/logo-national.png"
         },
         translations: {
             vi: {
@@ -182,7 +182,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-fuchsia-600 via-pink-500 to-rose-400 dark:from-fuchsia-900 dark:via-pink-800 dark:to-rose-800",
             iconColor: "text-pink-200",
-            logo: "/img/logo-womensday.png"
+            logo: "/img/logo/logo-vnwomensday.png"
         },
         translations: {
             vi: {
@@ -203,7 +203,7 @@ export const SPECIAL_EVENTS = [
         theme: {
             gradient: "from-emerald-600 via-green-500 to-red-500 dark:from-emerald-900 dark:via-green-900 dark:to-red-900",
             iconColor: "text-emerald-100",
-            logo: "/img/logo-christmas.png"
+            logo: "/img/logo/logo-christmas.png"
         },
         translations: {
             vi: {
