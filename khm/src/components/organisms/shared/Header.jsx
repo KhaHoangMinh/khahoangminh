@@ -113,12 +113,12 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
                 <div className="xl:hidden absolute top-full left-0 w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-xl animate-accordion-down max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto">
                     <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
                         {/* Contact Info for Mobile */}
-                        <div className="mb-4 pb-4 border-b border-slate-100 dark:border-slate-800 flex flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
+                        {/* <div className="mb-4 pb-4 border-b border-slate-100 dark:border-slate-800 flex flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
                             <a href="tel:+84976888999" className="flex items-center gap-3 hover:text-orange-600 transition-colors">
                                 <Phone className="w-4 h-4 text-orange-500" />
                                 <span>+84 976 888 999 | +84 979 866 162</span>
                             </a>
-                        </div>
+                        </div> */}
 
                         {mainNavigation.map((item) => (
                             <Link

@@ -94,14 +94,6 @@ export function Footer({ activeEvent }) {
                                 <Facebook className="w-5 h-5"/>
                             </a>
                         </div>
-
-                        {/*// Spotify (will remove later on)*/}
-                        {/*<iframe data-testid="embed-iframe" className="border-r-12"*/}
-                        {/*        src="https://open.spotify.com/embed/playlist/4JZEKl1YGM0IKxZpd80Ene?utm_source=generator&theme=5"*/}
-                        {/*        width="100%" height="152" frameBorder="0" allowFullScreen=""*/}
-                        {/*        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"*/}
-                        {/*        loading="lazy">*/}
-                        {/*</iframe>*/}
                     </div>
 
                     {/* Quick Links */}

@@ -13,10 +13,10 @@ export function CtaSection({ title, description }) {
             <div className="absolute inset-0 bg-[url('http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
             <div className="container mx-auto px-4 text-center relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
-                <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">{description}</p>
+                <p className="text-xl mb-8 text-blue-100">{description}</p>
                 <div className="flex flex-wrap gap-4 justify-center">
                     <Link to={createPageUrl('contact')}>
-                        <Button size="lg" variant="outline" className="bg-orange-600 hover:bg-orange-700 border-none text-white px-8 shadow-xl transition-all hover:scale-105">
+                        <Button size="lg" variant="outline" className="bg-orange-600 hover:bg-orange-700 border-none text-white px-8 hover:scale-105">
                             <Mail className="mr-2 w-5 h-5" />
                             {t('common.sendRequest')}
                         </Button>

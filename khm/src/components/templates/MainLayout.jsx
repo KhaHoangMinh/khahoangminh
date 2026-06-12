@@ -18,7 +18,7 @@ export function MainLayout({ children, currentPageName, activeEvent, onOpenSpeci
             />
             
             {/* Main Content */}
-            <main className="flex-grow pt-8 pb-16">
+            <main className="flex-grow">
                 {children}
             </main>
             

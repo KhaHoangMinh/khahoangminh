@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
 import typography from '@tailwindcss/typography'
 import tailwindAnimate from "tailwindcss-animate"
 
@@ -63,6 +64,10 @@ export default {
                     border: 'hsl(var(--sidebar-border))',
                     ring: 'hsl(var(--sidebar-ring))'
                 }
+            },
+            fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                serif: ['Lora', ...defaultTheme.fontFamily.serif],
             },
             keyframes: {
                 'accordion-down': {
