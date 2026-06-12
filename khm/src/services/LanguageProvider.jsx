@@ -57,6 +57,7 @@ export const translations = {
 
         /* --- 4. PAGES --- */
         homePage: {
+            trustedBy: 'Đối tác & Khách hàng tiêu biểu',
             hero: {
                 tagline: 'Uy tín - Chất lượng - Giá tốt',
                 title: 'NHÀ CUNG CẤP INOX',
@@ -763,6 +764,7 @@ export const translations = {
 
         /* --- 4. PAGES --- */
         homePage: {
+            trustedBy: 'Trusted by Top-Tier Partners & Clients',
             hero: {
                 tagline: 'Prestige - Quality - Good Price',
                 title: 'LEADING STAINLESS STEEL',

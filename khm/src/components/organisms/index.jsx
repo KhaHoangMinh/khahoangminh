@@ -8,6 +8,7 @@ export { SpecialEventModal } from './shared/SpecialEventModal';
 
 // Home Page
 export { PremiumHero } from './home/PremiumHero';
+export { LogoMarquee } from './home/LogoMarquee';
 export { AboutSection } from './home/AboutSection';
 export { ProductsSection } from './home/ProductsSection';
 export { FeaturesSection } from './home/FeaturesSection';

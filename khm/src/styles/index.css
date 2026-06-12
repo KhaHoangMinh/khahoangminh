@@ -107,3 +107,14 @@
 .animate-shimmer {
     animation: shimmer 1.5s ease-in-out infinite;
 }
+
+@layer utilities {
+    @keyframes marquee {
+        to { transform: translateX(-50%); }
+    }
+    
+    .animate-marquee {
+        /* Adjust to make it scroll faster or slower */
+        animation: marquee 40s linear infinite;
+    }
+}

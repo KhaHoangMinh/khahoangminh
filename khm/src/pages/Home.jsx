@@ -1,4 +1,4 @@
-import { PremiumHero, AboutSection, ProductsSection, FeaturesSection, CtaSection } from '@/components/organisms';
+import { PremiumHero, LogoMarquee , AboutSection, ProductsSection, FeaturesSection, CtaSection } from '@/components/organisms';
 import { useLanguage } from '@/services/LanguageProvider.jsx';
 
 export default function Home() {
@@ -34,6 +34,9 @@ export default function Home() {
                 badgeText={t('homePage.hero.tagline')}
                 backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
             />
+
+            {/* Logo Marquee */}
+            <LogoMarquee />
 
             {/* About Section */}
             <AboutSection 
