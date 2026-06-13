@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { SolarDate } from 'lunar-date-vn';
 import { SPECIAL_EVENTS } from '@/config';
 import { useLocalStorage } from '@/hooks';
@@ -44,8 +44,8 @@ export function useSpecialEvent() {
     }, [lastSeenDate, setLastSeenDate]);
 
     // Expose a manual trigger for the user to reopen it from the header
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const openModal  = useCallback(() => setIsModalOpen(true),  []);
+    const closeModal = useCallback(() => setIsModalOpen(false), []);
 
     return { activeEvent, isModalOpen, openModal, closeModal };
 }

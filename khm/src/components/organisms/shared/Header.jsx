@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Phone, Mail, Facebook, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, Mail, Facebook, Bell } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { mainNavigation } from '@/config';
@@ -84,10 +84,15 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
                     {activeEvent && (
                         <button 
                             onClick={onOpenSpecialEvent}
-                            className="p-2 mr-2 rounded-full bg-gradient-to-r from-orange-500/10 to-red-500/10 text-orange-600 hover:scale-110 transition-transform"
+                            className="relative p-2 mr-1 text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-500/10 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 group"
                             title={t(`${activeEvent.translationKey}.title`)}
+                            aria-label="View notifications"
                         >
-                            <Sparkles className="w-5 h-5 animate-pulse" />
+                            <Bell className="w-5 h-5 transition-transform group-hover:scale-110" />
+                            <span className="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 border border-white dark:border-slate-900"></span>
+                            </span>
                         </button>
                     )}
                     <LanguageToggle />
@@ -112,13 +117,6 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
             {mobileMenuOpen && (
                 <div className="xl:hidden absolute top-full left-0 w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-xl animate-accordion-down max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto">
                     <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
-                        {/* Contact Info for Mobile */}
-                        {/* <div className="mb-4 pb-4 border-b border-slate-100 dark:border-slate-800 flex flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
-                            <a href="tel:+84976888999" className="flex items-center gap-3 hover:text-orange-600 transition-colors">
-                                <Phone className="w-4 h-4 text-orange-500" />
-                                <span>+84 976 888 999 | +84 979 866 162</span>
-                            </a>
-                        </div> */}
 
                         {mainNavigation.map((item) => (
                             <Link
