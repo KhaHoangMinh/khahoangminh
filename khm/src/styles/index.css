@@ -117,4 +117,19 @@
         /* Adjust to make it scroll faster or slower */
         animation: marquee 40s linear infinite;
     }
+
+    @keyframes marquee-ltr-seamless {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-ltr {
+        animation: marquee-ltr-seamless 10s linear infinite;
+
+        will-change: transform;
+        
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        -webkit-font-smoothing: antialiased;
+    }
 }

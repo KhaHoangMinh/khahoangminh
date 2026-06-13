@@ -278,7 +278,7 @@ export const SPECIAL_EVENTS = [
         id: 'christmas',
         type: 'solar',
         month: 12,
-        days: [24, 25],   // Christmas Eve + Christmas Day
+        days: [25],   // Christmas Eve + Christmas Day
         theme: {
             gradient: 'from-[#0d2b1a] via-[#143d24] to-[#0a1e12]',
             titleGradient: 'from-emerald-400 to-red-400',

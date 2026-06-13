@@ -1,27 +1,64 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Phone, Mail, Facebook, Bell } from 'lucide-react';
+import { Menu, X, Phone, Mail, Facebook, Bell, Sparkles } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { mainNavigation } from '@/config';
 
 export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     // Determine which logo to show
     const currentLogo = activeEvent?.theme?.logo || "/img/logo/logo.png";
+    
+    const currentLang = language === 'en' ? 'en' : 'vi';
+    const eventQuote = activeEvent?.translations?.[currentLang]?.quote;
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             {/* Top Bar */}
             <div className="bg-slate-900 text-slate-200 py-2 text-xs hidden lg:block">
                 <div className="container mx-auto px-4 flex justify-between items-center">
-                    <p className="flex items-center gap-2">
+                    {/* Left: Welcome Message */}
+                    <p className="flex items-center gap-2 shrink-0">
                         <span className="bg-orange-600 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">KHM</span>
                         <img src="/img/vietnamFlag.png" alt="VN Flag" className="h-6"/>
                         {t('header.welcomeMessage')}
                     </p>
+
+                    {/* Middle: Scrolling Event Quote */}
+                    {eventQuote && (
+                        <div 
+                            className="flex-1 mx-8 relative h-6 overflow-hidden flex items-center"
+                            style={{ 
+                                maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                                WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' 
+                            }}
+                        >
+                            <div className="flex min-w-max animate-marquee-ltr" aria-hidden="false">
+                                {[0, 1].map((i) => (
+                                    <span key={i} className="flex items-center gap-3 pr-16">
+                                        <Sparkles
+                                            className="w-3 h-3 shrink-0"
+                                            style={{ color: activeEvent?.theme?.accentHex || '#fb923c' }}
+                                        />
+                                        <span
+                                            className={`font-serif text-[13px] tracking-wide font-medium whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r ${activeEvent?.theme?.titleGradient || 'from-orange-300 to-amber-400'}`}
+                                        >
+                                            {eventQuote}
+                                        </span>
+                                        <Sparkles
+                                            className="w-3 h-3 shrink-0"
+                                            style={{ color: activeEvent?.theme?.accentHex || '#fb923c' }}
+                                        />
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Right: Contact Info */}
                     <div className="flex items-center gap-6">
                         <a href="tel:+84979866162" className="flex items-center gap-2 hover:text-white transition-colors">
                             <Phone className="w-3 h-3" />
