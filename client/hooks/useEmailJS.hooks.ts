@@ -14,8 +14,8 @@ export async function sendEmail(formData: ContactFormData) {
 
     try {
         return await emailJS.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
             emailParams
         );
     } catch (error) {
