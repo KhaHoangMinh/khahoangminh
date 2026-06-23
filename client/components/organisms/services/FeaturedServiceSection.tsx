@@ -49,6 +49,8 @@ export function FeaturedServiceSection({ badge, title, highlight, description, f
                         <Image
                             src={image}
                             alt={title}
+                            width={800}
+                            height={600}
                             loading="lazy"
                             className="rounded-2xl shadow-2xl w-full object-cover"
                         />

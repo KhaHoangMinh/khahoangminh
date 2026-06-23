@@ -47,6 +47,8 @@ export function CompanyInfoSection({ established, fullName, subtitle, intro1, in
                         <Image
                             src="http://khahoangminh.com.vn/upload/hinhanh/979d4c471bd530505eb18b1892246371-9428_579x400.jpg"
                             alt="Kha Hoàng Minh Main"
+                            width={800}
+                            height={600}
                             loading="lazy"
                             className="rounded-2xl shadow-2xl w-full object-cover"
                         />
@@ -54,12 +56,16 @@ export function CompanyInfoSection({ established, fullName, subtitle, intro1, in
                             <Image
                                 src="http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%201.jpg"
                                 alt="Facility"
+                                width={600}
+                                height={400}
                                 loading="lazy"
                                 className="rounded-lg shadow-lg w-full h-40 object-cover"
                             />
                             <Image
                                 src="http://khahoangminh.com.vn/upload/news/co%CC%82ng%20ty%20inox%20kha%20hoa%CC%80ng%20minh%203.jpg"
                                 alt="Warehouse"
+                                width={600}
+                                height={400}
                                 loading="lazy"
                                 className="rounded-lg shadow-lg w-full h-40 object-cover"
                             />

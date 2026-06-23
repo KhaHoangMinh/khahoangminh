@@ -5,13 +5,13 @@ import { useLanguage } from '@/services';
 import Image from 'next/image';
 
 const PARTNERS = [
-    { name: "POSCO", logo: "/img/partners/posco.pngn" },
-    { name: "HYUNDAI STEEL", logo: "/img/partners/hyundai_steel.pngn" },
-    { name: "COTECCONS", logo: "/img/partners/coteccons.pngn" },
-    { name: "VINGROUP", logo: "/img/partners/vingroup.pngn" },
-    { name: "VINAMILK", logo: "/img/partners/vinamilk.pngn" },
-    { name: "PETROVIETNAM", logo: "/img/partners/petrovietnam.pngn" },
-    { name: "SONHA", logo: "/img/partners/sonha.pngn" },
+    { name: "POSCO", logo: "/img/partners/posco.png" },
+    { name: "HYUNDAI STEEL", logo: "/img/partners/hyundai_steel.png" },
+    { name: "COTECCONS", logo: "/img/partners/coteccons.png" },
+    { name: "VINGROUP", logo: "/img/partners/vingroup.png" },
+    { name: "VINAMILK", logo: "/img/partners/vinamilk.png" },
+    { name: "PETROVIETNAM", logo: "/img/partners/petrovietnam.png" },
+    { name: "SONHA", logo: "/img/partners/sonha.png" },
 ];
 
 export function LogoMarquee() {
@@ -45,7 +45,8 @@ export function LogoMarquee() {
                                 <Image 
                                     src={partner.logo} 
                                     alt={`${partner.name} logo`} 
-                                    // object-contain prevents stretching
+                                    width={200}
+                                    height={100}
                                     className="w-full h-full object-contain filter drop-shadow-sm" 
                                     onError={(e) => {
                                         e.currentTarget.onerror = null;

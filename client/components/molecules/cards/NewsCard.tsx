@@ -22,6 +22,8 @@ export function NewsCard({ news, readMoreText }: NewsCardProps) {
                 <Image
                     src={news.image}
                     alt={news.title}
+                    width={800}
+                    height={600}
                     loading="lazy"
                     className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 />

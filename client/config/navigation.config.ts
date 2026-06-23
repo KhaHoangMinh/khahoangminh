@@ -5,7 +5,7 @@ export interface NavigationItem {
 }
 
 export const mainNavigation = [
-    { translationKey: 'nav.home', pageKey: 'home', href: '/' },
+    { translationKey: 'nav.home', pageKey: '', href: '/' },
     { translationKey: 'nav.about', pageKey: 'about', href: '/about' },
     { translationKey: 'nav.products', pageKey: 'products', href: '/products' },
     { translationKey: 'nav.services', pageKey: 'services', href: '/services' },

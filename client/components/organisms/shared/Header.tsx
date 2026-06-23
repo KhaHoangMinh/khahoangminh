@@ -94,6 +94,8 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                 <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
                     <Image
                         src={currentLogo}
+                        height={48}
+                        width={48}
                         className="w-12 h-12 sm:w-12 sm:h-12 transition-all duration-500"
                         alt='logo'
                         onError={(e) => {

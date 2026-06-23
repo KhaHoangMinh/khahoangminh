@@ -1,7 +1,7 @@
 "use client";
 
 import React, {useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Phone, Mail, MapPin, ReceiptText } from 'lucide-react';
 import {FaFacebook} from 'react-icons/fa';
 import { createPageUrl } from '@/lib';
@@ -84,6 +84,8 @@ export function Footer({ activeEvent }: FooterProps) {
                                 <Image 
                                     src={currentLogo} 
                                     className="w-14 h-14 sm:w-14 sm:h-14 transition-all duration-500" 
+                                    height={56}
+                                    width={56}
                                     alt='logo'
                                     onError={(e) => {
                                         const target = e.currentTarget;
@@ -112,7 +114,7 @@ export function Footer({ activeEvent }: FooterProps) {
                         <ul className="space-y-3">
                             {mainNavigation.slice(0, 5).map((item) => (
                                 <li key={item.pageKey}>
-                                    <Link to={createPageUrl(item.pageKey)} className="text-slate-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2">
+                                    <Link href={createPageUrl(item.pageKey)} className="text-slate-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2">
                                         <span className="w-1 h-1 rounded-full bg-orange-500" />
                                         {t(item.translationKey)}
                                     </Link>
@@ -174,7 +176,7 @@ export function Footer({ activeEvent }: FooterProps) {
                             <p className="flex items-center gap-3">
                                 {legalNavigation.map((item, index) => (
                                     <React.Fragment key={item.pageKey}>
-                                        <Link to={createPageUrl(item.pageKey)} className="hover:text-orange-400 transition-colors">
+                                        <Link href={createPageUrl(item.pageKey)} className="hover:text-orange-400 transition-colors">
                                             {t(item.translationKey)}
                                         </Link>
                                         {index < legalNavigation.length - 1 && <span className="text-slate-600">|</span>}

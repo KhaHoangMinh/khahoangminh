@@ -21,6 +21,8 @@ export function ProjectCard({ project, viewDetailsText }: ProjectCardProps) {
                 <Image
                     src={project.image}
                     alt={project.title}
+                    width={800}
+                    height={600}
                     loading="lazy"
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />

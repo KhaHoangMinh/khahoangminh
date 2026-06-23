@@ -23,6 +23,7 @@ export function LegalPageHero({ badgeText, badgeIcon: BadgeIcon, title1, title2,
                     src={backgroundImage} 
                     alt="Background" 
                     fetchPriority="high"
+                    fill
                     className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay"
                 />
             )}

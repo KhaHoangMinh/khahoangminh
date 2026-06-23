@@ -46,7 +46,9 @@ export function AboutSection({ intro, name, desc1, desc2, quote }: AboutSectionP
                         <Image
                             src="/img/assets/home/khm-01.jpg"
                             alt={name}
-                            loading="lazy"
+                            width={800}
+                            height={800}
+                            loading="eager"
                             className="relative rounded-3xl shadow-2xl w-full object-cover transform transition-transform duration-500"
                         />
                     </div>

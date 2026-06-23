@@ -18,6 +18,8 @@ export function PremiumHero({ title, subtitle, description, badgeText, backgroun
                 src={backgroundImage} 
                 alt="Background" 
                 fetchPriority="high"
+                loading="eager"
+                fill
                 className="absolute inset-1 w-full h-full object-cover opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-transparent" />

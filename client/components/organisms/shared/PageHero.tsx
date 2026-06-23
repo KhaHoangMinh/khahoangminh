@@ -16,6 +16,7 @@ export function PageHero({ title, highlight, description, backgroundImage }: Pag
                 src={backgroundImage} 
                 alt="Hero Background" 
                 fetchPriority="high"
+                fill
                 className="absolute inset-0 w-full h-full object-cover opacity-10"
             />
             <div className="container mx-auto px-4 relative z-10">

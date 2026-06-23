@@ -722,7 +722,7 @@ export const translations: Record<string, any> = {
         /* --- 1. HEADER & NAVIGATION --- */
         nav: {
             home: 'HOME',
-            about: 'ABOUT US',
+            about: 'ABOUT',
             products: 'PRODUCTS',
             services: 'SERVICES',
             projects: 'PROJECTS',

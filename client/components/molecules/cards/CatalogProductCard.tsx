@@ -24,6 +24,8 @@ export function CatalogProductCard({ product, buttonText }: CatalogProductCardPr
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
+                    width={800}
+                    height={600}
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
