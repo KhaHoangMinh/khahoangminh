@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 type LanguageContextType = {
     language: string;
     toggleLanguage: () => void;
-    t: (path: string) => string;
+    t: <T = any>(path: string) => T;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

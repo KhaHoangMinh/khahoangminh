@@ -1,65 +1,72 @@
-import Image from "next/image";
+"use client";
+
+import { PremiumHero, LogoMarquee , AboutSection, ProductsSection, FeaturesSection, CtaSection } from '@/components/organisms';
+import { useLanguage } from '@/services';
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    const { t } = useLanguage();
+    const categories: any[] = t('productsPage.categoriesData') as any[];
+
+    // Dynamically map the categories to get their IDs for the links
+    const defaultImages = [
+        'http://khahoangminh.com.vn/upload/sanpham/cu%E1%BB%99n%20inox.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/t%E1%BA%A5m%20inox%202b.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/O%CC%82%CC%81NG%20INOX.jpg',
+        'http://khahoangminh.com.vn/upload/sanpham/phu%CC%A3%20kie%CC%A3%CC%82n%20inox%20kha%20hoang%20minh.jpg'
+    ];
+
+    const products = Array.isArray(categories)
+        ? categories.slice(0, 4).map((cat, index) => ({
+            id: cat.id,
+            name: cat.name,
+            image: defaultImages[index] || defaultImages[0],
+            page: 'products'
+        }))
+        : [];
+
+    const features = t('homePage.features.list') as string[] || [];
+
+    return (
+        <div className="min-h-screen">
+            {/* Hero Section */}
+            <PremiumHero 
+                title={t('homePage.hero.title')}
+                subtitle={t('homePage.hero.subtitle')}
+                description={t('homePage.hero.description')}
+                badgeText={t('homePage.hero.tagline')}
+                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            {/* Logo Marquee */}
+            <LogoMarquee />
+
+            {/* About Section */}
+            <AboutSection 
+                intro={t('homePage.about.intro')}
+                name={t('homePage.about.name')}
+                desc1={t('homePage.about.desc1')}
+                desc2={t('homePage.about.desc2')}
+                quote={t('homePage.about.quote')}
+            />
+
+            {/* Products Section */}
+            <ProductsSection 
+                title={t('homePage.products.title')}
+                description={t('homePage.products.description')}
+                products={products}
+            />
+
+            {/* Features Section */}
+            <FeaturesSection 
+                title={t('homePage.features.title')}
+                features={features}
+            />
+
+            {/* CTA Section */}
+            <CtaSection 
+                title={t('homePage.cta.title')}
+                description={t('homePage.cta.description')}
+            />
         </div>
-      </main>
-    </div>
-  );
+    );
 }
