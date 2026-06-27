@@ -100,5 +100,39 @@ Then start the production server:
 npm run start
 ```
 
+## 🐳 Docker Setup
+
+This project uses a multi-stage Docker build to create a highly optimized, production-ready Next.js image. The built-in Next.js Node server handles both Server-Side Rendering (SSR) and static asset delivery.
+
+### 1. Configure Environment Variables
+Create a `.env` file in the root directory (alongside `docker-compose.yml`) containing your API and EmailJS keys:
+
+```env
+NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY=your_public_key_here
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id_here
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id_here
+```
+
+### 2. Build and Run via Docker Compose
+Run the following command to build the image and start the container in detached mode:
+```bash
+docker-compose up -d --build
+```
+
+### 3. Access the Application
+Once the container is running, the application will be accessible on your host machine at: `http://localhost:3000`
+
+### 4. Container Management
+To view real-time logs for the client application:
+
+```bash
+docker-compose logs -f client
+```
+
+To stop the containers gracefully:
+```bash
+docker-compose down
+```
+
 ## 📄 License
 © Kha Hoang Minh Co., Ltd. All rights reserved.
