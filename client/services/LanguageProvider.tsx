@@ -43,6 +43,7 @@ export const translations: Record<string, any> = {
             followUs: 'KẾT NỐI VỚI CHÚNG TÔI',
             protection: 'Chính sách bảo vệ dữ liệu cá nhân',
             privacy: 'Chính sách quyền riêng tư',
+            terms: 'Điều khoản dịch vụ',
         },
 
         events: {
@@ -750,6 +751,7 @@ export const translations: Record<string, any> = {
             followUs: 'FOLLOW US',
             protection: 'Personal data protection',
             privacy: 'Privacy policy',
+            terms: 'Terms of service',
         },
 
         events: {

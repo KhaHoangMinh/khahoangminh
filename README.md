@@ -68,6 +68,7 @@ cd khahoangminh/khm
 2. Install dependencies:
 ```bash
 npm install
+npm i next
 ```
 
 3. Set up Environment Variables:
