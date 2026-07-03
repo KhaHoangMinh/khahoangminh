@@ -27,7 +27,7 @@ const PARTNERS = [
     { name: "VIETSOVPETRO", logo: "/img/partners/vietsovpetro.png" }, //
     { name: "SAB MILLER", logo: "/img/partners/sab_miller.png" }, //
     { name: "VEDAN", logo: "/img/partners/vedan.png" }, //
-    { name: "MASAN", logo: "/img/partners/masan.svg" }, //
+    { name: "MASAN", logo: "/img/partners/masan.png" }, //
     { name: "SABECO", logo: "/img/partners/sabeco.webp" } //
 
 ];
