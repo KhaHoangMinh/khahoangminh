@@ -28,8 +28,7 @@ export default function PersonalDataProtection() {
                 title1={t('protectionPage.hero.title1')}
                 title2={t('protectionPage.hero.title2')}
                 description={t('protectionPage.hero.desc')}
-                gradientClass="bg-gradient-to-r from-slate-900 to-blue-900"
-                backgroundImage={null} 
+                gradientClass="bg-gradient-to-r from-slate-900 to-blue-900" 
             />
 
             <div className="container mx-auto px-4 py-16">

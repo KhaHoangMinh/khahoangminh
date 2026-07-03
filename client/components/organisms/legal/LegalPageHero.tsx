@@ -29,12 +29,12 @@ export function LegalPageHero({ badgeText, badgeIcon: BadgeIcon, title1, title2,
             )}
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
-                    {badgeText && (
+                    {/* {badgeText && (
                         <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/50 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wider backdrop-blur-sm">
                             {BadgeIcon && <BadgeIcon className="w-4 h-4" />}
                             <span>{badgeText}</span>
                         </div>
-                    )}
+                    )} */}
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                         {title1} <span className="text-orange-500">{title2}</span>
                     </h1>
