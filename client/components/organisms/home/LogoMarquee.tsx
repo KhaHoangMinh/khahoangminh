@@ -5,30 +5,30 @@ import { useLanguage } from '@/services';
 import Image from 'next/image';
 
 const PARTNERS = [
-    // { name: "POSCO", logo: "/img/partners/posco.pngm" },
-    // { name: "HYUNDAI STEEL", logo: "/img/partners/hyundai_steel.pngm" },
-    { name: "COTECCONS", logo: "/img/partners/coteccons.pngm" }, //
-    // { name: "VINGROUP", logo: "/img/partners/vingroup.pngm" },
-    { name: "VINAMILK", logo: "/img/partners/vinamilk.pngm" }, //
-    { name: "PETROVIETNAM", logo: "/img/partners/petrovietnam.pngm" }, //
-    // { name: "SONHA", logo: "/img/partners/sonha.pngm" },
-    { name: "HEINEKEN", logo: "/img/partners/heineken.webpm" }, //
-    { name: "IMEXPHARM", logo: "/img/partners/imexpharm.pngm" }, //
-    { name: "REE", logo: "/img/partners/ree.pngm" }, //
-    { name: "TETRA PAK", logo: "/img/partners/tetra_pak.pngm" }, //
-    { name: "NESTLE", logo: "/img/partners/nestle.pngm" }, //
-    { name: "COCA-COLA", logo: "/img/partners/coca_cola.pngm" }, //
-    { name: "VINH HAO", logo: "/img/partners/vinhhao.pngm" }, //
-    { name: "BEL", logo: "/img/partners/bel.pngm" }, //
-    { name: "HUDA", logo: "/img/partners/huda.pngm" }, //
-    { name: "SANEST", logo: "/img/partners/sanest.pngm" }, //
-    { name: "SUNTORY PEPSICO", logo: "/img/partners/suntory_pepsico.pngm" }, //
-    { name: "AJINOMOTO", logo: "/img/partners/ajinomoto.webpm" }, //
-    { name: "VIETSOVPETRO", logo: "/img/partners/vietsovpetro.pngm" }, //
-    { name: "SAB MILLER", logo: "/img/partners/sab_miller.pngm" }, //
-    { name: "VEDAN", logo: "/img/partners/vedan.pngm" }, //
-    { name: "MASAN", logo: "/img/partners/masan.pngm" }, //
-    { name: "SABECO", logo: "/img/partners/sabeco.webpm" } //
+    // { name: "POSCO", logo: "/img/partners/posco.png" },
+    // { name: "HYUNDAI STEEL", logo: "/img/partners/hyundai_steel.png" },
+    { name: "COTECCONS", logo: "/img/partners/coteccons.png" }, //
+    // { name: "VINGROUP", logo: "/img/partners/vingroup.png" },
+    { name: "VINAMILK", logo: "/img/partners/vinamilk.png" }, //
+    { name: "PETROVIETNAM", logo: "/img/partners/petrovietnam.png" }, //
+    // { name: "SONHA", logo: "/img/partners/sonha.png" },
+    { name: "HEINEKEN", logo: "/img/partners/heineken.webp" }, //
+    { name: "IMEXPHARM", logo: "/img/partners/imexpharm.png" }, //
+    { name: "REE", logo: "/img/partners/ree.png" }, //
+    { name: "TETRA PAK", logo: "/img/partners/tetra_pak.png" }, //
+    { name: "NESTLE", logo: "/img/partners/nestle.png" }, //
+    { name: "COCA-COLA", logo: "/img/partners/coca_cola.png" }, //
+    { name: "VINH HAO", logo: "/img/partners/vinhhao.png" }, //
+    { name: "BEL", logo: "/img/partners/bel.png" }, //
+    { name: "HUDA", logo: "/img/partners/huda.png" }, //
+    { name: "SANEST", logo: "/img/partners/sanest.png" }, //
+    { name: "SUNTORY PEPSICO", logo: "/img/partners/suntory_pepsico.png" }, //
+    { name: "AJINOMOTO", logo: "/img/partners/ajinomoto.webp" }, //
+    { name: "VIETSOVPETRO", logo: "/img/partners/vietsovpetro.png" }, //
+    { name: "SAB MILLER", logo: "/img/partners/sab_miller.png" }, //
+    { name: "VEDAN", logo: "/img/partners/vedan.png" }, //
+    { name: "MASAN", logo: "/img/partners/masan.svg" }, //
+    { name: "SABECO", logo: "/img/partners/sabeco.webp" } //
 
 ];
 
@@ -65,7 +65,7 @@ export function LogoMarquee() {
                                     alt={`${partner.name} logo`} 
                                     width={300}
                                     height={100}
-                                    className="w-full h-full object-contain filter drop-shadow-sm" 
+                                    className="max-w-full max-h-full w-auto h-auto object-contain filter grayscale contrast-125 opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
                                     onError={(e) => {
                                         e.currentTarget.onerror = null;
                                         e.currentTarget.style.display = 'none';
