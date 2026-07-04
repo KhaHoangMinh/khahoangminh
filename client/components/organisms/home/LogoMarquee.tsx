@@ -57,24 +57,22 @@ export function LogoMarquee() {
                         {PARTNERS.map((partner, index) => (
                             <div 
                                 key={`${set}-${index}`} 
-                                // Bounding box for logos to keep them uniform
-                                className="group flex items-center justify-center w-32 md:w-44 h-16 md:h-20 transition-all duration-300 opacity-60 hover:opacity-100 hover:scale-105 cursor-default"
+                                className="group relative flex items-center justify-center w-32 md:w-44 h-16 md:h-20 transition-all duration-300 opacity-60 hover:opacity-100 hover:scale-105 cursor-default"
                             >
                                 <Image 
                                     src={partner.logo} 
                                     alt={`${partner.name} logo`} 
-                                    width={300}
-                                    height={100}
-                                    className="max-w-full max-h-full w-auto h-auto object-contain filter grayscale contrast-125 opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
+                                    fill
+                                    sizes="(max-width: 768px) 8rem, 11rem"
+                                    className="object-contain p-2 filter grayscale contrast-125 opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
                                     onError={(e) => {
-                                        e.currentTarget.onerror = null;
                                         e.currentTarget.style.display = 'none';
                                         if (e.currentTarget.nextElementSibling) {
                                             (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block';
                                         }
                                     }}
                                 />
-                                {/* Fallback Text (Hidden by default, shown via the onError handler above) */}
+                                {/* Fallback Text */}
                                 <span className="hidden text-xl md:text-2xl font-black text-slate-800 dark:text-slate-200 tracking-tighter whitespace-nowrap">
                                     {partner.name}
                                 </span>
