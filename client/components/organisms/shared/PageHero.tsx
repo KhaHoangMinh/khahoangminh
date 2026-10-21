@@ -18,6 +18,7 @@ export function PageHero({ title, highlight, description, backgroundImage }: Pag
                 fetchPriority="high"
                 fill
                 className="absolute inset-0 w-full h-full object-cover opacity-10"
+                loading="eager"
             />
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
