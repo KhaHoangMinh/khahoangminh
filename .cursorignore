@@ -1,0 +1,6 @@
+# Cursor AI ignore file
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
