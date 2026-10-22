@@ -19,14 +19,15 @@ export function useSpecialEvent() {
 
         const solar = new SolarDate(today);
         const lunar = solar.toLunarDate();
+        const lunarInfo = lunar ? lunar.get() : null;
 
         // Find matching event
         const currentEvent = SPECIAL_EVENTS.find(event => {
             if (event.type === 'solar') {
                 return event.month === solarMonth && event.days.includes(solarDay);
             }
-            if (event.type === 'lunar') {
-                return event.month === lunar.month && event.days.includes(lunar.day);
+            if (event.type === 'lunar' && lunarInfo) {
+                return event.month === lunarInfo.month && event.days.includes(lunarInfo.day);
             }
             return false;
         });

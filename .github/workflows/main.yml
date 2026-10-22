@@ -25,7 +25,7 @@ jobs:
             git checkout production
             git pull origin production
 
-            docker build -t client-starter ./client
+            docker build --pull -t client-starter ./client
             docker stop client-starter-container || true
             docker rm client-starter-container || true
             docker run -d --name client-starter-container -p 3000:3000 client-starter

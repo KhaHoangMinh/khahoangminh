@@ -43,7 +43,7 @@ export default function RootLayout({
                 />
             </head>
             {/* Inject font variables into the body */}
-            <body className={`${inter.variable} ${lora.variable} antialiased font-sans`}>
+            <body className={`${inter.variable} ${lora.variable} antialiased font-sans`} suppressHydrationWarning>
                 <Providers>
                     <ContextMenuBlocker />
                     <ClientLayoutWrapper>
