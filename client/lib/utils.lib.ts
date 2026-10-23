@@ -5,6 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function createPageUrl(pageName: string) {
-    return '/' + pageName.replace(/ /g, '-'); 
+export function createPageUrl(pageName?: string) {
+    if (!pageName || pageName === 'home' || pageName === '/') return '/';
+    const cleanPath = pageName.replace(/^\/+/, '').replace(/ /g, '-');
+    return `/${cleanPath}`;
 }

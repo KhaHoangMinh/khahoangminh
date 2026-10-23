@@ -11,7 +11,7 @@ interface ServiceFeatureCardProps {
 
 export function ServiceFeatureCard({ icon: Icon, title, description, features }: ServiceFeatureCardProps) {
     return (
-        <Card className="h-full group card-khm overflow-hidden bg-orange-50/20">
+        <Card className="h-full group card-khm overflow-hidden bg-orange-50/20 dark:bg-[#182234]">
             <CardContent className="p-6 sm:p-7 flex flex-col h-full">
                 <div className="w-14 h-14 mb-5 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-md shadow-orange-500/20 group-hover:scale-110 transition-transform">
                     {Icon && <Icon className="w-7 h-7 text-white" />}

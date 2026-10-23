@@ -48,7 +48,7 @@ export function Footer({ activeEvent }: FooterProps) {
                                 </span>
                             </div>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed">
+                        <p className="text-slate-300 dark:text-slate-200 text-sm leading-relaxed">
                             {t('footer.description')}
                         </p>
                         <div className="flex gap-3">
@@ -74,7 +74,7 @@ export function Footer({ activeEvent }: FooterProps) {
                                 <li key={item.pageKey}>
                                     <Link
                                         href={createPageUrl(item.pageKey)}
-                                        className="text-slate-400 hover:text-orange-400 transition-colors text-sm flex items-center gap-2.5 group"
+                                        className="text-slate-300 hover:text-orange-400 transition-colors text-sm flex items-center gap-2.5 group"
                                     >
                                         <span className="w-1.5 h-1.5 rounded-full bg-orange-500/70 group-hover:bg-orange-400 group-hover:scale-125 transition-all" />
                                         <span>{t(item.translationKey)}</span>
@@ -109,7 +109,7 @@ export function Footer({ activeEvent }: FooterProps) {
                             </li>
                             <li className="flex items-start gap-3">
                                 <ReceiptText className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
-                                <span className="text-slate-400">{t('footer.receiptNumber')}</span>
+                                <span className="text-slate-300 dark:text-slate-200">{t('footer.receiptNumber')}</span>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,7 @@ export function Footer({ activeEvent }: FooterProps) {
                 </div>
 
                 <div className="border-t border-slate-800/80 pt-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-slate-400">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-slate-300 dark:text-slate-200">
                         <p className="text-center md:text-left">
                             &copy; 2016 - {new Date().getFullYear()} {t('footer.companyName')}. All rights reserved.
                         </p>

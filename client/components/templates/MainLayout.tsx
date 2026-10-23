@@ -11,7 +11,7 @@ interface MainLayoutProps {
 
 export function MainLayout({ children, currentPageName, activeEvent, onOpenSpecialEvent }: MainLayoutProps) {
     return (
-        <div className="min-h-dvh bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors flex flex-col">
+        <div className="min-h-dvh bg-white dark:bg-[#0B0F17] text-slate-900 dark:text-slate-50 transition-colors flex flex-col">
             {/* Header */}
             <Header 
                 currentPageName={currentPageName} 

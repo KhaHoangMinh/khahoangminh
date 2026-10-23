@@ -19,7 +19,7 @@ export default function Projects() {
     const typicalClientsList = t('projectsPage.capabilitiesSection.typicalClients.list') as string[];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('projectsPage.hero.title')}
                 highlight={t('projectsPage.hero.highlight')}

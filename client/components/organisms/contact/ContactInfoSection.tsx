@@ -63,18 +63,18 @@ export function ContactInfoSection() {
 
                 <div className="grid grid-cols-1 gap-3.5">
                     <ActionRedirectCard 
-                        label="Social Media"
+                        label={t('contactPage.socialLabel') || "Social Media"}
                         title="Facebook"
-                        subtitle="Kết nối với chúng tôi"
+                        subtitle={t('contactPage.socialConnect') || "Kết nối với chúng tôi"}
                         icon={FaFacebook}
                         link="https://www.facebook.com/inoxkhahoangminh"
                         isExternal={true}
                         colorTheme="amber"
                     />
                     <ActionRedirectCard 
-                        label="Support"
-                        title="Liên Hệ"
-                        subtitle="Gửi yêu cầu trực tiếp"
+                        label={t('contactPage.directSupportLabel') || "Support"}
+                        title={t('contactPage.directSupportTitle') || "Liên Hệ"}
+                        subtitle={t('contactPage.directSupportSubtitle') || "Gửi yêu cầu trực tiếp"}
                         icon={Mail}
                         link={createPageUrl('contact')}
                         isExternal={false}

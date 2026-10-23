@@ -250,7 +250,7 @@ export function SpecialEventModal({ event, isOpen, onClose }: SpecialEventModalP
 
             {/* Modal Container */}
             <div 
-                className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-[2rem] shadow-2xl bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10"
+                className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-[2rem] shadow-2xl bg-white dark:bg-[#182234] border border-slate-200/70 dark:border-slate-700/80 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]"
                 style={{ animation: 'se-scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
             >
                 {/* Close Button - Floats top right */}
@@ -290,7 +290,7 @@ export function SpecialEventModal({ event, isOpen, onClose }: SpecialEventModalP
                     </div>
 
                     {/* ── RIGHT PANE: Content Area ── */}
-                    <div className="relative md:w-7/12 p-8 md:p-12 flex flex-col justify-center bg-white dark:bg-slate-900">
+                    <div className="relative md:w-7/12 p-8 md:p-12 flex flex-col justify-center bg-white dark:bg-[#182234]">
                         
                         {/* Eyebrow Badge */}
                         <div className="mb-6 flex">
@@ -312,7 +312,7 @@ export function SpecialEventModal({ event, isOpen, onClose }: SpecialEventModalP
                         />
 
                         {/* Quote/Message */}
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-medium mb-10">
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed font-medium mb-10">
                             {translations.quote}
                         </p>
 

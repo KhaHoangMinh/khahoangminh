@@ -1,127 +1,148 @@
-# UI/UX Design Rules — Kha Hoàng Minh (MANDATORY)
+---
+trigger: always_on
+---
 
-> Every coding agent MUST read this file before creating or editing any UI (pages, components, CSS, Tailwind config, copy layout).
-> If a request conflicts with this file, follow this file and tell the user why.
+# Kha Hoàng Minh — Senior UI/UX Engineering & Design System Rules (MANDATORY)
 
-Role: act as an elite product designer, not a template generator. The site belongs to **Kha Hoàng Minh**, a Vietnamese stainless-steel (inox) supplier: coils, sheets, pipes, fittings. The audience is B2B buyers (contractors, factories). The design must feel like a **trusted industrial trade catalog**, not a SaaS landing page.
+> **Authority**: Every coding agent and developer MUST read and strictly follow this document before creating or modifying any UI code (`client/app/`, `client/components/`, `client/app/globals.css`, `client/tailwind.config.ts`).
 
 ---
 
-## 0. Workflow Gate (non-negotiable)
+## 1. Core Philosophy: Senior UI/UX Developer vs. "AI Slop"
 
-1. **Token sheet first.** Before building or restyling any page, output ONE clean style guide + token system (colors, spacing, type scale, corners, shadows, motion) and wait for user approval.
-2. Once approved, tokens live in a single source of truth (`client/app/globals.css` CSS variables / Tailwind theme). Components may only reference tokens. No ad-hoc hex, px, or font values in components.
-3. Do not build full pages until the token sheet is approved. Small fixes to existing components may follow existing tokens.
-4. Before finishing, run the **Anti-AI Checklist** (section 9) and state the result.
+The website represents **Kha Hoàng Minh (KHM)**, a premier Vietnamese B2B industrial stainless-steel (*Inox*) supplier and CNC processing center (coils, sheets, pipes, fittings in grades SUS 304, 316, 201, 430). Our audience consists of B2B buyers, construction contractors, M&E engineers, and manufacturing plants.
+
+Every screen must reflect the precision of a **Senior UI/UX Developer & Design Systems Engineer**, never a generic AI-generated template.
+
+| Dimension | Generic "AI Slop" (BANNED) | Senior UI/UX Engineering (REQUIRED) |
+|---|---|---|
+| **Dark Mode** | Blindly inverting everything to flat `slate-950` (`#020617`) so cards, sections, and footers bleed together; unreadable `slate-400` gray body text. | **4-Tier Luminance Hierarchy**: Deeper canvas (`#0B0F17`), brushed steel bands (`#111827`), anodized cards (`#182234`) with top-edge specular highlights, and crisp `slate-50`/`slate-200` text. |
+| **Visual Assets & Logos** | Dumping uncropped PNGs of wildly different aspect ratios into a single fixed box; leaving opaque colored rectangles or invisible dark-ink logos on dark backgrounds. | **Optical Normalization**: Alpha-trimming transparent padding (`sharp`), scaling by aspect-ratio category (`square`, `standard`, `wide`, `ultrawide`), and framing logos on a studio-lit platinum stage (`#F1F5F9`). |
+| **Code & Styling** | Copy-pasting 15-class Tailwind strings across 20 files; inventing random spacing/colors per component. | **Strict DRY Token System**: Reusing semantic utilities (`.surface-canvas`, `.surface-band-alt`, `.card-khm`, `.section-frame-*`, `.heading-*`, `.text-*`) defined once in `client/app/globals.css`. |
+| **Domain Voice** | SaaS startup clichés (purple/neon glows, floating 3D blobs, fake user counters, generic stock avatars). | **Industrial Authority**: Brushed steel & molten weld-orange palette, real product/facility imagery, clear technical specs (SUS grades, CNC capabilities, CO/CQ), and instant B2B quotation access. |
 
 ---
 
-## 1. Core Vibe
+## 2. Multi-Viewport & Proportional Framing System
 
-- Anchor: **mid-century industrial trade catalog meets Swiss editorial print** — think a printed metals-supplier spec booklet: ruled lines, numbered sections, spec tables, tight captions, real material photography.
-- Voice of the interface: factual, precise, confident. Show specs (grade 201/304/316, thickness, finish 2B/BA/HL/No.4, standard) instead of adjectives.
-- FORBIDDEN vibes: "modern, clean, sleek, futuristic, startup, premium SaaS, glassmorphism, neon, cyberpunk".
-- Structure comes from **hairline rules (1px), grid alignment, and type scale**, not from cards, shadows and gradients.
+Every page must be engineered mobile-first from `360px` up to `1920px+` ultra-wide monitors with zero horizontal scroll and intentional vertical rhythm.
 
-## 2. Typography
+### 2.1 Breakpoint Matrix
 
-All fonts MUST support Vietnamese (subsets `latin`, `latin-ext`, `vietnamese`). Verify diacritics render (ặ, ữ, ỳ, ợ, ế) before approving.
-
-| Role | Font | Notes |
+| Breakpoint | Viewport Range | Layout, Grid & Interaction Rules |
 |---|---|---|
-| Headings (display) | **Fraunces** (variable, opsz axis) | Tight tracking (-0.02em), weights 400–600, large sizes only |
-| Body / UI | **Be Vietnam Pro** | 400/500/600; designed for Vietnamese |
-| Specs / labels / numbers | **IBM Plex Mono** | Uppercase small labels, table figures, section numbers |
+| **Base (Mobile)** | `360px – 639px` | Single-column flow (`grid-cols-1`), `px-4` container gutters, stacked full-width CTAs (`w-full sm:w-auto`), minimum `44×44px` touch targets, collapsible drawer menu. |
+| **`sm` (Phablet)** | `640px – 767px` | 2-column card grids (`sm:grid-cols-2`), inline CTA button groups (`sm:flex-row`), `px-6` container gutters. |
+| **`md` (Tablet)** | `768px – 1023px` | 2-column workspace splits (`md:grid-cols-2`), horizontal footer bar, scaled-up headings. |
+| **`lg` (Laptop)** | `1024px – 1279px` | 12-column asymmetric splits (`lg:grid-cols-12` using `7/5` or `6/6` ratios), 3-to-4 column card grids (`lg:grid-cols-3` / `lg:grid-cols-4`), full desktop top bar + navigation (`px-8`). |
+| **`xl` / `2xl` (Desktop)** | `1280px – 1920px+` | Content locked inside `.container-khm` (`max-w-7xl` / `1280px` centered) so body copy never exceeds 70–75 characters per line. |
 
-- **BANNED**: Inter, Roboto, Arial, Helvetica, system-ui, `sans-serif` as the primary font, Open Sans, Poppins, Montserrat, Space Grotesk, default Geist.
-- Load via `next/font` (self-hosted, `display: swap`, include `vietnamese` subset). Never hotlink Google Fonts CSS.
-- Type scale (ratio ≈ 1.25, fluid via `clamp`): 12 / 14 / 16 / 20 / 25 / 31 / 39 / 49 / 61 / 76 px. Body 16–18px, line-height 1.6; headings line-height 1.05–1.15.
-- Max 3 sizes visible per section. Max 2 weights per family on a page.
-- Body line length 60–72 characters. Never center-align paragraphs longer than 2 lines.
-- Headings: sentence case in Vietnamese. No ALL-CAPS headings (mono labels may be uppercase). No gradient text. No emoji in headings.
+### 2.2 Viewport Budget & Section Framing Utilities (`client/app/globals.css`)
 
-## 3. Color
+Never use arbitrary vertical padding (`py-16`, `py-20`, `py-24`) on page sections. Always use the standardized viewport framing classes so sections fit proportionally within the user's screen:
 
-Grounded in the real material: brushed stainless steel, warm shop-paper, and a welding-torch accent. No gradients as decoration.
+1. **`.container-khm`** (`container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`): Mandatory horizontal container for all section content.
+2. **`.section-hero-compact`** (`py-7 sm:py-9 lg:py-11`): Used for inner-page heroes (`PageHero`, `LegalPageHero`, ~18–22dvh) so the Hero + first content section appear together in the first viewport frame.
+3. **`.section-frame-half`** (`py-8 sm:py-10 lg:py-12`): Used for standard content sections (`AboutSection`, `ProductsSection`, `FeaturesSection`, `ServicesGridSection`, `CoreValuesSection`) so **2 complementary sections fit in 1 desktop viewport** without dead space.
+4. **`.section-frame-full`** (`py-9 sm:py-12 lg:py-14`): Used for full-page interactive workspaces (`ProductCatalogSection`, `Contact` 3-column workspace, `NewsGridSection`).
 
-| Token | Hex | Use |
-|---|---|---|
-| `--bg` (dominant) | `#ECEAE4` | Page background (warm steel-paper, NOT pure white) |
-| `--bg-alt` | `#DEDBD3` | Alternate bands, table zebra |
-| `--surface-dark` | `#16181B` | Dark bands, footer, hero overlay base |
-| `--text` | `#16181B` | Primary text (contrast ≥ 12:1 on `--bg`) |
-| `--text-muted` | `#5A5D62` | Secondary text (≥ 4.5:1 on `--bg`) |
-| `--rule` | `#B9B6AD` | 1px hairlines, borders |
-| `--accent` | `#D9480F` | **Primary CTA only** (weld-orange) |
-| `--accent-hover` | `#B93A09` | CTA hover/active |
+---
 
-Rules:
-- `--accent` is used **strictly for primary CTAs** (one per viewport) and the keyboard focus ring. Not for icons, headings, badges, links, borders, or decoration.
-- Links: `--text` with underline (2px offset). Secondary buttons: outline `--text`, no fill.
-- **BANNED**: indigo/purple/violet/blue-to-pink gradients, glowing orbs/blobs, mesh gradients, neon glows, `backdrop-blur` glass panels, colored drop shadows, rainbow borders, pure `#000`/`#fff` backgrounds.
-- Success/error states may use muted green `#2F6B3F` / red `#A32121` only inside forms.
-- Dark mode is not required; if added, derive from the same tokens, don't invert blindly.
+## 3. Color Palette & 4-Tier Dual-Theme Surface Architecture
 
-## 4. Layout & Grammar
+Kha Hoàng Minh uses a dual-theme industrial palette:
+- **Light Mode ("Warm Industrial Daylight")**: Crisp white canvas, warm shop-amber alternating bands, and high-visibility weld-orange accents.
+- **Dark Mode ("Brushed Gunmetal & Weld-Orange")**: Layered metallic gunmetal surfaces where **higher elevation = lighter surface luminance + top specular edge highlight**.
 
-- **12-column grid**, max content width 1280px, gutters 24px (mobile 16px). Align everything to it.
-- Use **asymmetry**: e.g. 5/7 or 4/8 splits, text hanging in the left margin, large numerals/section index (`01 — Sản phẩm`) in mono, images bleeding to a viewport edge.
-- Section separation by **1px rules and spacing**, not by colored boxes.
-- Spacing scale (8px base): 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128. Section vertical padding 96–128px desktop, 64px mobile. Use only these values.
-- Negative space must be intentional: one idea per viewport-height block, no filler.
-- **BANNED page template**: centered hero + floating pill badge → 3 identical icon cards → logo wall → FAQ accordion → footer. Also banned: three-column equal feature cards with icon-in-circle, "Trusted by" logo marquee as a standalone strip, stat counters row (`10K+ users`) without real data, testimonial carousel with stock avatars, gradient CTA banner.
-- Preferred patterns: spec table of products (grade / size / finish / standard), numbered process list, product catalog index with large type rows, real-project gallery with captions (location, quantity, grade), contact block with real address/phone/Zalo map.
-- Hero: left-aligned headline (max 12 words), one primary CTA + one text link, real photo/video occupying asymmetrical area. No badge above the headline.
+### 3.1 Surface Hierarchy Tokens (`client/app/globals.css`)
 
-## 5. Components
+| Tier | Token / Utility Class | Light Mode | Dark Mode (Brushed Gunmetal) | Mandatory Usage Rule |
+|---|---|---|---|---|
+| **Tier 0** | `.surface-canvas` | `#FFFFFF` (`bg-white`) + `border-slate-200/70` | `#0B0F17` (Deep Gunmetal) + `border-slate-800/90` | Primary page canvas & odd-numbered sections. |
+| **Tier 1** | `.surface-band-alt` | `#FFF7ED` (`bg-orange-50/40`) + `border-orange-100/80` | `#111827` (Brushed Charcoal Steel) + `border-slate-800/90` | Even-numbered alternating sections. **Never place two Tier 0 or two Tier 1 sections back-to-back without a border or band shift.** |
+| **Tier 2** | `.card-khm` | `#FFFFFF` + `border-slate-200/85` + `shadow-sm` | `#182234` (Anodized Steel) + `border-slate-700/80` + top specular edge `inset 0 1px 0 rgba(255,255,255,0.08)` | All interactive cards (`ProductCard`, `ServiceFeatureCard`, `ValueCard`, `ProjectCard`, `NewsCard`, `ContactFormSection`). |
+| **Tier 3** | Nested Sub-Surfaces & Inputs | `bg-slate-50` / `bg-slate-100` | Inputs: `#0B0F17` (`border-slate-700`)<br>Callouts/Tabs: `#182234` or `#111827` | Form inputs inside `.card-khm` must be recessed (`#0B0F17`); callouts/tabs inside sections must be lifted. |
+| **Tier 4** | `.surface-cta-industrial` & Footer | CTA: `from-orange-600 via-orange-500 to-amber-500`<br>Footer: `#070A10` | CTA: `from-[#26130A] via-[#161F30] to-[#0F172A]` + `border-t-orange-500/45` + radial copper glow<br>Footer: `#070A10` (Deep Obsidian) | CTA bands (`CtaSection`, `SimpleCtaSection`, `ContactBannerSection`) must use `.surface-cta-industrial` so they stand apart from the `#070A10` footer. |
 
-- **Corners**: radius `0` for images, tables, cards; `2px` for buttons and inputs. Nothing above `4px`. No pill buttons, no fully rounded cards.
-- **Borders over shadows**: default elevation = 1px `--rule` border. Shadows only for floating layers (dropdown, modal): `0 8px 24px rgba(22,24,27,.12)`. No glow, no multi-layer "soft" shadows on cards.
-- **Buttons**: height 48px (mobile tap target ≥ 44px), padding 0 24px, font Be Vietnam Pro 600 16px, no icon-bubble arrows, no gradient. Hover = color shift to `--accent-hover` (120ms), no scale/bounce.
-- **Cards**: avoid. Prefer ruled list rows. If a card is justified, it has no shadow, no radius, image + caption + spec line.
-- **Tables**: real `<table>`, mono numerals, right-aligned numbers, sticky header, horizontal scroll wrapper on mobile.
-- **Forms**: visible labels above fields (never placeholder-only), 1px border, inline error text, `autocomplete` attributes, Vietnamese error messages.
-- **Icons**: only functional (menu, phone, arrow, close), one stroke family (1.5px, Lucide OK), never inside colored circles/squares as decoration. No emoji as icons.
-- **Navigation**: text links, current page underlined, a single CTA button ("Nhận báo giá"). Mobile: full-height sheet, not a tiny dropdown.
+### 3.2 Typography & Contrast Rules (WCAG 2.2 AA / AAA)
 
-## 6. Visual Assets
+Vietnamese diacritics (`ặ`, `ữ`, `ỳ`, `ợ`, `ế`) require high luminance contrast and clean line-height (`1.5–1.65`) to remain effortless to read.
 
-- **Use reality**: real photographs of the actual products (coils, sheets, pipes, fittings, warehouse, cutting/polishing operations, delivered projects) — high-contrast, natural light, no heavy filters. Or a real 15–20s muted looping video of the workshop/warehouse.
-- **BANNED**: AI-generated or abstract 3D blobs, glossy 3D shapes, isometric tech illustrations, stock handshake/laptop photos, gradient meshes, decorative grid/dot backgrounds, floating mockup cards.
-- Existing remote images (`khahoangminh.com.vn/upload/...`) may be used temporarily but are over `http` and unoptimized: mirror into `client/public/images/`, use `next/image` with explicit `width/height` or `fill`+`sizes`, descriptive Vietnamese `alt`. Never leave a gray placeholder box; if no image exists, ask the user for one.
-- Image treatment: consistent aspect ratios (3:2 or 4:5), no rounded corners, caption in mono under the image.
+| Utility Class | Scale & Weight | Light Mode Color | Dark Mode Color | Contrast & Usage |
+|---|---|---|---|---|
+| `.heading-display` | `text-3xl` → `lg:text-6xl font-extrabold leading-[1.15]` | `text-slate-900` (`#0F172A`) | `dark:text-slate-50` (`#F8FAFC`) | Home page main hero `<h1>` only. |
+| `.heading-hero` | `text-3xl` → `md:text-5xl font-bold leading-[1.2]` | `text-slate-900` (`#0F172A`) | `dark:text-slate-50` (`#F8FAFC`) | Inner page `PageHero` & `LegalPageHero` `<h1>`. |
+| `.heading-section` | `text-2xl` → `md:text-4xl font-bold leading-tight` | `text-slate-900` (`#0F172A`) | `dark:text-slate-50` (`#F8FAFC`) | Primary section `<h2>` headings (18.2:1 contrast). |
+| `.heading-card` | `text-lg sm:text-xl font-bold leading-snug` | `text-slate-900` (`#0F172A`) | `dark:text-slate-50` (`#F8FAFC`) | Card titles `<h3>`. |
+| `.text-lead` | `text-base sm:text-lg leading-relaxed` | `text-slate-600` (`#475569`) | `dark:text-slate-200` (`#E2E8F0`) | Section subtitles (13.5:1 contrast). |
+| `.text-body` | `text-sm sm:text-base leading-relaxed` | `text-slate-700` (`#334155`) | `dark:text-slate-200` (`#E2E8F0`) | All body paragraphs, card descriptions, and list items. |
+| `.badge-khm` | `text-xs font-semibold uppercase tracking-wider` | `bg-orange-500/15 text-orange-700 border-orange-500/35` | `dark:bg-orange-500/20 dark:text-orange-300 dark:border-orange-400/45` | Section eyebrows and industrial spec tags. |
 
-## 7. Motion
+> [!CAUTION]
+> **STRICT DARK MODE BAN**: Never use `dark:text-slate-400` or `dark:text-slate-500` for body copy, card descriptions, or list items. Always use `dark:text-slate-200` (`#E2E8F0`) or `dark:text-slate-100` (`#F1F5F9`) so dark mode is as crisp and readable as light mode.
 
-- Purposeful only: 120–200ms ease-out for hover/focus; one subtle fade/translate-up (≤ 12px, 400ms) on section entry, once.
-- **BANNED**: parallax everywhere, floating/bobbing elements, infinite pulsing glows, cursor-follow effects, typewriter headlines, auto-scrolling marquees, scroll-jacking, bounce/spring on buttons.
-- Respect `prefers-reduced-motion: reduce` (disable all non-essential motion).
+---
 
-## 8. Content, Accessibility, Performance
+## 4. UI Pattern & Atomic Design Architecture
 
-- **Copy**: Vietnamese-first, specific and factual (grade, size, standard, delivery area, MOQ). All strings through the existing `useLanguage()` / `t()` i18n service; no hardcoded text in components. Banned filler: "Revolutionize", "Elevate", "Seamless", "Unleash", "Cutting-edge", "Next-gen", "Tailored solutions", "Welcome to".
-- Never invent statistics, certifications, clients, or testimonials. Use only data provided by the user; otherwise leave the section out and ask.
-- **Accessibility (WCAG 2.2 AA)**: contrast per tokens, visible focus ring (2px `--accent`, 2px offset), semantic landmarks, one `<h1>` per page and ordered headings, labels on all inputs, keyboard-operable nav, alt text, tap targets ≥ 44px, never convey meaning by color alone.
-- **Responsive**: design mobile-first at 360px; test 360 / 768 / 1280 / 1920. No horizontal scroll. Asymmetric layouts must collapse to a single column with preserved hierarchy.
-- **Performance**: LCP image prioritized, fonts self-hosted, no layout shift (reserve image space), total JS minimal; avoid heavy animation libraries for simple effects.
-- **SEO**: unique `<title>` and meta description per page (Vietnamese), `lang="vi"`, OpenGraph tags, `LocalBusiness`/`Product` JSON-LD where data exists.
+All UI code inside `client/` must follow a strict 5-layer **Atomic Design Architecture** with unidirectional dependencies:
 
-## 9. Anti-AI Checklist (run before declaring done)
+```
+atoms/ ──► molecules/ ──► organisms/ ──► templates/ ──► app/[route]/page.tsx
+```
 
-Answer each; any "yes" to a banned item must be fixed.
+### 4.1 Layer Responsibilities
 
-- [ ] Any banned font (Inter/Roboto/Arial/Helvetica/system) in use?
-- [ ] Any gradient, glow, blob, glass blur, or purple/indigo tone?
-- [ ] Accent color used anywhere other than primary CTA/focus ring?
-- [ ] Centered hero with badge, or 3 equal icon cards, or standalone logo strip?
-- [ ] Border radius > 4px, pill shapes, or soft shadow cards?
-- [ ] Any value outside the token scales (color, spacing, size)?
-- [ ] Any placeholder, abstract, or AI-generated imagery, or invented statistics?
-- [ ] Hardcoded text bypassing i18n? Missing alt text? Vietnamese diacritics broken?
-- [ ] Does it look like it could be any company's site if the logo were swapped? (If yes, add specific product/spec/photo content.)
-- [ ] Reduced-motion and mobile (360px) verified?
+1. **`client/components/atoms/` (Primitives)**:
+   - Low-level building blocks (`Button`, `Card`, `Input`, `Textarea`, `Tabs`, `Badge`, `Dialog`, `Sheet`).
+   - **Rule**: Zero business logic, zero hardcoded translations, zero page-specific layout margins.
+2. **`client/components/molecules/` (Stateless Composites)**:
+   - Grouped by domain role: `cards/`, `forms/`, `media/`, `navigation/` (e.g., `ProductCard`, `CatalogProductCard`, `ServiceFeatureCard`, `FeatureCard`, `ScopeCard`, `SearchBar`, `ActionButtonGroup`).
+   - **Rule**: Combine 2–4 atoms into a single reusable unit. Accept clean TypeScript props. Use `.card-khm` for card elevation.
+3. **`client/components/organisms/` (Domain Sections)**:
+   - Grouped by feature/page: `home/`, `about/`, `products/`, `services/`, `projects/`, `careers/`, `contact/`, `news/`, `legal/`, `shared/` (e.g., `Header`, `Footer`, `PageHero`, `SimpleCtaSection`, `PremiumHero`, `LogoMarquee`, `ProductCatalogSection`).
+   - **Rule**: Every section organism must use one framing class (`.section-frame-half`, `.section-frame-full`, or `.section-hero-compact`), one surface class (`.surface-canvas`, `.surface-band-alt`, or `.surface-cta-industrial`), and wrap content in `.container-khm`.
+4. **`client/components/templates/` (Page Shells)**:
+   - Structural wrappers (`MainLayout`, `BlogLayout`) managing persistent header/footer/sidebar placement.
+5. **`client/app/[route]/page.tsx` (Thin Route Controllers)**:
+   - **Rule**: Route files may only fetch/map translation data via `useLanguage()` / `t()` and compose Organisms. **Never write raw card grids or complex section markup directly inside `page.tsx`.**
 
-## 10. Output Rule
+### 4.2 Optical Asset & Partner Logo Engineering Standard
 
-Step 1 → output the token sheet (colors, spacing, type scale, corners, borders/shadows, motion) as a single document or `/design` preview page, and **stop for approval**.
-Step 2 → after approval, implement section by section, reusing tokens and updating existing components in `client/components/` instead of creating near-duplicates.
+Whenever displaying brand/partner logos (such as in `LogoMarquee.tsx`) or technical product photography:
+1. **Tight Alpha Bounding Box**: Every logo file in `client/public/img/partners/` must have a transparent background (`alpha = 0` at corners) and be tightly cropped to its non-transparent pixels (`alpha > 15` via `sharp`) so no file contains hidden whitespace padding.
+2. **Optical Aspect-Ratio Normalization ($R = \text{Width} / \text{Height}$)**: Never render square emblems and ultra-wide wordmarks inside the same inner box. Map each logo to its optical category so visual ink area remains constant (~2,600–3,200 px²):
+   - `square` ($R \le 1.25$): `w-[68px] h-[36px] sm:w-[76px] sm:h-[38px]`
+   - `standard` ($1.25 < R \le 2.2$): `w-[92px] h-[32px] sm:w-[102px] sm:h-[34px]`
+   - `wide` ($2.2 < R \le 3.5$): `w-[108px] h-[27px] sm:w-[118px] sm:h-[29px]`
+   - `ultrawide` ($R > 3.5$): `w-[120px] h-[22px] sm:w-[130px] sm:h-[24px]`
+3. **Studio-Lit Platinum Optical Stage**: Because industrial corporate logos use dark navy, black, red, and green ink, always mount logos on a studio-lit light/platinum stage (`bg-slate-50/85 dark:bg-[#F1F5F9]`) paired with a dark gunmetal metadata caption bar (`dark:bg-[#182234]`) rather than applying `grayscale` on a dark background.
+
+---
+
+## 5. Strict DRY (Don't Repeat Yourself) Principles
+
+1. **CSS Utility DRY (`client/app/globals.css`)**:
+   - Never copy-paste long strings of surface, border, shadow, or typography utilities across multiple components.
+   - Always use `.container-khm`, `.section-frame-full`, `.section-frame-half`, `.section-hero-compact`, `.surface-canvas`, `.surface-band-alt`, `.card-khm`, `.surface-cta-industrial`, `.heading-display`, `.heading-hero`, `.heading-section`, `.heading-card`, `.text-lead`, `.text-body`, and `.badge-khm`.
+   - If a new styling combination is needed in 3 or more places, define a semantic utility class in `@layer components` inside `client/app/globals.css`.
+2. **Component DRY & Barrel Imports**:
+   - Before creating any new component, search `client/components/molecules/` and `client/components/organisms/shared/`. Reuse or extend existing components (`PageHero`, `SimpleCtaSection`, `ActionButtonGroup`, `ScopeCard`, `ValueCard`) via props instead of creating near-duplicate files.
+   - Always import through barrel files (`@/components/atoms`, `@/components/molecules`, `@/components/organisms`, `@/services`, `@/config`, `@/lib`, `@/hooks`), never deep relative paths (`../../../components/...`).
+3. **Data & Localization DRY (`useLanguage()` / `t()`)**:
+   - Zero hardcoded Vietnamese or English copy in UI components. All user-facing strings, product categories, and navigation items must come from `client/services/` (`useLanguage`) and `client/config/`.
+
+---
+
+## 6. Mandatory Pre-Delivery Senior UI/UX Verification Checklist
+
+Before declaring any UI task complete, run through this checklist and verify every item:
+
+- [ ] **1. Surface Hierarchy**: Do adjacent sections alternate cleanly between `.surface-canvas` (`#0B0F17` dark) and `.surface-band-alt` (`#111827` dark), and do all cards use `.card-khm` (`#182234` dark with top specular highlight)?
+- [ ] **2. Dark Mode Readability**: Is all body and description text in dark mode using `dark:text-slate-200` / `dark:text-slate-50` (with zero unreadable `dark:text-slate-400`/`500` paragraphs)?
+- [ ] **3. CTA Separation**: Do bottom CTA sections use `.surface-cta-industrial` so they stand apart visually from the `#070A10` footer in both Light and Dark Mode?
+- [ ] **4. Multi-Viewport Framing**: Are sections using `.section-frame-half`, `.section-frame-full`, or `.section-hero-compact` inside `.container-khm`, and do layouts scale cleanly at `360px`, `768px`, `1024px`, `1280px`, and `1920px`?
+- [ ] **5. Optical Asset Balance**: Are all images using `next/image` with explicit `sizes` and `alt` attributes, and are partner logos alpha-cropped and optically normalized by aspect ratio?
+- [ ] **6. Atomic & DRY Compliance**: Are route `page.tsx` files thin controllers, are barrel imports used, and are zero hardcoded strings bypassing `useLanguage()` / `t()`?
+- [ ] **7. Accessibility & Motion**: Do interactive controls have `≥ 44px` mobile tap targets, visible focus rings, and `prefers-reduced-motion: reduce` support for animations?
+- [ ] **8. Production Build**: Does `npm run build` in `client/` pass with zero TypeScript, ESLint, or Tailwind CSS errors?

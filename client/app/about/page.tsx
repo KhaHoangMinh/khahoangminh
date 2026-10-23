@@ -41,7 +41,7 @@ export default function About() {
     const serviceList = t('aboutPage.scope.services.list') as string[];
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('aboutPage.hero.title')}
                 highlight={t('aboutPage.hero.subtitle')}

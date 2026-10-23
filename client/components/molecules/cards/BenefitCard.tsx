@@ -10,7 +10,7 @@ interface BenefitCardProps {
 
 export function BenefitCard({ icon: Icon, title, description }: BenefitCardProps) {
     return (
-        <Card className="h-full card-khm group bg-orange-50/20">
+        <Card className="h-full card-khm group bg-orange-50/20 dark:bg-[#182234]">
             <CardContent className="p-6 text-center flex flex-col items-center h-full">
                 <div className="w-14 h-14 mb-4 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-md shadow-orange-500/20 group-hover:scale-110 transition-transform">
                     {Icon && <Icon className="w-7 h-7 text-white" />}

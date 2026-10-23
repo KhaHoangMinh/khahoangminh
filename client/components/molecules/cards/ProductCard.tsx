@@ -21,7 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
     const { t } = useLanguage();
 
     return (
-        <Card className="h-full flex flex-col group overflow-hidden card-khm bg-slate-50/70">
+        <Card className="h-full flex flex-col group overflow-hidden card-khm bg-slate-50/70 dark:bg-[#182234]">
             <div className="relative h-48 sm:h-52 overflow-hidden">
                 <Image
                     src={product.image}

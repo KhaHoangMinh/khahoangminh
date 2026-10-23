@@ -22,7 +22,7 @@ export default function Services() {
     const processSteps = t('servicesPage.process.steps') as any[];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('servicesPage.hero.title')}
                 highlight={t('servicesPage.hero.highlight')}

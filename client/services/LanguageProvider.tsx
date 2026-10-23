@@ -499,6 +499,8 @@ export const translations: Record<string, any> = {
                 messageRequired: 'Nội dung phải có ít nhất 10 ký tự.'
             },
             button: 'Gửi yêu cầu',
+            sending: 'Đang gửi...',
+            sendError: 'Không thể gửi tin nhắn. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline.',
             successMessage: 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.',
             infoTitle: 'Thông tin liên hệ',
             infoAddress: 'Địa chỉ',
@@ -507,7 +509,12 @@ export const translations: Record<string, any> = {
             infoHours: 'Giờ làm việc',
             workingHoursText1: 'Thứ 2 - Thứ 6: 8:00 - 17:00',
             workingHoursText2:'Thứ 7: 8:00 - 12:00',
-            supportTitle: 'Hỗ trợ khách hàng'
+            supportTitle: 'Hỗ trợ khách hàng',
+            socialLabel: 'Mạng xã hội',
+            socialConnect: 'Kết nối với chúng tôi',
+            directSupportLabel: 'Hỗ trợ',
+            directSupportTitle: 'Liên Hệ Trực Tiếp',
+            directSupportSubtitle: 'Gửi yêu cầu trực tiếp'
         },
         pageNotFound: {
             subtitle: 'Không tìm thấy trang',
@@ -1207,6 +1214,8 @@ export const translations: Record<string, any> = {
                 messageRequired: 'Message must be at least 10 characters.'
             },
             button: 'Send Request',
+            sending: 'Sending...',
+            sendError: 'Failed to send message. Please try again later or contact us directly via hotline.',
             successMessage: 'Thank you for contacting us! We will respond as soon as possible.',
             infoTitle: 'Contact Information',
             infoAddress: 'Address',
@@ -1215,7 +1224,12 @@ export const translations: Record<string, any> = {
             infoHours: 'Working Hours',
             workingHoursText1: 'Mon - Fri: 8:00 - 17:00',
             workingHoursText2: 'Sat: 8:00 - 12:00',
-            supportTitle: 'Customer Support'
+            supportTitle: 'Customer Support',
+            socialLabel: 'Social Media',
+            socialConnect: 'Connect with us on Facebook',
+            directSupportLabel: 'Support',
+            directSupportTitle: 'Direct Inquiry',
+            directSupportSubtitle: 'Send a direct request'
         },
         pageNotFound: {
             subtitle: 'Page Not Found',

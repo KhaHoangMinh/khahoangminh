@@ -39,7 +39,7 @@ export default function Careers() {
     const cultureList = t('careersPage.culture.list') as string[];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('careersPage.hero.title')}
                 highlight={t('careersPage.hero.highlight')}

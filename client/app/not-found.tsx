@@ -13,7 +13,7 @@ export default function PageNotFound() {
     const pageName = pathname.substring(1);
 
     const quickLinks = [
-        { name: t('nav.home'), path: 'home', icon: Home, desc: t('pageNotFound.links.home') },
+        { name: t('nav.home'), path: '', icon: Home, desc: t('pageNotFound.links.home') },
         { name: t('nav.products'), path: 'products', icon: Package, desc: t('pageNotFound.links.products') },
         { name: t('nav.services'), path: 'services', icon: Construction, desc: t('pageNotFound.links.services') },
         { name: t('nav.projects'), path: 'projects', icon: Briefcase, desc: t('pageNotFound.links.projects') },
@@ -22,7 +22,7 @@ export default function PageNotFound() {
     ];
 
     return (
-        <div className="section-frame-full bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="section-frame-full bg-white dark:bg-[#0B0F17] flex flex-col items-center justify-center relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute -top-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full bg-amber-500/10 blur-[100px]" />
@@ -66,8 +66,8 @@ export default function PageNotFound() {
 
                     {/* Right Column: Helpful Links Grid */}
                     <div className="w-full">
-                        <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
-                            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-5 flex items-center gap-2">
+                        <div className="card-khm rounded-2xl p-6 sm:p-8 shadow-xl">
+                            <h3 className="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-5 flex items-center gap-2">
                                 <Search className="w-4 h-4 text-orange-500" />
                                 {t('pageNotFound.quickLinksTitle')}
                             </h3>
@@ -77,16 +77,16 @@ export default function PageNotFound() {
                                     <Link
                                         key={link.name}
                                         href={createPageUrl(link.path)}
-                                        className="group flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/50 hover:border-orange-500/40 hover:shadow-md transition-all duration-200"
+                                        className="group flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 dark:bg-[#111827] border border-slate-200/60 dark:border-slate-700/80 hover:border-orange-500/50 hover:shadow-md transition-all duration-200"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center shrink-0 group-hover:bg-orange-500/15 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors border border-slate-200/60 dark:border-slate-700">
+                                        <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#182234] text-slate-700 dark:text-slate-200 flex items-center justify-center shrink-0 group-hover:bg-orange-500/15 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors border border-slate-200/60 dark:border-slate-700">
                                             <link.icon className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <div className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                                            <div className="text-sm font-bold text-slate-900 dark:text-slate-50 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                                                 {link.name}
                                             </div>
-                                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                            <div className="text-xs text-slate-600 dark:text-slate-200 mt-0.5">
                                                 {link.desc}
                                             </div>
                                         </div>

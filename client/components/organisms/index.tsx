@@ -48,9 +48,11 @@ export { NewsGridSection } from './news/NewsGridSection';
 export { ContactFormSection } from './contact/ContactFormSection';
 export { ContactInfoSection } from './contact/ContactInfoSection';
 export { LocationMap } from './contact/LocationMap';
+export { ContactWorkspaceSection } from './contact/ContactWorkspaceSection';
 
 // Legal Page
 export { LegalPageHero } from './legal/LegalPageHero';
 export { LegalSidebarNav } from './legal/LegalSidebarNav';
 export { PrivacyContent } from './legal/PrivacyContent';
 export { TermsContent } from './legal/TermsContent';
+export { ProtectionContent } from './legal/ProtectionContent';

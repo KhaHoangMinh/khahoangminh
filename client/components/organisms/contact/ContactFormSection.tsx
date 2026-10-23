@@ -36,7 +36,7 @@ export function ContactFormSection() {
             setStatus({ type: 'success', message: t('contactPage.successMessage') || 'Message sent successfully!' });
             setFormData({ name: '', phone: '', email: '', message: '' });
         } catch {
-            setStatus({ type: 'error', message: "Failed to send message. Please try again later." });
+            setStatus({ type: 'error', message: t('contactPage.sendError') || "Failed to send message. Please try again later." });
         } finally {
             setIsSending(false);
         }
@@ -129,7 +129,7 @@ export function ContactFormSection() {
                         disabled={isSending}
                     >
                         {isSending ? <Loader2 className="mr-2 w-5 h-5 animate-spin" /> : <Send className="mr-2 w-5 h-5" />}
-                        {isSending ? 'Sending...' : t('contactPage.button')}
+                        {isSending ? (t('contactPage.sending') || 'Sending...') : t('contactPage.button')}
                     </Button>
                 </form>
             </CardContent>

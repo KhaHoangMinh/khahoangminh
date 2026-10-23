@@ -131,7 +131,9 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                 {/* Laptop & Desktop Menu */}
                 <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main Navigation">
                     {mainNavigation.map((item) => {
-                        const isActive = currentPageName === item.pageKey;
+                        const isActive = item.pageKey === '' 
+                            ? (currentPageName === '' || currentPageName === 'home') 
+                            : (currentPageName === item.pageKey);
                         return (
                             <Link
                                 key={item.pageKey}
@@ -197,11 +199,13 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
 
             {/* Mobile/Tablet Menu Overlay */}
             {mobileMenuOpen && (
-                <div className="lg:hidden absolute top-full left-0 w-full border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-950/98 backdrop-blur-xl shadow-2xl animate-accordion-down max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-5rem)] overflow-y-auto">
+                <div className="lg:hidden absolute top-full left-0 w-full border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-[#0B0F17]/98 backdrop-blur-xl shadow-2xl animate-accordion-down max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-5rem)] overflow-y-auto">
                     <div className="container-khm py-4 flex flex-col gap-1.5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                             {mainNavigation.map((item) => {
-                                const isActive = currentPageName === item.pageKey;
+                                const isActive = item.pageKey === '' 
+                                    ? (currentPageName === '' || currentPageName === 'home') 
+                                    : (currentPageName === item.pageKey);
                                 return (
                                     <Link
                                         key={item.pageKey}
@@ -209,7 +213,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                                         className={`px-4 py-3 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
                                             isActive
                                                 ? 'bg-orange-600 text-white shadow-sm'
-                                                : 'text-slate-700 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-slate-900 hover:text-orange-600 dark:hover:text-orange-400'
+                                                : 'text-slate-700 dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-[#182234] hover:text-orange-600 dark:hover:text-orange-300'
                                         }`}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
@@ -222,7 +226,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
 
                         <div className="h-px bg-slate-200 dark:bg-slate-800 my-2" />
 
-                        <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-1 text-xs text-slate-600 dark:text-slate-400">
+                        <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-1 text-xs text-slate-600 dark:text-slate-200">
                             <a href="tel:+84979866162" className="flex items-center gap-2 font-medium hover:text-orange-600 dark:hover:text-orange-400">
                                 <Phone className="w-3.5 h-3.5 text-orange-500" />
                                 <span>0979.866.162 | 0976.888.999</span>

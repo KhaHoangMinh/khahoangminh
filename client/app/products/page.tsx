@@ -24,7 +24,7 @@ export default function Products() {
     };
 
     return (
-        <div className="min-h-dvh bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-dvh bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('productsPage.hero.title')}
                 highlight={t('productsPage.hero.highlight')}

@@ -12,7 +12,7 @@ export default function News() {
     const newsItems = t('newsPage.list') as any[];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-white dark:bg-[#0B0F17]">
             <PageHero 
                 title={t('newsPage.hero.title')}
                 highlight={t('newsPage.hero.highlight')}
