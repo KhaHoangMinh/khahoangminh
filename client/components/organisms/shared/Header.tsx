@@ -41,6 +41,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                             width={20}
                             height={14}
                             className="h-3.5 w-auto object-contain rounded-[2px]"
+                            style={{ width: 'auto', height: 'auto' }}
                         />
                         <span className="text-slate-700 dark:text-slate-300">{t('header.welcomeMessage')}</span>
                     </p>
