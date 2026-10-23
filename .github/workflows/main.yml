@@ -1,0 +1,31 @@
+name: KhaHoangMinh Website Deployment
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Website using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+
+          # # Pass the env variables into the remote SSH session
+          # envs: EMAIL_JS_PUBLIC_KEY,EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID
+
+          script: |
+            cd /root/services/deploy-kha-hoang-minh
+            git fetch --origin
+            git checkout production
+            git pull origin production
+
+            docker build --pull -t client-starter ./client
+            docker stop client-starter-container || true
+            docker rm client-starter-container || true
+            docker run -d --name client-starter-container -p 3000:3000 client-starter

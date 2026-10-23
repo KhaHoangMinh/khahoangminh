@@ -1,0 +1,265 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 20.5 90.2% 48.2%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 37.7 92.1% 50.2%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 20.5 90.2% 48.2%;
+        --chart-1: 20.5 90.2% 48.2%;
+        --chart-2: 37.7 92.1% 50.2%;
+        --chart-3: 215.4 16.3% 46.9%;
+        --chart-4: 24.6 95% 53.1%;
+        --chart-5: 43.3 96.4% 56.3%;
+        --radius: 0.75rem;
+        --sidebar-background: 210 40% 98%;
+        --sidebar-foreground: 222.2 47.4% 11.2%;
+        --sidebar-primary: 20.5 90.2% 48.2%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 24.6 95% 96%;
+        --sidebar-accent-foreground: 20.5 90.2% 40%;
+        --sidebar-border: 214.3 31.8% 91.4%;
+        --sidebar-ring: 20.5 90.2% 48.2%;
+    }
+
+    .dark {
+        --background: 220 35% 6.7%;
+        --foreground: 210 40% 98%;
+        --card: 219 37% 14.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 219 37% 14.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 24.6 95% 53.1%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 217.2 32.6% 19.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 18.5%;
+        --muted-foreground: 214 25% 76%;
+        --accent: 43.3 96.4% 56.3%;
+        --accent-foreground: 220 35% 6.7%;
+        --destructive: 0 62.8% 35.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 216 28% 24%;
+        --input: 216 28% 24%;
+        --ring: 24.6 95% 53.1%;
+        --chart-1: 24.6 95% 53.1%;
+        --chart-2: 43.3 96.4% 56.3%;
+        --chart-3: 215 20.2% 65.1%;
+        --chart-4: 20.5 90.2% 48.2%;
+        --chart-5: 37.7 92.1% 50.2%;
+        --sidebar-background: 219 37% 12%;
+        --sidebar-foreground: 210 40% 98%;
+        --sidebar-primary: 24.6 95% 53.1%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 217.2 32.6% 19.5%;
+        --sidebar-accent-foreground: 24.6 95% 68%;
+        --sidebar-border: 216 28% 24%;
+        --sidebar-ring: 24.6 95% 53.1%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    body {
+        @apply font-sans antialiased bg-white dark:bg-[#0B0F17] text-slate-900 dark:text-slate-50 selection:bg-orange-500/20 selection:text-orange-600 dark:selection:bg-orange-500/30 dark:selection:text-orange-300;
+        text-rendering: optimizeLegibility;
+    }
+
+    img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+}
+
+/* Standardized Responsive Viewport Framing, Surface Tokens & Typography Utilities */
+@layer components {
+    .container-khm {
+        @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+    }
+
+    /* 1-Section Viewport Frame (Catalog, Contact Workspace, Full-Page Grids) */
+    .section-frame-full {
+        @apply py-9 sm:py-12 lg:py-14 flex flex-col justify-center;
+    }
+
+    /* 2-Section Viewport Frame (Proportional spacing so 2 sections fit in 1 viewport without dead space) */
+    .section-frame-half {
+        @apply py-8 sm:py-10 lg:py-12 flex flex-col justify-center;
+    }
+
+    /* Inner Page Compact Hero (~18-22dvh so Hero + First Section fit together in Frame 1) */
+    .section-hero-compact {
+        @apply py-7 sm:py-9 lg:py-11 flex flex-col justify-center;
+    }
+
+    /* Brushed Gunmetal & Weld-Orange Semantic Surfaces */
+    .surface-canvas {
+        @apply bg-white dark:bg-[#0B0F17] border-b border-slate-200/70 dark:border-slate-800/90 transition-colors;
+    }
+
+    .surface-band-alt {
+        @apply bg-orange-50/40 dark:bg-[#111827] border-b border-orange-100/80 dark:border-slate-800/90 transition-colors;
+    }
+
+    .card-khm {
+        @apply bg-white dark:bg-[#182234] border border-slate-200/85 dark:border-slate-700/80 shadow-sm dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:shadow-xl dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_10px_24px_-8px_rgba(0,0,0,0.5)] hover:border-orange-500/45 dark:hover:border-orange-400/55 dark:hover:bg-[#1C283D] transition-all duration-300 relative;
+    }
+
+    .surface-cta-industrial {
+        @apply bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 dark:from-[#1F120B] dark:via-[#161F30] dark:to-[#0F172A] text-white border-t border-orange-500/30 dark:border-t-orange-500/45 relative overflow-hidden;
+    }
+
+    /* Metallic Sheen Glide on Hover */
+    .sheen-overlay {
+        @apply absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 dark:via-white/[0.08] to-transparent pointer-events-none z-10;
+        will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .sheen-overlay {
+            display: none;
+        }
+    }
+
+    /* Monospaced Technical Specification Chip */
+    .chip-tech {
+        @apply inline-flex items-center gap-1 font-mono text-[11px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-slate-100 dark:bg-[#111827] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700;
+    }
+
+    /* Precision Blueprint Grid & Corner Brackets */
+    .blueprint-grid {
+        background-image: linear-gradient(to right, rgba(234, 88, 12, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(234, 88, 12, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+    .dark .blueprint-grid {
+        background-image: linear-gradient(to right, rgba(251, 146, 60, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(251, 146, 60, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .blueprint-corner-tl {
+        @apply absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-tr {
+        @apply absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-bl {
+        @apply absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-br {
+        @apply absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-orange-500/50 pointer-events-none;
+    }
+
+    /* Consistent High-Contrast Typography Scale */
+    .heading-display {
+        @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15];
+    }
+
+    .heading-hero {
+        @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.2];
+    }
+
+    .heading-section {
+        @apply text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight text-slate-900 dark:text-slate-50;
+    }
+
+    .heading-card {
+        @apply text-lg sm:text-xl font-bold tracking-tight leading-snug text-slate-900 dark:text-slate-50;
+    }
+
+    .text-lead {
+        @apply text-base sm:text-lg text-slate-600 dark:text-slate-200 leading-relaxed;
+    }
+
+    .text-body {
+        @apply text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed;
+    }
+
+    .badge-khm {
+        @apply inline-flex items-center gap-2 bg-orange-500/15 dark:bg-orange-500/20 border border-orange-500/35 dark:border-orange-400/45 text-orange-700 dark:text-orange-300 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-2xs;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+.animate-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@layer utilities {
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marquee-reverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
+    }
+    
+    .animate-marquee {
+        animation: marquee 44s linear infinite;
+        will-change: transform;
+    }
+
+    .animate-marquee-reverse {
+        animation: marquee-reverse 48s linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes marquee-ltr-seamless {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-ltr {
+        animation: marquee-ltr-seamless 40s linear infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .animate-marquee,
+        .animate-marquee-reverse,
+        .animate-marquee-ltr {
+            animation-play-state: paused !important;
+        }
+    }
+}

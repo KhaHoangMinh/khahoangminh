@@ -1,0 +1,25 @@
+import { Header } from '@/components/organisms';
+import { Footer } from '@/components/organisms';
+import { Sidebar } from '@/components/atoms';
+
+interface BlogLayoutProps {
+    children: React.ReactNode;
+    sidebar?: React.ReactNode;
+}
+
+export function BlogLayout({ children, sidebar }: BlogLayoutProps) {
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Header />
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <main className="lg:col-span-2">
+                    {children}
+                </main>
+                <aside className="lg:col-span-1">
+                    {sidebar}
+                </aside>
+            </div>
+            <Footer />
+        </div>
+    );
+}
