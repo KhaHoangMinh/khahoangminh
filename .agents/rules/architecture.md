@@ -71,9 +71,10 @@ client/components/
 ### 2.5 Layer 5: Thin Route Controllers (`client/app/[route]/page.tsx`)
 - **Role**: Next.js route entry points.
 - **Strict Rule**: Route controllers must remain **thin controllers**. They only:
-  1. Initialize `useLanguage()` and resolve translations with `t()`.
-  2. Compose 3–5 Organisms in order.
-  3. **Zero raw card grids, zero complex section markup, and zero direct inline styles allowed directly in `page.tsx`.**
+  4. Put `"use client";` at the top of the file
+  2. Initialize `useLanguage()` and resolve translations with `t()`.
+  3. Compose 3–5 Organisms in order.
+  4. **Zero raw card grids, zero complex section markup, and zero direct inline styles allowed directly in `page.tsx`.**
 
 ```tsx
 // ✅ REQUIRED: Clean, thin page controller
@@ -92,13 +93,17 @@ export default function Contact() {
                 title={t('contactPage.heroTitle')}
                 highlight={t('contactPage.heroSubtitle')}
                 description={t('contactPage.heroDesc')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="..."
             />
             <ContactWorkspaceSection />
         </div>
     );
 }
 ```
+
+### 2.6 Server Metadata + Client Organism Pattern
+- Whenever a route requires static or dynamic SEO metadata (`title`, `description`, `openGraph`, JSON-LD schema), keep `app/[route]/page.tsx` as a **Server Component** that exports `metadata` and renders a thin Client View wrapper, OR define `layout.tsx` metadata per route segment.
+- **Strict HTTPS Asset Rule**: Can use `http://` URLs for external images. Always use `https://` or local `/img/...` assets configured in `next.config.ts`.
 
 ---
 
@@ -126,3 +131,6 @@ export default function Contact() {
 - **Zero Hardcoded Copy**: All user-facing strings (labels, placeholders, buttons, titles, descriptions, error messages) must be defined in `client/services/LanguageProvider.tsx` under both `vi` and `en` keys.
 - **Access Pattern**: Components access copy exclusively via `const { t } = useLanguage();` and `t('namespace.key')`.
 - **Navigation Source of Truth**: All page keys, paths, and navigation metadata are centralized in `client/config/navigation.config.ts`.
+
+### 4.1 Compile-Time Translation Parity
+- The `vi` and `en` translation objects in `client/services/LanguageProvider.tsx` must share
