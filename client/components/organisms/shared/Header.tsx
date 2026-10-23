@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Mail, Bell, Sparkles } from 'lucide-react';
 import { FaFacebook } from 'react-icons/fa';
-import { createPageUrl } from '@/lib';
+import { createPageUrl, getAssetPath } from '@/lib';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { mainNavigation, type SpecialEvent } from '@/config';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { t, language } = useLanguage();
 
-    const currentLogo = activeEvent?.theme?.logo || "/img/logo/logo.png";
+    const currentLogo = getAssetPath(activeEvent?.theme?.logo || "/img/logo/logo.png");
     
     const currentLang = language === 'en' ? 'en' : 'vi';
     const eventQuote = activeEvent?.translations?.[currentLang]?.quote;
@@ -36,7 +36,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                             KHM
                         </span>
                         <Image
-                            src="/img/vietnamFlag.png"
+                            src={getAssetPath("/img/vietnamFlag.png")}
                             alt="VN Flag"
                             width={20}
                             height={14}
@@ -116,7 +116,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                         onError={(e) => {
                             const target = e.currentTarget;
                             target.onerror = null;
-                            target.src = "/img/logo/logo.png";
+                            target.src = getAssetPath("/img/logo/logo.png");
                         }}
                     />
                     <div className="flex flex-col justify-center">
