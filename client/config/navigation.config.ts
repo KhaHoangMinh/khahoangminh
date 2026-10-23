@@ -21,3 +21,24 @@ export const legalNavigation = [
     { translationKey: 'footer.privacy', pageKey: 'privacy', href: '/privacy' },
     { translationKey: 'footer.terms', pageKey: 'terms', href: '/terms' },
 ];
+
+export const KNOWN_ROUTES = new Set([
+    '/',
+    '/about',
+    '/products',
+    '/services',
+    '/projects',
+    '/videos',
+    '/careers',
+    '/news',
+    '/contact',
+    '/protection',
+    '/privacy',
+    '/terms',
+]);
+
+export function isKnownRoute(pathname: string | null | undefined): boolean {
+    if (!pathname) return false;
+    const normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+    return KNOWN_ROUTES.has(normalized);
+}

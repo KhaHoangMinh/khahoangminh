@@ -517,19 +517,23 @@ export const translations: Record<string, any> = {
             directSupportSubtitle: 'Gửi yêu cầu trực tiếp'
         },
         pageNotFound: {
+            badge: 'Lỗi 404 • Không Tìm Thấy Trang',
             subtitle: 'Không tìm thấy trang',
             descStart: 'Chúng tôi không thể tìm thấy trang',
-            descEnd: 'nhưng đừng lo, bạn vẫn có thể tìm thấy lối ra.',
+            descEnd: 'Đường dẫn có thể đã bị thay đổi, xóa hoặc tạm thời không khả dụng.',
             backButton: 'Quay lại',
             homeButton: 'Về trang chủ',
-            quickLinksTitle: 'Có thể bạn đang tìm kiếm',
+            quoteButton: 'Liên hệ báo giá',
+            hotlineText: 'Hotline hỗ trợ',
+            quickLinksTitle: 'Danh mục truy cập nhanh',
             links: {
                 home: 'Quay về trang chính',
-                products: 'Khám phá danh mục',
-                services: 'Lĩnh vực hoạt động',
-                projects: 'Dự án tiêu biểu',
-                about: 'Về chúng tôi',
-                contact: 'Kết nối ngay'
+                products: 'Inox & Thép không gỉ',
+                services: 'Gia công CNC & Laser',
+                projects: 'Dự án đã thực hiện',
+                about: 'Năng lực doanh nghiệp',
+                careers: 'Cơ hội nghề nghiệp',
+                contact: 'Yêu cầu báo giá nhanh'
             }
         },
         protectionPage: {
@@ -1232,19 +1236,23 @@ export const translations: Record<string, any> = {
             directSupportSubtitle: 'Send a direct request'
         },
         pageNotFound: {
+            badge: '404 Error • Page Not Found',
             subtitle: 'Page Not Found',
-            descStart: 'We looked everywhere for',
-            descEnd: 'but it seems to have slipped through the cracks.',
+            descStart: 'We could not find the requested page',
+            descEnd: 'The link may be outdated, moved, or temporarily unavailable.',
             backButton: 'Go Back',
             homeButton: 'Return Home',
-            quickLinksTitle: 'You might be looking for',
+            quoteButton: 'Request a Quote',
+            hotlineText: 'Support Hotline',
+            quickLinksTitle: 'Quick Navigation',
             links: {
                 home: 'Return to main page',
-                products: 'Explore our catalog',
-                services: 'What we do',
-                projects: 'Our featured work',
-                about: 'Who we are',
-                contact: 'Get in touch'
+                products: 'Stainless Steel Catalog',
+                services: 'CNC & Laser Fabrication',
+                projects: 'Featured Projects',
+                about: 'Company Credentials',
+                careers: 'Career Opportunities',
+                contact: 'Fast RFQ Inquiry'
             }
         },
         protectionPage: {
