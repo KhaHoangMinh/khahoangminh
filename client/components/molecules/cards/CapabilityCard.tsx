@@ -5,24 +5,24 @@ import { Card, CardContent } from '@/components/atoms';
 interface CapabilityCardProps {
     title: string;
     items: string[];
-    colorTheme?: "orange" | "blue";
+    colorTheme?: "orange" | "amber" | "blue";
 }
 
 export function CapabilityCard({ title, items, colorTheme = "orange" }: CapabilityCardProps) {
-    const isOrange = colorTheme === "orange";
-    const borderClass = isOrange ? "border-orange-600" : "border-blue-600";
-    const textClass = isOrange ? "text-orange-600" : "text-blue-600";
+    const isPrimary = colorTheme === "orange";
+    const borderClass = isPrimary ? "border-l-orange-600 dark:border-l-orange-500" : "border-l-amber-500 dark:border-l-amber-400";
+    const textClass = isPrimary ? "text-orange-600 dark:text-orange-400" : "text-amber-500 dark:text-amber-400";
 
     return (
-        <Card className={`border-l-4 ${borderClass} shadow-lg bg-white dark:bg-slate-900`}>
-            <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white">
+        <Card className={`h-full card-khm border-l-4 ${borderClass} bg-orange-50/25`}>
+            <CardContent className="p-6 sm:p-7">
+                <h3 className="heading-card mb-4 pb-3 border-b border-slate-200/70 dark:border-slate-700/80">
                     {title}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                     {Array.isArray(items) && items.map((item, index) => (
-                        <li key={index} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                            <CheckCircle2 className={`w-6 h-6 ${textClass} flex-shrink-0 mt-0.5`} />
+                        <li key={index} className="flex items-start gap-2.5 text-body">
+                            <CheckCircle2 className={`w-4 h-4 ${textClass} shrink-0 mt-1`} />
                             <span>{item}</span>
                         </li>
                     ))}

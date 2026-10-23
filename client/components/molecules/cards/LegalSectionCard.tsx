@@ -11,11 +11,11 @@ interface LegalSectionCardProps {
 export function LegalSectionCard({ id, sectionNumber, title, children }: LegalSectionCardProps) {
     return (
         <section id={id} className="scroll-mt-28">
-            <Card className="border border-slate-200/50 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
-                <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
-                        {sectionNumber && <span className="text-orange-600">{sectionNumber}.</span>}
-                        {title}
+            <Card className="card-khm rounded-2xl">
+                <CardContent className="p-6 sm:p-8">
+                    <h2 className="heading-card !text-xl sm:!text-2xl mb-4 flex items-center gap-2">
+                        {sectionNumber && <span className="text-orange-600 dark:text-orange-400">{sectionNumber}.</span>}
+                        <span>{title}</span>
                     </h2>
                     {children}
                 </CardContent>

@@ -12,7 +12,8 @@ export default function LanguageToggle() {
             variant="outline"
             size="sm"
             onClick={toggleLanguage}
-            className="font-semibold backdrop-blur-md bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-white/10 hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:text-orange-600 dark:hover:text-orange-400 hover:scale-105 hover:shadow-lg transition-all duration-300"
+            aria-label="Toggle language"
+            className="h-10 px-3.5 rounded-xl text-xs font-semibold tracking-wide backdrop-blur-md bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-orange-500/10 hover:border-orange-500/30 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-200"
         >
             {language === 'vi' ? '🇬🇧 EN' : '🇻🇳 VI'}
         </Button>

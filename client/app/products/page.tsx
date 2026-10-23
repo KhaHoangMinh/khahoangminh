@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useLanguage } from '@/services';
 import { 
     PageHero, 
@@ -24,7 +24,7 @@ export default function Products() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-dvh bg-slate-50 dark:bg-slate-950">
             <PageHero 
                 title={t('productsPage.hero.title')}
                 highlight={t('productsPage.hero.highlight')}
@@ -32,10 +32,12 @@ export default function Products() {
                 backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
             />
 
-            <ProductCatalogSection 
-                categories={categories} 
-                texts={catalogTexts} 
-            />
+            <Suspense fallback={<div className="section-frame-full container-khm animate-pulse" />}>
+                <ProductCatalogSection 
+                    categories={categories} 
+                    texts={catalogTexts} 
+                />
+            </Suspense>
 
             <ContactBannerSection 
                 title={t('productsPage.contact.title')}

@@ -1,30 +1,50 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+import type { Metadata, Viewport } from "next";
 import { Inter, Lora } from "next/font/google";
 import { Providers } from "./providers";
 import { ContextMenuBlocker } from "@/components/ContextMenuBlocker";
 import { ClientLayoutWrapper } from "./ClientLayoutWrapper";
 import "./globals.css";
 
-// Optimize Google Fonts
-const inter = Inter({ 
-    subsets: ["latin"], 
-    variable: "--font-inter" 
+// Optimize Google Fonts with Vietnamese + Latin support
+const inter = Inter({
+    subsets: ["latin", "vietnamese"],
+    display: "swap",
+    variable: "--font-inter",
 });
 
-const lora = Lora({ 
-    subsets: ["latin"], 
-    variable: "--font-lora" 
+const lora = Lora({
+    subsets: ["latin", "vietnamese"],
+    display: "swap",
+    variable: "--font-lora",
 });
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+        { media: "(prefers-color-scheme: dark)", color: "#020617" },
+    ],
+};
 
 // Replaces <title> and <link rel="icon">
 export const metadata: Metadata = {
-    title: "Kha Hoang Minh",
-    description: "Company website.",
+    title: "Kha Hoàng Minh | Nhà Cung Cấp Inox Hàng Đầu Việt Nam",
+    description: "Chuyên nhập khẩu và phân phối thép không gỉ (Inox) Tấm, Cuộn, Ống, Phụ kiện công nghiệp và dân dụng chất lượng cao.",
     icons: {
         icon: "/img/logo/logo.png",
     },
 };
+
+const themeInitScript = `
+(function() {
+    try {
+        var saved = localStorage.getItem('theme');
+        var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', isDark);
+    } catch (e) {}
+})();
+`;
 
 export default function RootLayout({
     children,
@@ -32,15 +52,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="vi" suppressHydrationWarning>
             <head>
-                {/* Leaflet CSS */}
-                <link 
-                rel="stylesheet" 
-                href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-                integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-                crossOrigin=""
-                />
+                <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
             </head>
             {/* Inject font variables into the body */}
             <body className={`${inter.variable} ${lora.variable} antialiased font-sans`} suppressHydrationWarning>
@@ -50,14 +64,6 @@ export default function RootLayout({
                         {children}
                     </ClientLayoutWrapper>
                 </Providers>
-
-                {/* Next.js optimized Script component for Leaflet JS */}
-                <Script 
-                src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-                crossOrigin=""
-                strategy="beforeInteractive" 
-                />
             </body>
         </html>
     );

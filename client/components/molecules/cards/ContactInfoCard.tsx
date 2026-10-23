@@ -12,14 +12,14 @@ interface ContactInfoCardProps {
 
 export function ContactInfoCard({ icon: Icon, title, content, bgClass, iconColorClass }: ContactInfoCardProps) {
     return (
-        <Card className="border border-slate-200/50 dark:border-white/10 shadow-lg hover:shadow-xl transition-shadow backdrop-blur-md bg-white/70 dark:bg-slate-900/50">
+        <Card className="card-khm rounded-xl">
             <CardContent className="p-4 flex items-start gap-4">
-                <div className={`w-12 h-12 ${bgClass} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
-                    {Icon && <Icon className={`w-6 h-6 ${iconColorClass}`} />}
+                <div className={`w-11 h-11 ${bgClass} rounded-xl flex items-center justify-center shrink-0 shadow-sm`}>
+                    {Icon && <Icon className={`w-5 h-5 ${iconColorClass}`} />}
                 </div>
                 <div>
-                    <h3 className="font-bold text-slate-800 dark:text-white text-sm">{title}</h3>
-                    <div className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                    <h3 className="font-bold text-slate-900 dark:text-slate-50 text-sm">{title}</h3>
+                    <div className="text-sm text-slate-600 dark:text-slate-200 mt-0.5 leading-relaxed">
                         {content}
                     </div>
                 </div>

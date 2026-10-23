@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { FileText, Eye, Server, Cookie, Globe, Lock, ShieldCheck, Mail } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, LegalSidebarNav, PrivacyContent } from '@/components/organisms';
+
+const SECTION_IDS = ['intro', 'collection', 'usage', 'cookies', 'sharing', 'security', 'rights', 'contact'];
 
 export default function PrivacyPolicy() {
     const { t } = useLanguage();
     const [activeSection, setActiveSection] = useState('intro');
 
-    const sidebarItems = [
+    const sidebarItems = useMemo(() => [
         { id: 'intro', label: t('privacyPolicyPage.toc.intro'), icon: FileText },
         { id: 'collection', label: t('privacyPolicyPage.toc.collection'), icon: Eye },
         { id: 'usage', label: t('privacyPolicyPage.toc.usage'), icon: Server },
@@ -18,14 +20,12 @@ export default function PrivacyPolicy() {
         { id: 'security', label: t('privacyPolicyPage.toc.security'), icon: Lock },
         { id: 'rights', label: t('privacyPolicyPage.toc.rights'), icon: ShieldCheck },
         { id: 'contact', label: t('privacyPolicyPage.toc.contact'), icon: Mail },
-    ];
+    ], [t]);
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = sidebarItems.map(item => item.id);
             const scrollPosition = window.scrollY + 150;
-
-            for (const section of sections) {
+            for (const section of SECTION_IDS) {
                 const element = document.getElementById(section);
                 if (element && element.offsetTop <= scrollPosition) {
                     setActiveSection(section);
@@ -33,9 +33,9 @@ export default function PrivacyPolicy() {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [sidebarItems]);
+    }, []);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-dvh bg-slate-50 dark:bg-[#0B0F17]">
             <LegalPageHero 
                 badgeText={t('privacyPolicyPage.hero.badge')}
                 title1={t('privacyPolicyPage.hero.title1')}
@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
                 backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
             />
 
-            <div className="container mx-auto px-4 py-12">
+            <div className="container-khm py-10 sm:py-14">
                 <div className="flex flex-col lg:flex-row gap-8">
                     <LegalSidebarNav 
                         title={t('privacyPolicyPage.toc.title')}

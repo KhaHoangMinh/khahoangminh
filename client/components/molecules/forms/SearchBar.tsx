@@ -21,7 +21,7 @@ export function SearchBar({ value, onChange, onClear, placeholder }: SearchBarPr
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className="w-full bg-slate-100 dark:bg-slate-900 border border-transparent focus:border-orange-500/50 focus:bg-white dark:focus:bg-slate-950 ring-0 outline-none rounded-2xl py-3.5 pl-11 pr-12 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 shadow-sm hover:shadow-md focus:shadow-lg transition-all duration-300"
+                className="w-full bg-slate-100 dark:bg-[#182234] border border-slate-200/70 dark:border-slate-700/80 focus:border-orange-500 dark:focus:border-orange-400 focus:bg-white dark:focus:bg-[#1E293B] ring-0 outline-none rounded-2xl py-3.5 pl-11 pr-12 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-400 shadow-sm hover:shadow-md focus:shadow-lg transition-all duration-300"
             />
             {value && (
                 <button

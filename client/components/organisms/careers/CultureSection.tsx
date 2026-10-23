@@ -10,25 +10,30 @@ interface CultureSectionProps {
 
 export function CultureSection({ title, highlight, description, cultureList }: CultureSectionProps) {
     return (
-        <section className="py-20 bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">
-                            {title} <span className="text-orange-600">{highlight}</span>
+        <section className="section-frame-half surface-canvas">
+            <div className="container-khm">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div className="lg:col-span-6">
+                        <div className="w-12 h-1 bg-gradient-to-r from-orange-600 to-amber-500 rounded-full mb-4" />
+                        <h2 className="heading-section mb-4">
+                            {title}{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 dark:from-orange-400 dark:to-amber-400">
+                                {highlight}
+                            </span>
                         </h2>
-                        <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                        <p className="text-body mb-6">
                             {description}
                         </p>
-                        <ul className="space-y-4">
+                        <ul className="space-y-3.5">
                             {Array.isArray(cultureList) && cultureList.map((item, index) => (
                                 <CultureListItem key={index} text={item} />
                             ))}
                         </ul>
                     </div>
                     
-                    <CultureImageGrid />
-                    
+                    <div className="lg:col-span-6">
+                        <CultureImageGrid />
+                    </div>
                 </div>
             </div>
         </section>

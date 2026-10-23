@@ -8,17 +8,17 @@ export interface GalleryItem {
 
 export function GalleryImage({ item }: { item: GalleryItem }) {
     return (
-        <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 aspect-square">
+        <div className="group relative overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-square">
             <Image
                 src={item.image}
                 alt={item.title}
-                width={800}
-                height={800}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
-                <h3 className="text-white font-bold text-lg">{item.title}</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex items-end p-5">
+                <h3 className="text-white font-bold text-base sm:text-lg leading-snug">{item.title}</h3>
             </div>
         </div>
     );

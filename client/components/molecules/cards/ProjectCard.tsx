@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/atoms';
+import { createPageUrl } from '@/lib';
 import Image from 'next/image';
 
 interface ProjectData {
@@ -16,25 +18,32 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, viewDetailsText }: ProjectCardProps) {
     return (
-        <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-slate-900">
-            <div className="relative overflow-hidden">
+        <Card className="h-full flex flex-col group overflow-hidden card-khm">
+            <div className="relative h-56 sm:h-60 overflow-hidden">
                 <Image
                     src={project.image}
                     alt={project.title}
-                    width={800}
-                    height={600}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent" />
             </div>
-            <CardContent className="p-6 bg-slate-50 dark:bg-slate-900">
-                <h3 className="text-xl font-bold mb-3 text-slate-800 dark:text-white">{project.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
-                <div className="flex items-center gap-2 text-orange-600 font-medium group-hover:gap-3 transition-all cursor-pointer">
+            <CardContent className="p-6 bg-slate-50/60 dark:bg-[#182234] flex flex-col flex-grow justify-between gap-4">
+                <div>
+                    <h3 className="heading-card mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
+                        {project.title}
+                    </h3>
+                    <p className="text-body">{project.description}</p>
+                </div>
+                <Link
+                    href={createPageUrl('contact')}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-300 group-hover:gap-3 transition-all mt-auto"
+                >
                     <span>{viewDetailsText}</span>
                     <ArrowRight className="w-4 h-4" />
-                </div>
+                </Link>
             </CardContent>
         </Card>
     );

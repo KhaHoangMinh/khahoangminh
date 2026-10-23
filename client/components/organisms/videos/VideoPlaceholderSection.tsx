@@ -10,33 +10,39 @@ interface VideoPlaceholderSectionProps {
     contactText: string;
 }
 
-export function VideoPlaceholderSection({ title, description, facebookText, contactText }: VideoPlaceholderSectionProps) {
+export function VideoPlaceholderSection({
+    title,
+    description,
+    facebookText,
+    contactText,
+}: VideoPlaceholderSectionProps) {
     return (
-        <section className="py-20 bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="max-w-5xl mx-auto">
-                    <Card className="border border-slate-200/50 dark:border-white/10 shadow-2xl backdrop-blur-md bg-white/80 dark:bg-slate-900/80 overflow-hidden transition-all duration-300 hover:shadow-orange-500/5">
-                        <CardContent className="p-12 text-center">
-                            <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-                                {/* Added ml-2 to optically center the play icon */}
-                                <Play className="w-12 h-12 text-white ml-2" />
+        <section className="section-frame-half surface-canvas">
+            <div className="container-khm">
+                <Card className="border border-orange-200/80 dark:border-slate-700/80 shadow-lg bg-gradient-to-br from-orange-50/60 via-white to-amber-50/40 dark:from-[#182234] dark:via-[#141D2D] dark:to-[#111827] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-2xl overflow-hidden transition-all duration-300">
+                    <CardContent className="p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start lg:items-center gap-5 max-w-2xl">
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/25">
+                                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" />
                             </div>
-                            
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-800 dark:text-white">
-                                {title}
-                            </h2>
-                            
-                            <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                {description}
-                            </p>
-                            
+                            <div className="text-center sm:text-left">
+                                <h2 className="heading-section !text-xl sm:!text-2xl mb-2">
+                                    {title}
+                                </h2>
+                                <p className="text-body">
+                                    {description}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div className="shrink-0 w-full sm:w-auto">
                             <SocialContactButtonGroup 
                                 facebookText={facebookText}
                                 contactText={contactText}
                             />
-                        </CardContent>
-                    </Card>
-                </div>
+                        </div>
+                    </CardContent>
+                </Card>
             </div>
         </section>
     );

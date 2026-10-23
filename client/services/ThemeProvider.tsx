@@ -14,8 +14,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        const saved = localStorage.getItem('theme'); //[cite: 26]
-        if (saved) {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
             setTheme(saved);
         } else {
             setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -25,18 +25,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         if (!mounted) return;
-        localStorage.setItem('theme', theme); 
+        localStorage.setItem('theme', theme);
         document.documentElement.classList.toggle('dark', theme === 'dark');
     }, [theme, mounted]);
 
     const toggleTheme = () => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light');
+        setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
     };
 
-    if (!mounted) {
-        return <div className="hidden" />; // Render placeholder to prevent hydration mismatch
-    }
-    
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}

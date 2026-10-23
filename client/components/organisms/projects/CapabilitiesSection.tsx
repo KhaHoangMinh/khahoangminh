@@ -9,29 +9,34 @@ interface CapabilitiesSectionProps {
     clientsList: string[];
 }
 
-export function CapabilitiesSection({ title, completedTitle, completedList, clientsTitle, clientsList }: CapabilitiesSectionProps) {
+export function CapabilitiesSection({
+    title,
+    completedTitle,
+    completedList,
+    clientsTitle,
+    clientsList,
+}: CapabilitiesSectionProps) {
     return (
-        <section className="py-20 bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            {title}
-                        </h2>
-                    </div>
+        <section className="section-frame-half surface-canvas">
+            <div className="container-khm">
+                <div className="text-center mb-6 sm:mb-8">
+                    <div className="w-12 h-1 bg-gradient-to-r from-orange-600 to-amber-500 rounded-full mx-auto mb-2.5" />
+                    <h2 className="heading-section">
+                        {title}
+                    </h2>
+                </div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <CapabilityCard 
-                            title={completedTitle}
-                            items={completedList}
-                            colorTheme="orange"
-                        />
-                        <CapabilityCard 
-                            title={clientsTitle}
-                            items={clientsList}
-                            colorTheme="blue"
-                        />
-                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <CapabilityCard 
+                        title={completedTitle}
+                        items={completedList}
+                        colorTheme="orange"
+                    />
+                    <CapabilityCard 
+                        title={clientsTitle}
+                        items={clientsList}
+                        colorTheme="amber"
+                    />
                 </div>
             </div>
         </section>

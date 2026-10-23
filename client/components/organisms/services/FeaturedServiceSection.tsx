@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/atoms';
 import { createPageUrl } from '@/lib';
 import Image from 'next/image';
@@ -15,45 +15,63 @@ interface FeaturedServiceSectionProps {
     image: string;
 }
 
-export function FeaturedServiceSection({ badge, title, highlight, description, features, buttonText, image }: FeaturedServiceSectionProps) {
+export function FeaturedServiceSection({
+    badge,
+    title,
+    highlight,
+    description,
+    features,
+    buttonText,
+    image,
+}: FeaturedServiceSectionProps) {
     return (
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <div className="inline-block bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-500 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        <section className="section-frame-half surface-band-alt">
+            <div className="container-khm">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                    <div className="lg:col-span-7">
+                        <span className="badge-khm mb-3">
                             {badge}
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">
-                            {title} <span className="text-orange-600">{highlight}</span>
+                        </span>
+                        <h2 className="heading-section mb-4">
+                            {title}{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500 dark:from-orange-400 dark:to-amber-300">
+                                {highlight}
+                            </span>
                         </h2>
-                        <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                        <p className="text-body mb-6">
                             {description}
                         </p>
-                        <ul className="space-y-3 mb-8">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-7">
                             {Array.isArray(features) && features.map((item, index) => (
-                                <li key={index} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                                    <span className="w-6 h-6 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
+                                <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-slate-700 dark:text-slate-200">
+                                    <span className="w-6 h-6 bg-orange-500/15 dark:bg-orange-500/20 text-orange-600 dark:text-orange-300 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                                        <Check className="w-3.5 h-3.5" />
+                                    </span>
                                     <span>{item}</span>
                                 </li>
                             ))}
                         </ul>
                         <Link href={createPageUrl('contact')}>
-                            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white shadow-lg transition-transform hover:scale-105">
+                            <Button
+                                size="lg"
+                                className="h-12 bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-orange-600 text-white font-semibold px-7 rounded-xl shadow-md shadow-orange-600/20 transition-all hover:-translate-y-0.5"
+                            >
                                 {buttonText}
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
                     </div>
-                    <div>
-                        <Image
-                            src={image}
-                            alt={title}
-                            width={800}
-                            height={600}
-                            loading="lazy"
-                            className="rounded-2xl shadow-2xl w-full object-cover"
-                        />
+                    <div className="lg:col-span-5">
+                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 aspect-[4/3]">
+                            <Image
+                                src={image}
+                                alt={title}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 42vw"
+                                loading="lazy"
+                                className="object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

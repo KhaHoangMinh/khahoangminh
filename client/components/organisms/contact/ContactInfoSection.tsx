@@ -16,14 +16,14 @@ export function ContactInfoSection() {
             title: t('contactPage.infoAddress'),
             content: t('footer.addressText'),
             color: "text-white",
-            bg: "bg-gradient-to-br from-orange-400 to-orange-600"
+            bg: "bg-gradient-to-br from-orange-500 to-amber-500"
         },
         {
             icon: Mail,
             title: t('contactPage.infoEmail'),
-            content: <a href="mailto:info@khahoangminh.com.vn" className="hover:text-orange-600 transition-colors">info@khahoangminh.com.vn</a>,
+            content: <a href="mailto:info@khahoangminh.com.vn" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">info@khahoangminh.com.vn</a>,
             color: "text-white",
-            bg: "bg-gradient-to-br from-orange-400 to-orange-600"
+            bg: "bg-gradient-to-br from-orange-500 to-amber-500"
         },
         {
             icon: Clock,
@@ -36,13 +36,13 @@ export function ContactInfoSection() {
                 </>
             ),
             color: "text-white",
-            bg: "bg-gradient-to-br from-orange-400 to-orange-600"
+            bg: "bg-gradient-to-br from-orange-500 to-amber-500"
         }
     ];
 
     return (
         <>
-            <div className="space-y-4">
+            <div className="space-y-3.5">
                 {contactInfo.map((info, index) => (
                     <ContactInfoCard 
                         key={index}
@@ -55,13 +55,13 @@ export function ContactInfoSection() {
                 ))}
             </div>
 
-            <div className="bg-white/70 dark:bg-slate-900/50 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-slate-200/50 dark:border-white/10 flex-grow flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3">
-                    <Phone className="w-6 h-6 text-orange-600" />
+            <div className="card-khm rounded-2xl p-6 flex-grow flex flex-col justify-center">
+                <h3 className="heading-card mb-4 flex items-center gap-2.5">
+                    <Phone className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                     {t('contactPage.supportTitle')}
                 </h3>
 
-                <div className="grid grid-cols-1 gap-5">
+                <div className="grid grid-cols-1 gap-3.5">
                     <ActionRedirectCard 
                         label="Social Media"
                         title="Facebook"
@@ -69,7 +69,7 @@ export function ContactInfoSection() {
                         icon={FaFacebook}
                         link="https://www.facebook.com/inoxkhahoangminh"
                         isExternal={true}
-                        colorTheme="blue"
+                        colorTheme="amber"
                     />
                     <ActionRedirectCard 
                         label="Support"

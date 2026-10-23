@@ -9,28 +9,33 @@ interface BusinessScopeSectionProps {
     servicesList: string[];
 }
 
-export function BusinessScopeSection({ title, productsTitle, productsList, servicesTitle, servicesList }: BusinessScopeSectionProps) {
+export function BusinessScopeSection({
+    title,
+    productsTitle,
+    productsList,
+    servicesTitle,
+    servicesList,
+}: BusinessScopeSectionProps) {
     return (
-        <section className="py-20 bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-white">
-                            {title}
-                        </h2>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <ScopeCard 
-                            title={productsTitle} 
-                            items={productsList} 
-                            colorTheme="orange" 
-                        />
-                        <ScopeCard 
-                            title={servicesTitle} 
-                            items={servicesList} 
-                            colorTheme="blue" 
-                        />
-                    </div>
+        <section className="section-frame-half surface-canvas">
+            <div className="container-khm">
+                <div className="text-center mb-6 sm:mb-8">
+                    <div className="w-12 h-1 bg-gradient-to-r from-orange-600 to-amber-500 rounded-full mx-auto mb-2.5" />
+                    <h2 className="heading-section">
+                        {title}
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <ScopeCard 
+                        title={productsTitle} 
+                        items={productsList} 
+                        colorTheme="orange" 
+                    />
+                    <ScopeCard 
+                        title={servicesTitle} 
+                        items={servicesList} 
+                        colorTheme="amber" 
+                    />
                 </div>
             </div>
         </section>

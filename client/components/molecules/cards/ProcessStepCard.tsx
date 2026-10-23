@@ -9,13 +9,13 @@ interface ProcessStepCardProps {
 
 export function ProcessStepCard({ step, title, description }: ProcessStepCardProps) {
     return (
-        <Card className="border-0 shadow-lg text-center group hover:shadow-xl transition-shadow bg-white dark:bg-slate-900">
-            <CardContent className="p-6">
-                <div className="text-5xl font-bold text-orange-600 mb-4 group-hover:scale-110 transition-transform">
+        <Card className="h-full card-khm text-center group backdrop-blur-sm">
+            <CardContent className="p-6 flex flex-col items-center h-full">
+                <div className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-orange-600 to-amber-500 dark:from-orange-400 dark:to-amber-300 mb-3 group-hover:scale-110 transition-transform">
                     {step}
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-slate-800 dark:text-white">{title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">{description}</p>
+                <h3 className="heading-card mb-2">{title}</h3>
+                <p className="text-body">{description}</p>
             </CardContent>
         </Card>
     );

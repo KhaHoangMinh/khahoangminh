@@ -11,13 +11,7 @@ interface MainLayoutProps {
 
 export function MainLayout({ children, currentPageName, activeEvent, onOpenSpecialEvent }: MainLayoutProps) {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors flex flex-col">
-            <style>{`
-                :root {
-                    --radius: 0.5rem;
-                }
-            `}</style>
-
+        <div className="min-h-dvh bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors flex flex-col">
             {/* Header */}
             <Header 
                 currentPageName={currentPageName} 
@@ -26,13 +20,12 @@ export function MainLayout({ children, currentPageName, activeEvent, onOpenSpeci
             />
             
             {/* Main Content */}
-            <main className="flex-grow">
+            <main className="flex-grow flex flex-col">
                 {children}
             </main>
             
             {/* Footer */}
             <Footer activeEvent={activeEvent} />
-            
         </div>
     );
 }

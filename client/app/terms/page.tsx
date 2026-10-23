@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Scale, FileSignature, RefreshCw, UserRoundXIcon, Package, Brain, AlertTriangle, Landmark, Ban } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, LegalSidebarNav, TermsContent } from '@/components/organisms';
+
+const SECTION_IDS = ['acceptance', 'changes', 'usage', 'products', 'ip', 'liability', 'law', 'termination'];
 
 export default function TermsOfService() {
     const { t } = useLanguage();
     const [activeSection, setActiveSection] = useState('acceptance');
 
-    const sidebarItems = [
+    const sidebarItems = useMemo(() => [
         { id: 'acceptance', label: t('termsOfServicePage.toc.acceptance'), icon: FileSignature },
         { id: 'changes', label: t('termsOfServicePage.toc.changes'), icon: RefreshCw },
         { id: 'usage', label: t('termsOfServicePage.toc.usage'), icon: UserRoundXIcon },
@@ -18,14 +20,12 @@ export default function TermsOfService() {
         { id: 'liability', label: t('termsOfServicePage.toc.liability'), icon: AlertTriangle },
         { id: 'law', label: t('termsOfServicePage.toc.law'), icon: Landmark },
         { id: 'termination', label: t('termsOfServicePage.toc.termination'), icon: Ban },
-    ];
+    ], [t]);
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = sidebarItems.map(item => item.id);
             const scrollPosition = window.scrollY + 150;
-
-            for (const section of sections) {
+            for (const section of SECTION_IDS) {
                 const element = document.getElementById(section);
                 if (element && element.offsetTop <= scrollPosition) {
                     setActiveSection(section);
@@ -33,9 +33,9 @@ export default function TermsOfService() {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [sidebarItems]);
+    }, []);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -45,7 +45,7 @@ export default function TermsOfService() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-dvh bg-slate-50 dark:bg-[#0B0F17]">
             <LegalPageHero 
                 badgeText={t('termsOfServicePage.hero.badge')}
                 title1={t('termsOfServicePage.hero.title1')}
@@ -54,7 +54,7 @@ export default function TermsOfService() {
                 backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
             />
 
-            <div className="container mx-auto px-4 py-12">
+            <div className="container-khm py-10 sm:py-14">
                 <div className="flex flex-col lg:flex-row gap-8">
                     <LegalSidebarNav 
                         title={t('termsOfServicePage.toc.title')}

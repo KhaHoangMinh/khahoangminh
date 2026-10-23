@@ -6,11 +6,13 @@ interface FeatureCardProps {
     description: string;
 }
 
-export function FeatureCard({ icon: Icon, description }: FeatureCardProps) {
+export function FeatureCard({ icon: Icon = CheckCircle2, description }: FeatureCardProps) {
     return (
-        <div className="flex items-start gap-3 p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-            <p className="text-slate-700 dark:text-slate-300">{description}</p>
+        <div className="h-full flex items-start gap-3.5 p-5 card-khm rounded-xl">
+            <div className="w-8 h-8 rounded-lg bg-orange-500/15 dark:bg-orange-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon className="w-5 h-5 text-orange-600 dark:text-orange-300" />
+            </div>
+            <p className="text-body font-medium !text-slate-800 dark:!text-slate-100">{description}</p>
         </div>
     );
 }
