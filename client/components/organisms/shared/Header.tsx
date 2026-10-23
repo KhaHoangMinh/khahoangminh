@@ -26,7 +26,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
     const eventTitle = activeEvent?.translations?.[currentLang]?.title;
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/90 bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85 dark:supports-[backdrop-filter]:bg-[#0B0F17]/90 transition-colors">
+        <header className="sticky top-0 z-50 w-full border-b border-slate-200/90 dark:border-slate-800/90 bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md transition-colors shadow-xs dark:shadow-[0_1px_0_0_rgba(255,255,255,0.06)]">
             {/* Top Bar — Laptop & Desktop */}
             <div className="bg-orange-50/90 dark:bg-[#111827] border-b border-orange-200/70 dark:border-slate-800/90 text-slate-700 dark:text-slate-200 py-1.5 text-xs hidden lg:block transition-colors">
                 <div className="container-khm flex justify-between items-center gap-4">
@@ -140,7 +140,7 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                                 href={createPageUrl(item.pageKey)}
                                 className={`px-2.5 xl:px-3.5 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap ${
                                     isActive
-                                        ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/25'
+                                        ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/25 ring-1 ring-orange-500/40'
                                         : 'text-slate-700 dark:text-slate-200 hover:text-orange-600 dark:hover:text-orange-300 hover:bg-orange-50/80 dark:hover:bg-[#182234]'
                                 }`}
                             >

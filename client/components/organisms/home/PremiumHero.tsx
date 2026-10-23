@@ -56,8 +56,9 @@ export function PremiumHero({ title, subtitle, description, badgeText, backgroun
                 sizes="100vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-12 dark:opacity-25"
             />
-            {/* KHM Industrial Steel + Orange/Amber Overlays (Light vs Brushed Gunmetal Dark) */}
+            {/* KHM Industrial Steel Overlays + Subtle Blueprint CAD Grid */}
             <div className="absolute inset-0 bg-gradient-to-r from-orange-50/95 via-white/90 to-amber-50/85 dark:from-[#0B0F17]/95 dark:via-[#111827]/88 dark:to-[#182234]/80" />
+            <div className="absolute inset-0 blueprint-grid pointer-events-none opacity-40 dark:opacity-50" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-500/15 via-amber-500/5 to-transparent dark:from-orange-500/22 dark:via-amber-500/8 dark:to-transparent pointer-events-none" />
             
             <div className="container-khm relative z-10">
@@ -91,20 +92,29 @@ export function PremiumHero({ title, subtitle, description, badgeText, backgroun
                             return (
                                 <div
                                     key={idx}
-                                    className="group p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-[#182234]/95 backdrop-blur-md border border-orange-200/70 dark:border-slate-700/85 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:border-orange-500/60 dark:hover:border-orange-400/65 shadow-md shadow-orange-950/5 dark:shadow-black/40 transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between"
+                                    className="group p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-[#182234]/95 backdrop-blur-md border border-orange-200/70 dark:border-slate-700/85 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] hover:border-orange-500/60 dark:hover:border-orange-400/65 shadow-md shadow-orange-950/5 dark:shadow-black/40 transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between relative overflow-hidden"
                                 >
-                                    <div>
+                                    {/* Metallic Sheen Glide */}
+                                    <div className="sheen-overlay" />
+                                    
+                                    {/* Subtle Corner Brackets on Hover */}
+                                    <div className="blueprint-corner-tl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="blueprint-corner-br opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                                    <div className="relative z-10">
                                         <div className="flex items-center justify-between gap-2 mb-3">
                                             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-sm shadow-orange-500/25 group-hover:scale-105 transition-transform">
                                                 <Icon className="w-5 h-5" />
                                             </div>
-                                            <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-orange-500/10 dark:bg-orange-500/20 text-orange-700 dark:text-orange-200 border border-orange-500/25 dark:border-orange-400/35">
+                                            <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-orange-500/10 dark:bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/25 dark:border-orange-400/35">
                                                 {item.badge}
                                             </span>
                                         </div>
-                                        <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 mb-1">
+
+                                        <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 mb-1 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                                             {item.title}
                                         </h2>
+
                                         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
                                             {item.desc}
                                         </p>

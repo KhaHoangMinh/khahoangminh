@@ -22,7 +22,7 @@ export function AboutSection({ intro, name, desc1, desc2, quote }: AboutSectionP
     return (
         <section className="section-frame-half relative overflow-hidden surface-band-alt">
             <div className="container-khm">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div className="lg:col-span-7 space-y-4">
                         <div>
                             <span className="badge-khm mb-3">
@@ -34,14 +34,17 @@ export function AboutSection({ intro, name, desc1, desc2, quote }: AboutSectionP
                                 </span>
                             </h2>
                         </div>
-                        <p className="text-body">{desc1}</p>
-                        <p className="text-body">{desc2}</p>
+                        <p className="text-body leading-relaxed">{desc1}</p>
+                        <p className="text-body leading-relaxed">{desc2}</p>
+                        
+                        {/* Quote Box */}
                         <div className="backdrop-blur-md bg-orange-500/10 dark:bg-[#182234]/95 border border-orange-500/20 dark:border-slate-700/80 border-l-4 border-l-orange-600 dark:border-l-orange-400 p-4 sm:p-5 rounded-r-xl shadow-xs">
                             <p className="text-slate-900 dark:text-slate-100 font-serif font-semibold italic text-base sm:text-lg">
                                 {quote}
                             </p>
                         </div>
-                        <div className="pt-1">
+
+                        <div className="pt-2">
                             <Link href={createPageUrl('about')}>
                                 <Button
                                     size="lg"
@@ -53,15 +56,22 @@ export function AboutSection({ intro, name, desc1, desc2, quote }: AboutSectionP
                             </Link>
                         </div>
                     </div>
+
                     <div className="lg:col-span-5 relative">
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 aspect-[4/3]">
+                        {/* Blueprint Corner Accents */}
+                        <div className="blueprint-corner-tl -top-2 -left-2 z-20" />
+                        <div className="blueprint-corner-tr -top-2 -right-2 z-20" />
+                        <div className="blueprint-corner-bl -bottom-2 -left-2 z-20" />
+                        <div className="blueprint-corner-br -bottom-2 -right-2 z-20" />
+
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 aspect-[4/3] group">
                             <Image
                                 src="/img/assets/home/khm-01.jpg"
                                 alt={name}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 42vw"
                                 loading="lazy"
-                                className="object-cover transition-transform duration-500 hover:scale-105"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
                     </div>

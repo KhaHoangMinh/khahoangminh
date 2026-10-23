@@ -22,7 +22,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
         <Card className="h-full flex flex-col group overflow-hidden card-khm bg-slate-50/70 dark:bg-[#182234]">
-            <div className="relative h-48 sm:h-52 overflow-hidden">
+            {/* Metallic Sheen Glide */}
+            <div className="sheen-overlay" />
+
+            {/* Precision Image Container with Blueprint Corner Accents */}
+            <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900">
                 <Image
                     src={product.image}
                     alt={product.name}
@@ -31,16 +35,23 @@ export function ProductCard({ product }: ProductCardProps) {
                     loading="lazy"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                
+                {/* Blueprint Corners */}
+                <div className="blueprint-corner-tl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="blueprint-corner-tr opacity-0 group-hover:opacity-100 transition-opacity" />
+
             </div>
-            <CardContent className="p-5 flex flex-col flex-grow justify-between gap-4">
+
+            <CardContent className="p-5 flex flex-col flex-grow justify-between gap-4 relative z-10">
                 <h3 className="heading-card group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                     {product.name}
                 </h3>
+
                 <Link href={`${createPageUrl(product.page)}?tab=${product.id}`} className="mt-auto block">
                     <Button
                         variant="outline"
-                        className="w-full rounded-xl border-slate-300 dark:border-slate-600 dark:bg-[#111827] text-slate-800 dark:text-slate-100 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 dark:group-hover:bg-orange-600 dark:group-hover:text-white dark:group-hover:border-orange-500 font-semibold transition-all"
+                        className="w-full rounded-xl border-slate-300 dark:border-slate-600 dark:bg-[#111827] text-slate-800 dark:text-slate-100 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 dark:group-hover:bg-orange-600 dark:group-hover:text-white dark:group-hover:border-orange-500 font-semibold transition-all shadow-xs"
                     >
                         {t('common.viewAll')}
                         <ArrowRight className="ml-2 w-4 h-4" />

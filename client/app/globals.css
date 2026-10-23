@@ -133,11 +133,53 @@
     }
 
     .card-khm {
-        @apply bg-white dark:bg-[#182234] border border-slate-200/85 dark:border-slate-700/80 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] shadow-sm hover:shadow-xl hover:border-orange-500/45 dark:hover:border-orange-400/55 dark:hover:bg-[#1C283D] transition-all duration-300;
+        @apply bg-white dark:bg-[#182234] border border-slate-200/85 dark:border-slate-700/80 shadow-sm dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:shadow-xl dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_10px_24px_-8px_rgba(0,0,0,0.5)] hover:border-orange-500/45 dark:hover:border-orange-400/55 dark:hover:bg-[#1C283D] transition-all duration-300 relative;
     }
 
     .surface-cta-industrial {
         @apply bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 dark:from-[#1F120B] dark:via-[#161F30] dark:to-[#0F172A] text-white border-t border-orange-500/30 dark:border-t-orange-500/45 relative overflow-hidden;
+    }
+
+    /* Metallic Sheen Glide on Hover */
+    .sheen-overlay {
+        @apply absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 dark:via-white/[0.08] to-transparent pointer-events-none z-10;
+        will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .sheen-overlay {
+            display: none;
+        }
+    }
+
+    /* Monospaced Technical Specification Chip */
+    .chip-tech {
+        @apply inline-flex items-center gap-1 font-mono text-[11px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-slate-100 dark:bg-[#111827] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700;
+    }
+
+    /* Precision Blueprint Grid & Corner Brackets */
+    .blueprint-grid {
+        background-image: linear-gradient(to right, rgba(234, 88, 12, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(234, 88, 12, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+    .dark .blueprint-grid {
+        background-image: linear-gradient(to right, rgba(251, 146, 60, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(251, 146, 60, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .blueprint-corner-tl {
+        @apply absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-tr {
+        @apply absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-bl {
+        @apply absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-orange-500/50 pointer-events-none;
+    }
+    .blueprint-corner-br {
+        @apply absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-orange-500/50 pointer-events-none;
     }
 
     /* Consistent High-Contrast Typography Scale */
