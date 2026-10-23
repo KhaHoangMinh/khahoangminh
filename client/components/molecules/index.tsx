@@ -37,6 +37,11 @@ export { ComingSoonCard } from './cards/ComingSoonCard';
 export { ContactInfoCard } from './cards/ContactInfoCard';
 export { ActionRedirectCard } from './cards/ActionRedirectCard';
 
+// Navigation & Tools
+export { FloatingSpeedDial } from './navigation/FloatingSpeedDial';
+export { InoxWeightCalculator } from './calculator/InoxWeightCalculator';
+export { NewsModal } from './cards/NewsModal';
+
 // Legal Page
 export { LegalSidebarItem } from './navigation/LegalSidebarItem';
 export { LegalSectionCard } from './cards/LegalSectionCard';

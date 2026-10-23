@@ -16,7 +16,7 @@ export default function PersonalDataProtection() {
                 title1={t('protectionPage.hero.title1')}
                 title2={t('protectionPage.hero.title2')}
                 description={t('protectionPage.hero.desc')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <div className="container-khm py-10 sm:py-14">

@@ -1,11 +1,14 @@
-import React from 'react';
-import { NewsCard, ComingSoonCard } from '@/components/molecules';
+"use client";
+
+import React, { useState } from 'react';
+import { NewsCard, ComingSoonCard, NewsModal } from '@/components/molecules';
 
 interface NewsItem {
     image: string;
     title: string;
     date: string;
     excerpt: string;
+    content?: string;
 }
 
 interface NewsGridSectionProps {
@@ -16,6 +19,8 @@ interface NewsGridSectionProps {
 }
 
 export function NewsGridSection({ newsItems, readMoreText, footerText, footerLinkText }: NewsGridSectionProps) {
+    const [selectedArticle, setSelectedArticle] = useState<NewsItem | null>(null);
+
     return (
         <section className="section-frame-full surface-canvas">
             <div className="container-khm">
@@ -25,6 +30,7 @@ export function NewsGridSection({ newsItems, readMoreText, footerText, footerLin
                             key={index} 
                             news={news} 
                             readMoreText={readMoreText} 
+                            onClick={() => setSelectedArticle(news)}
                         />
                     ))}
                 </div>
@@ -32,6 +38,12 @@ export function NewsGridSection({ newsItems, readMoreText, footerText, footerLin
                 <ComingSoonCard 
                     text={footerText}
                     linkText={footerLinkText}
+                />
+
+                <NewsModal
+                    article={selectedArticle}
+                    isOpen={!!selectedArticle}
+                    onClose={() => setSelectedArticle(null)}
                 />
             </div>
         </section>

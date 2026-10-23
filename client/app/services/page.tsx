@@ -27,7 +27,7 @@ export default function Services() {
                 title={t('servicesPage.hero.title')}
                 highlight={t('servicesPage.hero.highlight')}
                 description={t('servicesPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <ServicesGridSection 

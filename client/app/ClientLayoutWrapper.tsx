@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { MainLayout } from "@/components/templates";
 import { SpecialEventModal } from "@/components/organisms";
+import { FloatingSpeedDial } from "@/components/molecules";
 import { useSpecialEvent } from "@/hooks";
 import { isKnownRoute } from "@/config";
 
@@ -40,6 +41,8 @@ export function ClientLayoutWrapper({ children }: { children: React.ReactNode })
         isOpen={isModalOpen}
         onClose={closeModal}
       />
+
+      <FloatingSpeedDial />
     </>
   );
 }

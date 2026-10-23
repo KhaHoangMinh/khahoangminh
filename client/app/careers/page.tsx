@@ -44,7 +44,7 @@ export default function Careers() {
                 title={t('careersPage.hero.title')}
                 highlight={t('careersPage.hero.highlight')}
                 description={t('careersPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <BenefitsSection 

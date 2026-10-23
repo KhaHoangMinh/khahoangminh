@@ -34,7 +34,7 @@ export default function Home() {
                 subtitle={t('homePage.hero.subtitle')}
                 description={t('homePage.hero.description')}
                 badgeText={t('homePage.hero.tagline')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             {/* Logo Marquee */}

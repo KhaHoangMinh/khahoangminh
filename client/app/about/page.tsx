@@ -46,7 +46,7 @@ export default function About() {
                 title={t('aboutPage.hero.title')}
                 highlight={t('aboutPage.hero.subtitle')}
                 description={t('aboutPage.hero.description')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
             
             <CompanyInfoSection 

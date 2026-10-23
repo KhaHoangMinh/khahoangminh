@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
                 title1={t('privacyPolicyPage.hero.title1')}
                 title2={t('privacyPolicyPage.hero.title2')}
                 description={t('privacyPolicyPage.hero.updated')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <div className="container-khm py-10 sm:py-14">

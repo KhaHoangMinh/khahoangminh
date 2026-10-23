@@ -29,7 +29,7 @@ export default function Products() {
                 title={t('productsPage.hero.title')}
                 highlight={t('productsPage.hero.highlight')}
                 description={t('productsPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/khm-01.jpg"
             />
 
             <Suspense fallback={<div className="section-frame-full container-khm animate-pulse" />}>

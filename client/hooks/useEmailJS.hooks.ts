@@ -19,7 +19,6 @@ export async function sendEmail(formData: ContactFormData) {
             emailParams
         );
     } catch (error) {
-        console.error("EmailJS Error:", error);
         throw error;
     }
 }

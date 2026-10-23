@@ -35,6 +35,7 @@ export { ImageGallerySection } from './projects/ImageGallerySection';
 
 // Videos Page
 export { VideoPlaceholderSection } from './videos/VideoPlaceholderSection';
+export { VideoShowcaseSection } from './videos/VideoShowcaseSection';
 
 // Careers Page
 export { BenefitsSection } from './careers/BenefitsSection';

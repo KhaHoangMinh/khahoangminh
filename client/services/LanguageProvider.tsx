@@ -386,18 +386,75 @@ export const translations: Record<string, any> = {
             }
         },
         videosPage: {
-            title: 'Thư Viện Video',
+            title: 'Thư Viện Video & Quy Trình',
             hero: {
-                title: 'Video',
-                highlight: 'Giới Thiệu',
-                subtitle: 'Tìm hiểu thêm về sản phẩm và dịch vụ của chúng tôi qua video'
+                title: 'Video &',
+                highlight: 'Quy Trình Gia Công',
+                subtitle: 'Khám phá năng lực xưởng gia công CNC, kho xưởng và dây chuyền xả băng Inox tại Kha Hoàng Minh'
             },
             content: {
-                title: 'Video đang được cập nhật',
-                description: 'Chúng tôi đang chuẩn bị các video giới thiệu về sản phẩm, dịch vụ và quy trình sản xuất. Vui lòng quay lại sau hoặc liên hệ trực tiếp để biết thêm chi tiết.',
-                hotline: 'Hotline',
-                facebook: 'Ghé thăm Facebook',
-                contact: 'Liên hệ tư vấn'
+                title: 'Năng Lực Gia Công & Cơ Sở Hạ Tầng',
+                description: 'Kha Hoàng Minh sở hữu hệ thống máy cắt Laser fiber công suất cao, máy cắt Plasma CNC khổ lớn, máy chấn gấp thủy lực và kho xưởng quy mô lớn tại Bình Dương & TP.HCM.',
+                facebook: 'Fanpage Facebook',
+                contact: 'Liên hệ tư vấn xưởng'
+            },
+            categories: {
+                all: 'Tất cả video',
+                machining: 'Gia công CNC & Laser',
+                warehouse: 'Kho xưởng & Dây chuyền',
+                projects: 'Dự án thực tế'
+            },
+            items: [
+                {
+                    id: 'laser-fiber-cutting',
+                    title: 'Dây chuyền cắt Laser Fiber công suất cao tấm Inox 304 dày',
+                    category: 'machining',
+                    duration: '02:45',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Gia công cắt phôi Inox tấm với đường cắt tinh xảo, mép cắt láng mịn không bavia, đáp ứng các tiêu chuẩn kỹ thuật nghiêm ngặt của dự án thực phẩm và hóa chất.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'cnc-plasma-heavy',
+                    title: 'Gia công cắt CNC Plasma Inox tấm khổ lớn độ dày 10mm - 40mm',
+                    category: 'machining',
+                    duration: '03:10',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Quy trình cắt thép không gỉ dày theo bản vẽ cơ khí chính xác tại xưởng Dĩ An, Bình Dương với tốc độ cắt nhanh và dung sai tối ưu.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'hydraulic-press-brake',
+                    title: 'Chấn gấp thủy lực Inox biên dạng phức tạp',
+                    category: 'machining',
+                    duration: '01:50',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Máy chấn CNC định hình các chi tiết máng dẫn, bồn bể công nghiệp và kết cấu cơ khí chính xác từ phôi Inox 304/316.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'coil-slitting-line',
+                    title: 'Dây chuyền xả băng cuộn Inox tự động khổ 1500mm',
+                    category: 'warehouse',
+                    duration: '02:15',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Phân cuộn inox từ cuộn mẹ sang các khổ băng hẹp theo đúng yêu cầu bản vẽ chi tiết của đối tác sản xuất.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'warehouse-inspection',
+                    title: 'Tổng quan kho xưởng trữ lượng lớn & Kiểm định xuất xưởng',
+                    category: 'warehouse',
+                    duration: '03:30',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Tham quan kho xưởng tại Đường ĐT 743, Dĩ An, Bình Dương với hàng ngàn tấn cuộn, tấm, ống Inox 304, 316, 201, 430 nhập khẩu chính hãng POSCO, Hyundai Steel.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                }
+            ],
+            modal: {
+                watchVideo: 'Xem video',
+                close: 'Đóng',
+                consultNow: 'Yêu cầu báo giá gia công'
             }
         },
         careersPage: {
@@ -473,6 +530,64 @@ export const translations: Record<string, any> = {
                 text: 'Các tin tức khác đang được cập nhật. Vui lòng quay lại sau hoặc theo dõi chúng tôi trên',
                 linkText: 'Facebook'
             }
+        },
+        newsModal: {
+            publishedOn: 'Ngày đăng',
+            author: 'Ban biên tập Kha Hoàng Minh',
+            contactForDetails: 'Yêu cầu tư vấn kỹ thuật về chủ đề này',
+            close: 'Đóng',
+            share: 'Chia sẻ'
+        },
+
+        calculator: {
+            title: 'Công Cụ Tính Trọng Lượng Inox',
+            subtitle: 'Tra cứu quy cách & tính toán khối lượng lý thuyết chuẩn xác cho thép không gỉ SUS 304, 316, 201, 430',
+            shapes: {
+                sheet: 'Tấm & Cuộn (Sheet/Coil)',
+                pipe: 'Ống tròn công nghiệp (Pipe)',
+                box: 'Hộp vuông & chữ nhật (Box)',
+                roundBar: 'Láp đặc tròn (Round Bar)',
+                angle: 'Thanh Vê & La (Angle/Flat)'
+            },
+            grades: {
+                sus304: 'SUS 304 / 304L (7.93 g/cm³)',
+                sus316: 'SUS 316 / 316L (7.98 g/cm³)',
+                sus201: 'SUS 201 (7.93 g/cm³)',
+                sus430: 'SUS 430 (7.75 g/cm³)'
+            },
+            fields: {
+                grade: 'Mác thép Inox',
+                shape: 'Quy cách định hình',
+                thickness: 'Độ dày (mm)',
+                width: 'Khổ rộng (mm)',
+                length: 'Chiều dài (mm)',
+                outerDiameter: 'Đường kính ngoài (mm)',
+                height: 'Chiều cao (mm)',
+                diameter: 'Đường kính láp (mm)',
+                quantity: 'Số lượng (cây / tấm)',
+                density: 'Khối lượng riêng',
+                dimensionUnit: 'Kích thước chuẩn',
+                standardTip: 'Mẹo: Nhập theo milimet (mm). Kết quả tự động quy đổi theo mét tiêu chuẩn.'
+            },
+            results: {
+                singleWeight: 'Trọng lượng đơn chiếc',
+                totalWeight: 'Tổng trọng lượng',
+                formula: 'Công thức tính toán',
+                rfqAction: 'Gửi yêu cầu báo giá theo quy cách này',
+                copied: 'Đã sao chép thông số quy cách',
+                copySpecs: 'Sao chép thông số',
+                note: 'Khối lượng tính toán là khối lượng lý thuyết dựa trên tiêu chuẩn ASTM A240 / JIS G4303. Khối lượng thực tế có thể dao động nhẹ theo dung sai xuất xưởng của nhà sản xuất.'
+            }
+        },
+        speedDial: {
+            zaloTooltip: 'Chat Zalo với Giám đốc KD (0979.866.162)',
+            callTooltip: 'Gọi hotline kinh doanh',
+            callUyen: 'Ms. Phụng Uyên: 0979.866.162',
+            callHai: 'Ms. Minh Hải: 0976.888.999',
+            calcTooltip: 'Tính trọng lượng Inox',
+            scrollTopTooltip: 'Về đầu trang',
+            menuOpen: 'Mở tiện ích liên hệ nhanh',
+            menuClose: 'Thu gọn tiện ích'
         },
         contactPage: {
             heroTitle: 'Liên Hệ',
@@ -1105,18 +1220,75 @@ export const translations: Record<string, any> = {
             }
         },
         videosPage: {
-            title: 'Video Library',
+            title: 'Video Library & Processing Capabilities',
             hero: {
-                title: 'Video',
-                highlight: 'Introduction',
-                subtitle: 'Learn more about our products and services through videos'
+                title: 'Video &',
+                highlight: 'Machining Showcase',
+                subtitle: 'Discover our CNC machining factory, industrial warehouse, and stainless-steel coil slitting line'
             },
             content: {
-                title: 'Videos are being updated',
-                description: 'We are preparing introduction videos about products, services and production processes. Please come back later or contact us directly for more details.',
-                hotline: 'Hotline',
-                facebook: 'Visit Facebook',
-                contact: 'Contact for advice'
+                title: 'Machining Capabilities & Infrastructure',
+                description: 'Kha Hoang Minh operates high-power Fiber Laser cutting systems, large-scale CNC Plasma cutters, hydraulic press brakes, and major distribution warehouses in Binh Duong & HCMC.',
+                facebook: 'Facebook Fanpage',
+                contact: 'Contact Factory Support'
+            },
+            categories: {
+                all: 'All Videos',
+                machining: 'CNC & Laser Machining',
+                warehouse: 'Warehouse & Lines',
+                projects: 'Featured Projects'
+            },
+            items: [
+                {
+                    id: 'laser-fiber-cutting',
+                    title: 'High-power Fiber Laser Cutting Line for Heavy SUS 304 Plates',
+                    category: 'machining',
+                    duration: '02:45',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Precision plate cutting with ultra-clean, dross-free edges meeting stringent sanitary standards for food and chemical applications.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'cnc-plasma-heavy',
+                    title: 'Heavy CNC Plasma Cutting for Stainless Plates (10mm - 40mm)',
+                    category: 'machining',
+                    duration: '03:10',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Heavy stainless-steel plate contour cutting matching precise CAD engineering specs at Di An, Binh Duong plant.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'hydraulic-press-brake',
+                    title: 'High-Tonnage Hydraulic CNC Press Braking',
+                    category: 'machining',
+                    duration: '01:50',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Precision bending and forming of complex troughs, industrial tanks, and architectural structural profiles in SUS 304/316.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'coil-slitting-line',
+                    title: 'Automated 1500mm Stainless Steel Coil Slitting Line',
+                    category: 'warehouse',
+                    duration: '02:15',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'De-coiling, leveling, and high-speed precision longitudinal slitting to exact customer strip widths.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                },
+                {
+                    id: 'warehouse-inspection',
+                    title: 'Large-Volume Central Warehouse Tour & QA Inspection',
+                    category: 'warehouse',
+                    duration: '03:30',
+                    thumbnail: '/img/assets/home/khm-01.jpg',
+                    description: 'Comprehensive facility overview stocking thousands of tons of genuine coils, sheets, and tubes imported from POSCO and Hyundai Steel.',
+                    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
+                }
+            ],
+            modal: {
+                watchVideo: 'Watch Video',
+                close: 'Close',
+                consultNow: 'Request Machining Quote'
             }
         },
         careersPage: {
@@ -1192,6 +1364,64 @@ export const translations: Record<string, any> = {
                 text: 'Other news is being updated. Please come back later or follow us on',
                 linkText: 'Facebook'
             }
+        },
+        newsModal: {
+            publishedOn: 'Published on',
+            author: 'Kha Hoang Minh Editorial Team',
+            contactForDetails: 'Request technical consultation regarding this article',
+            close: 'Close',
+            share: 'Share'
+        },
+
+        calculator: {
+            title: 'Stainless Steel Weight Calculator',
+            subtitle: 'Quick specification lookup & theoretical weight calculation for SUS 304, 316, 201, 430 grades',
+            shapes: {
+                sheet: 'Sheet & Coil (Plate/Coil)',
+                pipe: 'Industrial Round Pipe (Pipe)',
+                box: 'Square & Rectangular Tube (Box)',
+                roundBar: 'Solid Round Bar (Bar)',
+                angle: 'Angle & Flat Bar (Angle/Flat)'
+            },
+            grades: {
+                sus304: 'SUS 304 / 304L (7.93 g/cm³)',
+                sus316: 'SUS 316 / 316L (7.98 g/cm³)',
+                sus201: 'SUS 201 (7.93 g/cm³)',
+                sus430: 'SUS 430 (7.75 g/cm³)'
+            },
+            fields: {
+                grade: 'Inox Steel Grade',
+                shape: 'Profile Shape',
+                thickness: 'Thickness (mm)',
+                width: 'Width (mm)',
+                length: 'Length (mm)',
+                outerDiameter: 'Outer Diameter (mm)',
+                height: 'Height (mm)',
+                diameter: 'Bar Diameter (mm)',
+                quantity: 'Quantity (units/pieces)',
+                density: 'Specific Gravity',
+                dimensionUnit: 'Standard Units',
+                standardTip: 'Tip: Enter in millimeters (mm). Formula converts automatically into standard metric meters.'
+            },
+            results: {
+                singleWeight: 'Single Piece Weight',
+                totalWeight: 'Total Estimated Weight',
+                formula: 'Calculation Formula',
+                rfqAction: 'Request Quote for These Specs',
+                copied: 'Copied specification details',
+                copySpecs: 'Copy Specifications',
+                note: 'Theoretical weights calculated in accordance with ASTM A240 / JIS G4303. Actual weight may vary slightly according to mill tolerance.'
+            }
+        },
+        speedDial: {
+            zaloTooltip: 'Zalo Chat with Director (0979.866.162)',
+            callTooltip: 'Call Sales Hotline',
+            callUyen: 'Ms. Phung Uyen: 0979.866.162',
+            callHai: 'Ms. Minh Hai: 0976.888.999',
+            calcTooltip: 'Inox Weight Calculator',
+            scrollTopTooltip: 'Back to Top',
+            menuOpen: 'Open Quick Contact Widget',
+            menuClose: 'Collapse Widget'
         },
         contactPage: {
             heroTitle: 'Contact',
