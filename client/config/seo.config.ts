@@ -9,11 +9,11 @@ export const defaultSEO: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'vi_VN',
-        url: 'http://khahoangminh.com.vn',
+        url: 'https://khahoangminh.com.vn',
         siteName: 'Kha Hoang Minh',
         images: [
             {
-                url: 'http://khahoangminh.com.vn/img/logo/logo.png',
+                url: 'https://khahoangminh.com.vn/img/logo/logo.png',
                 width: 800,
                 height: 600,
                 alt: 'Kha Hoang Minh Logo',

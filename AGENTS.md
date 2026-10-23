@@ -40,11 +40,12 @@ Even on minor edits, you MUST never violate these baseline project laws:
 - **REQUIRED Section Framing**: Every section organism must wrap content in `.container-khm` and use exactly one vertical rhythm utility: `.section-hero-compact`, `.section-frame-half`, or `.section-frame-full`.
 
 ### C. Kha Hoàng Minh Corporate & Metallurgical Truth (Zero Hallucination)
-- **Legal Entity**: CÔNG TY TNHH MỘT THÀNH VIÊN KHA HOÀNG MINH (`KHA HOANG MINH CO., LTD`) — Tax ID (MST): `0314059766`.
+- **Legal Entity**: CÔNG TY TNHH MỘT THÀNH VIÊN KHA HOÀNG MINH (`KHA HOANG MINH CO., LTD`) — Tax ID (MST): `0314059766` (Cấp ngày 12/10/2016 bởi Sở KH&ĐT TP.HCM).
+- **Legal Representative / Director**: Bà Ngô Thị Phụng Uyên (`Giám đốc`).
 - **Locations**:
-  - Registered Office (`Trụ sở / Văn phòng`): `93/16 Đường Nguyễn Thị Tú, P. Bình Hưng Hoà, Q. Bình Tân, TP. HCM`
-  - Factory & Warehouse (`Nhà máy / Kho xưởng`): `Đường ĐT 743, Bình Chuẩn, Thuận An, Bình Dương`
-- **Direct Sales Contacts**: `0979.866.162` (Ms. Uyên) | `0976.888.999` (Ms. Hải) | Email: `info@khahoangminh.com.vn`.
+  - Registered Office (`Trụ sở chính / Văn phòng`): `Số 93/16 Đường Nguyễn Thị Tú, KP. 3, Phường Bình Hưng Hòa B, Quận Bình Tân, TP. Hồ Chí Minh`.
+  - Factory & Warehouse (`Nhà máy / Kho xưởng`): `Ấp Chiêu Liêu, Đường ĐT 743, Phường Tân Đông Hiệp, Thành phố Dĩ An, Tỉnh Bình Dương`.
+- **Direct Sales Contacts**: `0979.866.162` (Ms. Phụng Uyên) | `0976.888.999` (Ms. Minh Hải) | Email: `info@khahoangminh.com.vn`.
 - **Zero Static Pricing**: Never invent or hardcode VND/USD prices per kg/sheet. Always use `"Liên hệ báo giá"` / `"Contact for Quote"` routed to `/contact`.
 - **Authentic Specs Only**: Certified grades (`SUS 304`, `SUS 316`, `SUS 201`, `SUS 430`), finishes (`2B`, `BA`, `No.1`, `HL`, `8K`), standards (`ASTM A240`, `JIS G4303`, `DIN`), and CNC capabilities (Laser fiber, CNC Plasma, chấn gấp thủy lực, xả băng, chặt tấm).
 
