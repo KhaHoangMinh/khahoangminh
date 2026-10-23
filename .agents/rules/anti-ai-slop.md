@@ -78,6 +78,7 @@ AI models gravitate toward generic, corporate filler copy when they lack domain 
 - ❌ "Transforming your business through sustainable excellence."
 - ❌ "Your trusted partner for all modern solutions."
 - ❌ "Lorem ipsum dolor sit amet..."
+- ❌ **Never Hardcode Product Prices**: Inox prices fluctuate daily. Never invent static VND/USD prices; always display `"Liên hệ báo giá"` / `"Contact for Quote"`.
 
 ### 5.2 Required Industrial Domain Authority
 - ✅ **Certified Inox Grades**: SUS 304, SUS 316, SUS 201, SUS 430.

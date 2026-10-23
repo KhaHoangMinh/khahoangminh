@@ -42,9 +42,8 @@ const OPTICAL_SIZE_CLASSES: Record<AspectCategory, string> = {
 
 ## 2. Studio-Lit Platinum Optical Stage
 
-Corporate industrial logos often contain dark navy, black, red, or green ink that disappears completely when placed on dark metallic backgrounds. Applying `filter: grayscale(1) invert(1)` destroys brand identity.
-
-- **The Standard**: Mount brand logos on a studio-lit light stage (`bg-slate-50/85 dark:bg-[#F1F5F9]`) paired with a dark metallic caption bar (`dark:bg-[#182234]`).
+- **Banned Filters**: Never apply `filter: grayscale(1)` or `filter: invert(1)`.
+- **The Standard**: Mount brand logos on a studio-lit light stage (`bg-slate-50/85 dark:bg-[#F1F5F9]`) paired with a dark metallic caption bar (`dark:bg-[#182234]`) displaying the partner name and industry badge (e.g., `POSCO • THÉP`, `PETROVIETNAM • DẦU KHÍ`).
 - **Result**: Guarantees 100% color fidelity and contrast for all brand partners in both Light Mode and Dark Mode.
 
 ---
