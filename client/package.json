@@ -10,7 +10,7 @@
     "lint": "eslint"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24.0.0"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
