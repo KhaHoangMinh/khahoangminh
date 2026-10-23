@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, ReceiptText } from 'lucide-react';
 import { FaFacebook } from 'react-icons/fa';
-import { createPageUrl } from '@/lib';
+import { createPageUrl, getAssetPath } from '@/lib';
 import { useLanguage } from '@/services';
 import { mainNavigation, legalNavigation, type SpecialEvent } from '@/config';
 import Image from 'next/image';
@@ -15,7 +15,7 @@ interface FooterProps {
 
 export function Footer({ activeEvent }: FooterProps) {
     const { t } = useLanguage();
-    const currentLogo = activeEvent?.theme?.logo || "/img/logo/logo.png";
+    const currentLogo = getAssetPath(activeEvent?.theme?.logo || "/img/logo/logo.png");
 
     return (
         <footer className="bg-[#070A10] text-slate-200 pt-14 pb-8 border-t border-slate-800/90 relative overflow-hidden">
@@ -36,7 +36,7 @@ export function Footer({ activeEvent }: FooterProps) {
                                 onError={(e) => {
                                     const target = e.currentTarget;
                                     target.onerror = null;
-                                    target.src = "/img/logo/logo.png";
+                                    target.src = getAssetPath("/img/logo/logo.png");
                                 }}
                             />
                             <div>
@@ -143,7 +143,7 @@ export function Footer({ activeEvent }: FooterProps) {
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-4">
                             <Image
-                                src="/img/bo-cong-thuong.png"
+                                src={getAssetPath("/img/bo-cong-thuong.png")}
                                 alt="Đã thông báo Bộ Công Thương"
                                 width={105}
                                 height={40}

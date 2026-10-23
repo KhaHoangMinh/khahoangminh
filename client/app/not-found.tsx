@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Home, Search, Package, Info, Briefcase, Phone, Construction, PhoneCall, Users } from 'lucide-react';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
-import { createPageUrl } from "@/lib";
+import { createPageUrl, getAssetPath } from "@/lib";
 
 export default function PageNotFound() {
     const pathname = usePathname();
@@ -36,7 +36,7 @@ export default function PageNotFound() {
                     {/* Brand Logo & Name */}
                     <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0" aria-label="Kha Hoàng Minh Home">
                         <Image
-                            src="/img/logo/logo.png"
+                            src={getAssetPath("/img/logo/logo.png")}
                             height={44}
                             width={44}
                             priority

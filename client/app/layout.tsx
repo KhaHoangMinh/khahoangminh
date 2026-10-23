@@ -3,6 +3,7 @@ import { Inter, Lora } from "next/font/google";
 import { Providers } from "./providers";
 import { ContextMenuBlocker } from "@/components/ContextMenuBlocker";
 import { ClientLayoutWrapper } from "./ClientLayoutWrapper";
+import { getAssetPath } from "@/lib";
 import "./globals.css";
 
 // Optimize Google Fonts with Vietnamese + Latin support
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Kha Hoàng Minh | Nhà Cung Cấp Inox Hàng Đầu Việt Nam",
     description: "Chuyên nhập khẩu và phân phối thép không gỉ (Inox) Tấm, Cuộn, Ống, Phụ kiện công nghiệp và dân dụng chất lượng cao.",
     icons: {
-        icon: "/img/logo/logo.png",
+        icon: getAssetPath("/img/logo/logo.png"),
     },
 };
 

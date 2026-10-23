@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/services';
+import { getAssetPath } from '@/lib';
 import Image from 'next/image';
 
 type AspectCategory = 'square' | 'standard' | 'wide' | 'ultrawide';
@@ -60,7 +61,7 @@ function PartnerPod({ partner, isVi }: { partner: PartnerItem; isVi: boolean }) 
             <div className="relative h-14 sm:h-16 w-full flex items-center justify-center bg-slate-50/85 dark:bg-[#F1F5F9] group-hover:bg-white dark:group-hover:bg-white px-3 transition-colors duration-300">
                 <div className={`relative ${OPTICAL_SIZE_CLASSES[partner.aspect]} transition-transform duration-300 group-hover:scale-105`}>
                     <Image
-                        src={partner.logo}
+                        src={getAssetPath(partner.logo)}
                         alt={`${partner.name} logo`}
                         fill
                         sizes="150px"

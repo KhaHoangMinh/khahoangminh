@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { getAssetPath } from '@/lib';
 
 export interface GalleryItem {
     image: string;
@@ -10,7 +11,7 @@ export function GalleryImage({ item }: { item: GalleryItem }) {
     return (
         <div className="group relative overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-square">
             <Image
-                src={item.image}
+                src={getAssetPath(item.image)}
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

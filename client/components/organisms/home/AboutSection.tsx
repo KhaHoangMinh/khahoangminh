@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/atoms';
-import { createPageUrl } from '@/lib';
+import { createPageUrl, getAssetPath } from '@/lib';
 import { useLanguage } from '@/services';
 import Image from 'next/image';
 
@@ -66,7 +66,7 @@ export function AboutSection({ intro, name, desc1, desc2, quote }: AboutSectionP
 
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 aspect-[4/3] group">
                             <Image
-                                src="/img/assets/home/khm-01.jpg"
+                                src={getAssetPath("/img/assets/home/khm-01.jpg")}
                                 alt={name}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 42vw"
