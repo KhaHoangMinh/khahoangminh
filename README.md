@@ -175,4 +175,4 @@ docker-compose down
 
 ## 📄 License & Intellectual Property
 © 2026 CÔNG TY TNHH KHA HOÀNG MINH. All rights reserved.  
-Official Domain: [khahoangminh.com.vn](http://khahoangminh.com.vn)
+Official Domain: [khahoangminh.com.vn](https://khahoangminh.com.vn)

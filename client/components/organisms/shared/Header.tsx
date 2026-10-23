@@ -38,10 +38,10 @@ export function Header({ currentPageName, activeEvent, onOpenSpecialEvent }: Hea
                         <Image
                             src={getAssetPath("/img/vietnamFlag.png")}
                             alt="VN Flag"
-                            width={20}
+                            width={21}
                             height={14}
-                            className="h-3.5 w-auto object-contain rounded-[2px]"
-                            style={{ width: 'auto', height: 'auto' }}
+                            className="h-3.5 w-[21px] object-cover rounded-[2px] shadow-xs border border-black/10 dark:border-white/10 shrink-0"
+                            style={{ width: '21px', height: '14px' }}
                         />
                         <span className="text-slate-700 dark:text-slate-300">{t('header.welcomeMessage')}</span>
                     </p>

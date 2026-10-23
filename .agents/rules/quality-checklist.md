@@ -50,6 +50,12 @@ Before marking ANY UI or code task complete, you MUST execute and pass every ite
   - Does `npm run build` inside `client/` pass with exit code `0`?
   - Do all static pages prerender cleanly without hydration mismatch warnings?
 
+- [ ] **9. Type Safety, SEO & Zero Console Leakage**:
+  - Are there zero usages of `any`, `@ts-ignore`, or `@ts-expect-error` across modified files?
+  - Are all debug `console.log()` statements removed before completion?
+  - Do `vi` and `en` dictionaries in `LanguageProvider.tsx` have 100% key parity?
+  - Are all external URLs strictly `https://` with valid SEO metadata on every public route?
+
 ---
 
 ## 2. Zero Regression Protocol for Interactive Features

@@ -148,7 +148,7 @@ export function Footer({ activeEvent }: FooterProps) {
                                 width={105}
                                 height={40}
                                 className="h-9 w-auto object-contain"
-                                style={{ width: 'auto', height: 'auto' }}
+                                style={{ height: '36px', width: 'auto' }}
                             />
                             <div className="flex flex-wrap items-center justify-center gap-2.5">
                                 {legalNavigation.map((item, index) => (

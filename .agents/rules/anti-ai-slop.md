@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Kha Hoàng Minh — Anti-"AI Slop" & Senior Craftsmanship Rules (MANDATORY)
 
 > **Scope**: Elimination of generic AI-generated templates, SaaS clichés, lazy component shortcuts, blind dark-mode inversion, and placeholder copy. Enforcing authentic industrial identity and senior craftsmanship.
@@ -81,6 +85,16 @@ AI models gravitate toward generic, corporate filler copy when they lack domain 
 - ✅ **Machining Capabilities**: Gia công CNC Plasma, cắt Laser fiber công suất cao, chấn gấp thủy lực, xả băng, chặt tấm.
 - ✅ **Industrial Standards**: ASTM A240, JIS G4303, DIN, bề mặt 2B / No.1 / BA / HL / 8K.
 - ✅ **Direct Sales Contacts**: Real hotline numbers (`0979.866.162` - Ms. Uyên, `0976.888.999` - Ms. Hải) and verified address (Đường ĐT 743, Bình Chuẩn, Thuận An, Bình Dương).
+
+### 5.3 Strict Metallurgical & Corporate Fact Integrity (ZERO HALLUCINATION)
+- ❌ **Never Hardcode Product Prices**: Stainless steel (Inox) raw material prices fluctuate daily. Never render static prices (e.g., `65.000đ/kg` or `$250`). Always render `"Liên hệ báo giá"` / `"Contact for Quote"` linked to `/contact` or direct hotlines.
+- ❌ **Never Hallucinate Metallurgical Specs**:
+  - Do not claim `SUS 304` or `SUS 316` are strongly magnetic (they are austenitic; `SUS 430` is ferritic/magnetic).
+  - Use authentic thickness (`độ dày: 0.3mm – 60.0mm` / `ly`), standard widths (`khổ rộng: 1000mm, 1220mm, 1500mm, 1524mm`), lengths (`6000mm` / `6m` or `Cuộn`), and origins (`POSCO`, `Hyundai Steel`, `Nippon Steel`, `Super Inox`, `Vinraj`).
+- ✅ **Official Corporate Identity Constants**:
+  - **Legal Entity**: CÔNG TY TNHH MỘT THÀNH VIÊN KHA HOÀNG MINH (`KHA HOANG MINH CO., LTD`)
+  - **Tax ID (MST)**: `0314059766`
+  - **Distinguish Addresses Clearly**: Always label `93/16 Đường Nguyễn Thị Tú, P. Bình Hưng Hoà, Q. Bình Tân, TP. HCM` as Registered Office (`Văn phòng / Trụ sở`) and `Đường ĐT 743, Bình Chuẩn, Thuận An, Bình Dương` as Factory / Warehouse (`Nhà máy / Kho xưởng`).
 
 ---
 

@@ -32,6 +32,11 @@ Industrial buyers frequently require urgent quotation turns. The UI must provide
   - Primary button: "Liên Hệ Ngay" (Request Quote / Contact) leading to quotation form.
   - Secondary button: One-touch telephone dialer.
 
+### 2.1 Zalo Direct Procurement & Pre-Filled RFQ Context
+- **Zalo Quick-Chat Integration**: Alongside `tel:` (`0979.866.162` - Ms. Uyên, `0976.888.999` - Ms. Hải) and `mailto:` (`info@khahoangminh.com.vn`), all floating contact groups and `SocialContactButtonGroup` molecules must support direct `https://zalo.me/` deep links.
+- **Query-Param RFQ Pre-Fill**: Clicking `"Báo giá"` on any `ProductCard` or `CatalogProductCard` must route to `/contact?product=<slug-or-name>` and automatically pre-populate the `message` or subject context in `ContactFormSection` (e.g., `"Yêu cầu báo giá: Tấm Inox SUS 304 - Bề mặt 2B"`).
+- **Server-Side Validation & Anti-Spam**: Every form submission handler must re-validate inputs on the server, sanitize HTML/script tags, and enforce rate-limiting or honeypot verification before dispatching emails/notifications.
+
 ---
 
 ## 3. Form Validation, Input States & Error Recovery
