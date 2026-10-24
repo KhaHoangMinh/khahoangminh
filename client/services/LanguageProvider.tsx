@@ -49,7 +49,7 @@ export const translations: Record<string, any> = {
         events: {
             specialEventTag: 'Sự Kiện Đặc Biệt',
         },
-        
+
         /* --- 3. COMMON --- */
         common: {
             companyShortName: 'KHA HOÀNG MINH',
@@ -623,7 +623,7 @@ export const translations: Record<string, any> = {
             infoEmail: 'Email',
             infoHours: 'Giờ làm việc',
             workingHoursText1: 'Thứ 2 - Thứ 6: 8:00 - 17:00',
-            workingHoursText2:'Thứ 7: 8:00 - 12:00',
+            workingHoursText2: 'Thứ 7: 8:00 - 12:00',
             supportTitle: 'Hỗ trợ khách hàng',
             socialLabel: 'Mạng xã hội',
             socialConnect: 'Kết nối với chúng tôi',
@@ -1685,7 +1685,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [language, setLanguage] = useState('vi');
 
     useEffect(() => {
-        const saved = localStorage.getItem('app_language'); 
+        const saved = localStorage.getItem('app_language');
         if (saved) setLanguage(saved);
         setMounted(true);
     }, []);
