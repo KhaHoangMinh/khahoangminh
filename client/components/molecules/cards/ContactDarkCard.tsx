@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { Mail, type LucideIcon } from 'lucide-react';
 import { Card, CardContent, Button } from '@/components/atoms';

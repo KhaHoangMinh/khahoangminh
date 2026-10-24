@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
     Calculator, 
@@ -16,8 +16,6 @@ import {
     X,
     Minus,
     Maximize2,
-    Sparkles,
-    ChevronDown,
     ArrowLeftRight
 } from 'lucide-react';
 import { Button, Input } from '@/components/atoms';
@@ -42,11 +40,10 @@ interface Preset {
 export interface InoxCalculatorWidgetProps {
     isOpen: boolean;
     onClose: () => void;
-    onOpen?: () => void;
     expandTrigger?: number;
 }
 
-export function InoxCalculatorWidget({ isOpen, onClose, onOpen, expandTrigger }: InoxCalculatorWidgetProps) {
+export function InoxCalculatorWidget({ isOpen, onClose, expandTrigger }: InoxCalculatorWidgetProps) {
     const { t, language } = useLanguage();
     const router = useRouter();
 

@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { Award, Target, Users, Building2 } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { 

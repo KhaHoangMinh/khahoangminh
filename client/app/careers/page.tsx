@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { useLanguage } from "@/services";
 import { TrendingUp, Heart, Users, Award } from 'lucide-react';
 import { 

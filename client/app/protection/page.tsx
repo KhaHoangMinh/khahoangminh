@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, ProtectionContent } from '@/components/organisms';

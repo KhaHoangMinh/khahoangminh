@@ -1681,13 +1681,11 @@ export const translations: Record<string, any> = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [mounted, setMounted] = useState(false);
     const [language, setLanguage] = useState('vi');
 
     useEffect(() => {
         const saved = localStorage.getItem('app_language');
         if (saved) setLanguage(saved);
-        setMounted(true);
     }, []);
 
     const toggleLanguage = () => {

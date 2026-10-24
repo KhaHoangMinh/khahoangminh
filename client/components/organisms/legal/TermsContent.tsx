@@ -1,4 +1,3 @@
-import React from 'react';
 import { Ban } from 'lucide-react';
 import { LegalSectionCard, ContactDarkCard } from '@/components/molecules';
 

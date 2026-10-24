@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { useLanguage } from "@/services";
 import { PageHero, VideoShowcaseSection } from '@/components/organisms';
 

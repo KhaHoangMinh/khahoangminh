@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { X, ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/services';
 import type { SpecialEvent } from '@/config';

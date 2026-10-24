@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Scale, FileSignature, RefreshCw, UserRoundXIcon, Package, Brain, AlertTriangle, Landmark, Ban } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, LegalSidebarNav, TermsContent } from '@/components/organisms';

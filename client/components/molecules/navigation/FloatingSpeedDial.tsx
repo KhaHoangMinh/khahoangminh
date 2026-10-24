@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Phone, Calculator, ArrowUp, MessageSquare, X, ChevronUp, Sparkles } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Phone, Calculator, ArrowUp, MessageSquare, X, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { InoxCalculatorWidget } from '@/components/molecules/calculator/InoxCalculatorWidget';
 
@@ -134,7 +134,6 @@ export function FloatingSpeedDial() {
                 isOpen={isCalcOpen}
                 expandTrigger={calcExpandTrigger}
                 onClose={() => setIsCalcOpen(false)}
-                onOpen={() => setIsCalcOpen(true)}
             />
         </>
     );

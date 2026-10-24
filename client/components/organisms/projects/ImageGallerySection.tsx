@@ -1,4 +1,3 @@
-import React from 'react';
 import { GalleryImage, type GalleryItem } from '@/components/molecules';
 
 interface ImageGallerySectionProps {

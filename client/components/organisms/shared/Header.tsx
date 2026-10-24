@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Mail, Bell, Sparkles } from 'lucide-react';
 import { FaFacebook } from 'react-icons/fa';

@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { Scissors, Ruler, Truck, Headphones, FileCheck, Award } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { 

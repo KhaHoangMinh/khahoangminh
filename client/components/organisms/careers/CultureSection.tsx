@@ -1,4 +1,3 @@
-import React from 'react';
 import { CultureListItem, CultureImageGrid } from '@/components/molecules';
 
 interface CultureSectionProps {

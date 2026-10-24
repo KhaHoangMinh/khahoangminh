@@ -1,10 +1,9 @@
 "use client";
 
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Home, Search, Package, Info, Briefcase, Phone, Construction, PhoneCall, Users } from 'lucide-react';
+import { Home, Search, Package, Info, Briefcase, Construction, PhoneCall, Users } from 'lucide-react';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { createPageUrl, getAssetPath } from "@/lib";
 
