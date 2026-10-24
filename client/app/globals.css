@@ -2,41 +2,100 @@
 @config "../tailwind.config.ts";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+    --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
+        /* Micro-Industrial Surface & Ink Tokens (Cold-Rolled Steel Palette) */
+        --bg-canvas: #F8F9FA;
+        --bg-surface: #FFFFFF;
+        --bg-industrial-dark: #111315;
+        --bg-elevated: #F1F3F5;
+
+        --text-primary: #0B0D0E;
+        --text-secondary: #495057;
+        --text-muted: #6C757D;
+        --text-on-dark: #F8F9FA;
+
+        /* Single High-Contrast Accent (Plasma Cut Orange-Red) + Technical Steel Blue */
+        --color-primary: #D9381E;
+        --color-primary-hover: #B82D16;
+        --color-steel-accent: #0F4C81;
+
+        /* Exposed Hairline Grid & Sharp Mechanical Radii */
+        --border-hairline: #E2E5E9;
+        --border-strong: #CBD0D6;
+        --border-dark-grid: #262A2E;
+        --radius-none: 0px;
+        --radius-sm: 2px;
+        --radius-md: 4px;
+
+        /* Strictly 3 Elevation Levels (Anti-Slop Compliant) */
+        --shadow-sm: 0 1px 2px 0 rgba(17, 19, 21, 0.05);
+        --shadow-md: 0 4px 12px -2px rgba(17, 19, 21, 0.08);
+        --shadow-lg: 0 12px 24px -4px rgba(17, 19, 21, 0.12);
+
+        /* Industrial Motion Curves (120ms-180ms max, never ease-in) */
+        --ease-out-industrial: cubic-bezier(0.23, 1, 0.32, 1);
+        --duration-fast: 140ms;
+        --duration-modal: 220ms;
+
+        /* Shadcn/Tailwind HSL Compatibility Mapped to Industrial Tokens */
+        --background: 210 17% 98%;          /* #F8F9FA Cold-Rolled Steel Canvas */
+        --foreground: 200 12% 5%;           /* #0B0D0E Deep Metallurgy Ink */
+        --card: 0 0% 100%;                  /* #FFFFFF Pure Spec-Sheet Surface */
+        --card-foreground: 200 12% 5%;
         --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 20.5 90.2% 48.2%;
+        --popover-foreground: 200 12% 5%;
+        --primary: 8 76% 48%;               /* #D9381E Plasma Cut Orange-Red */
         --primary-foreground: 0 0% 100%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 37.7 92.1% 50.2%;
-        --accent-foreground: 222.2 47.4% 11.2%;
+        --secondary: 210 16% 95%;           /* #F1F3F5 Elevated Steel Gray */
+        --secondary-foreground: 200 12% 5%;
+        --muted: 210 16% 95%;
+        --muted-foreground: 208 7% 46%;     /* #6C757D Muted Technical Ink */
+        --accent: 208 79% 28%;              /* #0F4C81 Industrial Steel Blue */
+        --accent-foreground: 0 0% 100%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 20.5 90.2% 48.2%;
-        --chart-1: 20.5 90.2% 48.2%;
-        --chart-2: 37.7 92.1% 50.2%;
-        --chart-3: 215.4 16.3% 46.9%;
-        --chart-4: 24.6 95% 53.1%;
-        --chart-5: 43.3 96.4% 56.3%;
-        --radius: 0.75rem;
-        --sidebar-background: 210 40% 98%;
-        --sidebar-foreground: 222.2 47.4% 11.2%;
-        --sidebar-primary: 20.5 90.2% 48.2%;
+        --border: 214 14% 90%;              /* #E2E5E9 Exposed Hairline Border */
+        --input: 214 14% 82%;               /* #CBD0D6 High-Contrast Input Border */
+        --ring: 208 79% 28%;                /* #0F4C81 Focus-Visible Ring */
+        --radius: 0.125rem;                 /* Locked to 2px (0.125rem) instead of 12px AI-Slop */
+
+        --sidebar-background: 210 17% 98%;
+        --sidebar-foreground: 200 12% 5%;
+        --sidebar-primary: 8 76% 48%;
         --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 24.6 95% 96%;
-        --sidebar-accent-foreground: 20.5 90.2% 40%;
-        --sidebar-border: 214.3 31.8% 91.4%;
-        --sidebar-ring: 20.5 90.2% 48.2%;
+        --sidebar-accent: 210 16% 95%;
+        --sidebar-accent-foreground: 200 12% 5%;
+        --sidebar-border: 214 14% 90%;
+        --sidebar-ring: 208 79% 28%;
+    }
+
+    .dark {
+        --background: 210 11% 7%;           /* #111315 Dark Metallurgy Charcoal */
+        --foreground: 210 17% 98%;          /* #F8F9FA */
+        --card: 210 10% 10%;                /* #171A1D Spec Card Dark */
+        --card-foreground: 210 17% 98%;
+        --popover: 210 10% 10%;
+        --popover-foreground: 210 17% 98%;
+        --primary: 8 76% 48%;               /* #D9381E */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 210 10% 14%;
+        --secondary-foreground: 210 17% 98%;
+        --muted: 210 10% 14%;
+        --muted-foreground: 210 9% 68%;
+        --accent: 208 79% 38%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 62.8% 35.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 210 10% 16%;              /* #262A2E Dark Hairline Grid */
+        --input: 210 10% 22%;
+        --ring: 8 76% 48%;
     }
 
     /* Hide native number input spin buttons across all browsers */
@@ -50,45 +109,14 @@
         appearance: textfield;
     }
 
-    .dark {
-        --background: 220 35% 6.7%;
-        --foreground: 210 40% 98%;
-        --card: 219 37% 14.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 219 37% 14.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 24.6 95% 53.1%;
-        --primary-foreground: 0 0% 100%;
-        --secondary: 217.2 32.6% 19.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 18.5%;
-        --muted-foreground: 214 25% 76%;
-        --accent: 43.3 96.4% 56.3%;
-        --accent-foreground: 220 35% 6.7%;
-        --destructive: 0 62.8% 35.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 216 28% 24%;
-        --input: 216 28% 24%;
-        --ring: 24.6 95% 53.1%;
-        --chart-1: 24.6 95% 53.1%;
-        --chart-2: 43.3 96.4% 56.3%;
-        --chart-3: 215 20.2% 65.1%;
-        --chart-4: 20.5 90.2% 48.2%;
-        --chart-5: 37.7 92.1% 50.2%;
-        --sidebar-background: 219 37% 12%;
-        --sidebar-foreground: 210 40% 98%;
-        --sidebar-primary: 24.6 95% 53.1%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 217.2 32.6% 19.5%;
-        --sidebar-accent-foreground: 24.6 95% 68%;
-        --sidebar-border: 216 28% 24%;
-        --sidebar-ring: 24.6 95% 53.1%;
-    }
-}
-
-@layer base {
     * {
-        @apply border-border outline-ring/50;
+        @apply border-border;
+    }
+
+    /* Explicit WCAG 2.1 AA Keyboard Focus Ring (8-State Polish) */
+    *:focus-visible {
+        outline: 2px solid var(--color-steel-accent);
+        outline-offset: 2px;
     }
 
     html {
@@ -97,180 +125,169 @@
     }
 
     body {
-        @apply font-sans antialiased bg-white dark:bg-[#0B0F17] text-slate-900 dark:text-slate-50 selection:bg-orange-500/20 selection:text-orange-600 dark:selection:bg-orange-500/30 dark:selection:text-orange-300;
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        @apply font-sans antialiased selection:bg-[#D9381E]/15 selection:text-[#D9381E] dark:bg-[#111315] dark:text-[#F8F9FA];
         text-rendering: optimizeLegibility;
+    }
+
+    /* Mandatory Tabular Numerals for Steel Dimensions, Grades, Weights & Hotlines */
+    .spec-num,
+    table,
+    td,
+    th,
+    .metric-value,
+    input[type="number"],
+    input[type="tel"],
+    code,
+    pre {
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.01em;
     }
 
     img {
         -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
         user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
     }
 }
 
-/* Standardized Responsive Viewport Framing, Surface Tokens & Typography Utilities */
+/* Standardized Micro-Industrial Spec-Sheet Components */
 @layer components {
     .container-khm {
         @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
     }
 
-    /* 1-Section Viewport Frame (Catalog, Contact Workspace, Full-Page Grids) */
     .section-frame-full {
-        @apply py-9 sm:py-12 lg:py-14 flex flex-col justify-center;
+        @apply py-10 sm:py-14 lg:py-16 flex flex-col justify-center;
     }
 
-    /* 2-Section Viewport Frame (Proportional spacing so 2 sections fit in 1 viewport without dead space) */
     .section-frame-half {
         @apply py-8 sm:py-10 lg:py-12 flex flex-col justify-center;
     }
 
-    /* Inner Page Compact Hero (~18-22dvh so Hero + First Section fit together in Frame 1) */
     .section-hero-compact {
-        @apply py-7 sm:py-9 lg:py-11 flex flex-col justify-center;
+        @apply py-6 sm:py-8 lg:py-10 flex flex-col justify-center;
     }
 
-    /* Brushed Gunmetal & Weld-Orange Semantic Surfaces */
+    /* Cold-Rolled Steel Surface Hierarchy (Replaces Pastel Orange Tint Slop) */
     .surface-canvas {
-        @apply bg-white dark:bg-[#0B0F17] border-b border-slate-200/70 dark:border-slate-800/90 transition-colors;
+        background-color: var(--bg-surface);
+        border-bottom: 1px solid var(--border-hairline);
+        @apply dark:bg-[#111315] dark:border-[#262A2E];
     }
 
     .surface-band-alt {
-        @apply bg-orange-50/40 dark:bg-[#111827] border-b border-orange-100/80 dark:border-slate-800/90 transition-colors;
+        background-color: var(--bg-canvas);
+        border-bottom: 1px solid var(--border-hairline);
+        @apply dark:bg-[#16191D] dark:border-[#262A2E];
     }
 
+    /* Spec-Sheet Card: Sharp 2px corners, 1px hairline border, 140ms mechanical response */
     .card-khm {
-        @apply bg-white dark:bg-[#182234] border border-slate-200/85 dark:border-slate-700/80 shadow-sm dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:shadow-xl dark:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_10px_24px_-8px_rgba(0,0,0,0.5)] hover:border-orange-500/45 dark:hover:border-orange-400/55 dark:hover:bg-[#1C283D] transition-all duration-300 relative;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-sm);
+        transition: border-color var(--duration-fast) var(--ease-out-industrial),
+                    box-shadow var(--duration-fast) var(--ease-out-industrial),
+                    transform var(--duration-fast) var(--ease-out-industrial);
+        @apply relative dark:bg-[#171A1D] dark:border-[#262A2E];
     }
 
+    .card-khm:hover {
+        border-color: var(--text-primary);
+        box-shadow: var(--shadow-md);
+        @apply dark:border-slate-400;
+    }
+
+    /* Solid Dark Metallurgy Section (Replaces Multi-Stop Orange Gradient Banner) */
     .surface-cta-industrial {
-        @apply bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 dark:from-[#1F120B] dark:via-[#161F30] dark:to-[#0F172A] text-white border-t border-orange-500/30 dark:border-t-orange-500/45 relative overflow-hidden;
+        background-color: var(--bg-industrial-dark);
+        color: var(--text-on-dark);
+        border-top: 1px solid var(--border-dark-grid);
+        border-bottom: 1px solid var(--border-dark-grid);
+        @apply relative overflow-hidden;
     }
 
-    /* Metallic Sheen Glide on Hover */
+    /* De-Slop: Disable 1000ms Shiny Sweep Gimmick */
     .sheen-overlay {
-        @apply absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 dark:via-white/[0.08] to-transparent pointer-events-none z-10;
-        will-change: transform;
+        display: none !important;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        .sheen-overlay {
-            display: none;
-        }
-    }
-
-    /* Monospaced Technical Specification Chip */
+    /* Monospaced Technical Specification Chip (Sharp 2px Radius, Tabular Nums) */
     .chip-tech {
-        @apply inline-flex items-center gap-1 font-mono text-[11px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-slate-100 dark:bg-[#111827] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700;
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-strong);
+        @apply inline-flex items-center gap-1 text-[11px] font-medium tracking-tight uppercase px-2 py-0.5 bg-[#F1F3F5] text-[#0B0D0E] dark:bg-[#1E2227] dark:text-[#F8F9FA] dark:border-[#343A40];
     }
 
-    /* Precision Blueprint Grid & Corner Brackets */
+    /* Technical Index Badge (Replaces Pill-Shaped Glowing Eyebrow Badge) */
+    .badge-khm {
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-strong);
+        @apply inline-flex items-center gap-2 bg-[#F1F3F5] dark:bg-[#1E2227] text-[#0B0D0E] dark:text-[#F8F9FA] px-2.5 py-1 text-xs font-semibold uppercase tracking-tight;
+    }
+
+    /* Precision CAD Hairline Grid & Mechanical Crosshair Corners */
     .blueprint-grid {
-        background-image: linear-gradient(to right, rgba(234, 88, 12, 0.04) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(234, 88, 12, 0.04) 1px, transparent 1px);
+        background-image: linear-gradient(to right, rgba(11, 13, 14, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(11, 13, 14, 0.04) 1px, transparent 1px);
         background-size: 24px 24px;
     }
     .dark .blueprint-grid {
-        background-image: linear-gradient(to right, rgba(251, 146, 60, 0.04) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(251, 146, 60, 0.04) 1px, transparent 1px);
+        background-image: linear-gradient(to right, rgba(248, 249, 250, 0.04) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(248, 249, 250, 0.04) 1px, transparent 1px);
         background-size: 24px 24px;
     }
 
     .blueprint-corner-tl {
-        @apply absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-orange-500/50 pointer-events-none;
+        @apply absolute top-0 left-0 w-2 h-2 border-t border-l border-[#0B0D0E]/60 dark:border-[#F8F9FA]/60 pointer-events-none;
     }
     .blueprint-corner-tr {
-        @apply absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-orange-500/50 pointer-events-none;
+        @apply absolute top-0 right-0 w-2 h-2 border-t border-r border-[#0B0D0E]/60 dark:border-[#F8F9FA]/60 pointer-events-none;
     }
     .blueprint-corner-bl {
-        @apply absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-orange-500/50 pointer-events-none;
+        @apply absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#0B0D0E]/60 dark:border-[#F8F9FA]/60 pointer-events-none;
     }
     .blueprint-corner-br {
-        @apply absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-orange-500/50 pointer-events-none;
+        @apply absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#0B0D0E]/60 dark:border-[#F8F9FA]/60 pointer-events-none;
     }
 
-    /* Consistent High-Contrast Typography Scale */
+    /* High-Contrast Industrial Typography Scale */
     .heading-display {
-        @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15];
+        font-family: var(--font-display);
+        letter-spacing: -0.02em;
+        @apply text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold leading-[1.1] text-[#0B0D0E] dark:text-[#F8F9FA];
     }
 
     .heading-hero {
-        @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.2];
+        font-family: var(--font-display);
+        letter-spacing: -0.02em;
+        @apply text-3xl sm:text-4xl md:text-[44px] font-bold leading-[1.12] text-[#0B0D0E] dark:text-[#F8F9FA];
     }
 
     .heading-section {
-        @apply text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight text-slate-900 dark:text-slate-50;
+        font-family: var(--font-display);
+        letter-spacing: -0.02em;
+        @apply text-2xl sm:text-3xl md:text-[32px] font-bold leading-[1.15] text-[#0B0D0E] dark:text-[#F8F9FA];
     }
 
     .heading-card {
-        @apply text-lg sm:text-xl font-bold tracking-tight leading-snug text-slate-900 dark:text-slate-50;
+        font-family: var(--font-display);
+        letter-spacing: -0.015em;
+        @apply text-lg sm:text-xl font-bold leading-snug text-[#0B0D0E] dark:text-[#F8F9FA];
     }
 
     .text-lead {
-        @apply text-base sm:text-lg text-slate-600 dark:text-slate-200 leading-relaxed;
+        @apply text-base sm:text-lg text-[#495057] dark:text-slate-300 leading-relaxed max-w-[68ch];
     }
 
     .text-body {
-        @apply text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed;
-    }
-
-    .badge-khm {
-        @apply inline-flex items-center gap-2 bg-orange-500/15 dark:bg-orange-500/20 border border-orange-500/35 dark:border-orange-400/45 text-orange-700 dark:text-orange-300 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-2xs;
-    }
-}
-
-@keyframes shimmer {
-    100% {
-        transform: translateX(100%);
-    }
-}
-.animate-shimmer {
-    animation: shimmer 1.5s ease-in-out infinite;
-}
-
-@layer utilities {
-    @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-    }
-
-    @keyframes marquee-reverse {
-        0% { transform: translateX(-50%); }
-        100% { transform: translateX(0%); }
-    }
-    
-    .animate-marquee {
-        animation: marquee 44s linear infinite;
-        will-change: transform;
-    }
-
-    .animate-marquee-reverse {
-        animation: marquee-reverse 48s linear infinite;
-        will-change: transform;
-    }
-
-    @keyframes marquee-ltr-seamless {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-    }
-    .animate-marquee-ltr {
-        animation: marquee-ltr-seamless 40s linear infinite;
-        will-change: transform;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        transform: translateZ(0);
-        -webkit-font-smoothing: antialiased;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .animate-marquee,
-        .animate-marquee-reverse,
-        .animate-marquee-ltr {
-            animation-play-state: paused !important;
-        }
+        @apply text-sm sm:text-base text-[#495057] dark:text-slate-300 leading-relaxed max-w-[68ch];
     }
 }
