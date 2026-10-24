@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Lora } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import { ContextMenuBlocker } from "@/components/ContextMenuBlocker";
 import { ClientLayoutWrapper } from "./ClientLayoutWrapper";
@@ -7,16 +7,25 @@ import { getAssetPath } from "@/lib";
 import "./globals.css";
 
 // Optimize Google Fonts with Vietnamese + Latin support
-const inter = Inter({
-    subsets: ["latin", "vietnamese"],
-    display: "swap",
-    variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin", "vietnamese"],
+  weight: ["600", "700"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-const lora = Lora({
-    subsets: ["latin", "vietnamese"],
-    display: "swap",
-    variable: "--font-lora",
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -160,7 +169,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="vi" suppressHydrationWarning data-scroll-behavior="smooth">
+        <html lang="vi" suppressHydrationWarning data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}>
             <head>
                 <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
                 <script
@@ -169,7 +178,7 @@ export default function RootLayout({
                 />
             </head>
             {/* Inject font variables into the body */}
-            <body className={`${inter.variable} ${lora.variable} antialiased font-sans`} suppressHydrationWarning>
+            <body>
                 <Providers>
                     <ContextMenuBlocker />
                     <ClientLayoutWrapper>

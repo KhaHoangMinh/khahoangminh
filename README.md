@@ -132,7 +132,14 @@ npm run build
 ```
 The optimized static HTML/CSS/JS output is exported directly to `client/out/`.
 
-### 2. Git Branching Strategy & GitHub Pages CI/CD
+### 2. Anti-Slop & Design Quality Gate Verification
+To lint and verify the compiled static HTML against 73 deterministic design guards:
+```bash
+npm run check:anti-slop
+```
+For comprehensive documentation on the 12 banned UI tropes, 7-axis quality gate, and auto-fix tools, see the [Anti-Slop Quality Guide](docs/ANTI_SLOP_GUIDE.md).
+
+### 3. Git Branching Strategy & GitHub Pages CI/CD
 
 This repository follows a structured branch workflow:
 

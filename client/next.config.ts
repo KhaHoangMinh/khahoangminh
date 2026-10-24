@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isGithubActions = process.env.GITHUB_ACTIONS || "true";
 let basePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').trim();
-let assetPrefix = '';
 
 if (!basePath && isGithubActions) {
     // When deploying to https://<owner>.github.io/<repo>/, GitHub sets GITHUB_REPOSITORY="owner/repo"
@@ -12,15 +11,10 @@ if (!basePath && isGithubActions) {
     }
 }
 
-if (basePath) {
-    assetPrefix = `${basePath}/`;
-}
-
 const nextConfig: NextConfig = {
     output: "export",
     trailingSlash: true,
     basePath,
-    assetPrefix,
     env: {
         NEXT_PUBLIC_BASE_PATH: basePath,
     },

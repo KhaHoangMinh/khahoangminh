@@ -43,8 +43,9 @@ jobs:
         working-directory: ./client
         run: npm run build
         env:
-          GITHUB_ACTIONS: true
+          GITHUB_ACTIONS: "true"
           GITHUB_REPOSITORY: ${{ github.repository }}
+          CUSTOM_DOMAIN: "false"
           NEXT_PUBLIC_BASE_PATH: /khahoangminh
           NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY: ${{ secrets.EMAIL_JS_PUBLIC_KEY }}
           NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
