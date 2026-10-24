@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:anti-slop": "npx -y @gessobuild/anti-slop check out --marketing"
   },
   "engines": {
     "node": ">=24.0.0"
