@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FileText, Eye, Server, Cookie, Globe, Lock, ShieldCheck, Mail } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, LegalSidebarNav, PrivacyContent } from '@/components/organisms';
@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
                 title1={t('privacyPolicyPage.hero.title1')}
                 title2={t('privacyPolicyPage.hero.title2')}
                 description={t('privacyPolicyPage.hero.updated')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <div className="container-khm py-10 sm:py-14">

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { Users, Mail, ArrowRight } from 'lucide-react';
 import { Card, CardContent, Button } from '@/components/atoms';

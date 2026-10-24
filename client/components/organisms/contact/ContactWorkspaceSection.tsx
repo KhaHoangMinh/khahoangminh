@@ -1,4 +1,3 @@
-import React from 'react';
 import { ContactFormSection } from './ContactFormSection';
 import { ContactInfoSection } from './ContactInfoSection';
 import { LocationMap } from './LocationMap';

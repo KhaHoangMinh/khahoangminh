@@ -31,7 +31,7 @@
 * **5-Tier Atomic UI Architecture:** Strict unidirectional dependency flow (`atoms` → `molecules` → `organisms` → `templates` → thin route controllers `< 50 lines`).
 * **Standalone Focused 404 Canvas:** Custom error page that eliminates heavy global header/footer navigation clutter, featuring direct sales hotlines, language/theme toggles, and a 6-card quick recovery grid.
 * **Full Localization (i18n):** 100% DRY translation architecture via `useLanguage()` and `t()` supporting both Vietnamese (`vi`) and English (`en`).
-* **Instant B2B Multi-Channel RFQ:** One-click telephone dialers for direct sales representatives (`0979.866.162` - Ms. Uyên & `0976.888.999` - Ms. Hải) and serverless email quotation forms via EmailJS.
+* **Instant B2B Multi-Channel RFQ:** One-click telephone dialers for direct sales representatives (`0979.866.162` - Ms. Phụng Uyên & `0976.888.999` - Ms. Minh Hải) and serverless email quotation forms via EmailJS.
 
 ---
 
@@ -174,5 +174,5 @@ docker-compose down
 ---
 
 ## 📄 License & Intellectual Property
-© 2026 CÔNG TY TNHH KHA HOÀNG MINH. All rights reserved.  
+© 2026 CÔNG TY TNHH MỘT THÀNH VIÊN KHA HOÀNG MINH (MST: 0314059766). All rights reserved.  
 Official Domain: [khahoangminh.com.vn](https://khahoangminh.com.vn)

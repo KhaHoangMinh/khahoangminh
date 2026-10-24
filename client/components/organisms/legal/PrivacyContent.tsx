@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { CheckCircle2, Server, Lock } from 'lucide-react';
 import { Button } from '@/components/atoms';

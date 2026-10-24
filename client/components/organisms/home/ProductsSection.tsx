@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProductCard, type ProductSummary } from '@/components/molecules';
 
 interface ProductsSectionProps {

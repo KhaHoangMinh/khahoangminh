@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { useLanguage } from "@/services";
 import { 
     PageHero, 
@@ -24,7 +23,7 @@ export default function Projects() {
                 title={t('projectsPage.hero.title')}
                 highlight={t('projectsPage.hero.highlight')}
                 description={t('projectsPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <ProjectsListSection 

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, Button } from '@/components/atoms';
@@ -45,7 +44,7 @@ export function CatalogProductCard({ product, buttonText }: CatalogProductCardPr
             </div>
             <CardContent className="p-5 sm:p-6 bg-slate-50/60 dark:bg-[#182234] flex flex-col flex-grow justify-between gap-4 relative z-10">
                 <p className="text-body line-clamp-2">{product.description}</p>
-                <Link href={createPageUrl("contact")} className="block mt-auto">
+                <Link href={`${createPageUrl("contact")}?product=${encodeURIComponent(product.name)}`} className="block mt-auto">
                     <Button className="w-full h-11 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-semibold shadow-sm group-hover:shadow-md transition-all active:scale-[0.98]">
                         {buttonText}
                         <ArrowRight className="ml-2 w-4 h-4" />

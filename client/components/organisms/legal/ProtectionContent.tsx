@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Lock, Users, AlertCircle, FileKey, Scale, Building, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, Button } from '@/components/atoms';

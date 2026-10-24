@@ -1,4 +1,3 @@
-import React from 'react';
 import { ScopeCard } from '@/components/molecules';
 
 interface BusinessScopeSectionProps {

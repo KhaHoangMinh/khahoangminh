@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Scale, FileSignature, RefreshCw, UserRoundXIcon, Package, Brain, AlertTriangle, Landmark, Ban } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { LegalPageHero, LegalSidebarNav, TermsContent } from '@/components/organisms';
@@ -51,7 +51,7 @@ export default function TermsOfService() {
                 title1={t('termsOfServicePage.hero.title1')}
                 title2={t('termsOfServicePage.hero.title2')}
                 description={t('termsOfServicePage.hero.updated')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <div className="container-khm py-10 sm:py-14">

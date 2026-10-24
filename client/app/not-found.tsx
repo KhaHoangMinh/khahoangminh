@@ -1,10 +1,9 @@
 "use client";
 
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Home, Search, Package, Info, Briefcase, Phone, Construction, PhoneCall, Users } from 'lucide-react';
+import { Home, Search, Package, Info, Briefcase, Construction, PhoneCall, Users } from 'lucide-react';
 import { useLanguage, ThemeToggle, LanguageToggle } from '@/services';
 import { createPageUrl, getAssetPath } from "@/lib";
 
@@ -164,11 +163,11 @@ export default function PageNotFound() {
                     </div>
                     <div className="flex items-center gap-4">
                         <a href="tel:+84979866162" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-medium">
-                            +84 979 866 162 (Ms. Uyên)
+                            +84 979 866 162 (Ms. Phụng Uyên)
                         </a>
                         <span>•</span>
                         <a href="tel:+84976888999" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-medium">
-                            +84 976 888 999 (Ms. Hải)
+                            +84 976 888 999 (Ms. Minh Hải)
                         </a>
                     </div>
                 </div>

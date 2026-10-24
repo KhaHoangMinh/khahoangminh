@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Card, CardContent, Button, Input, Textarea } from '@/components/atoms';
 import { useLanguage } from "@/services";
@@ -9,10 +10,27 @@ import { validateContactForm, type ContactFormData } from "@/lib";
 
 export function ContactFormSection() {
     const { t } = useLanguage();
+    const searchParams = useSearchParams();
     const [formData, setFormData] = useState<ContactFormData>({ name: '', phone: '', email: '', message: '' });
     const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
     const [status, setStatus] = useState({ type: '', message: '' });
     const [isSending, setIsSending] = useState(false);
+
+    useEffect(() => {
+        const productParam = searchParams.get('product');
+        if (productParam) {
+            setFormData(prev => {
+                // If message is empty or default, pre-populate with structured RFQ
+                if (!prev.message) {
+                    return {
+                        ...prev,
+                        message: `Yêu cầu báo giá / tư vấn:\n- Sản phẩm & Quy cách: ${productParam}\n- Số lượng dự kiến: \n- Địa điểm giao hàng: `
+                    };
+                }
+                return prev;
+            });
+        }
+    }, [searchParams]);
 
     const handleInputChange = (field: keyof ContactFormData, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }));

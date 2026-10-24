@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import { Suspense } from 'react';
 import { useLanguage } from "@/services";
 import { PageHero, ContactWorkspaceSection } from '@/components/organisms';
 
@@ -13,9 +13,11 @@ export default function Contact() {
                 title={t('contactPage.heroTitle')}
                 highlight={t('contactPage.heroSubtitle')}
                 description={t('contactPage.heroDesc')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/khm-01.jpg"
             />
-            <ContactWorkspaceSection />
+            <Suspense fallback={<div className="section-frame-full container-khm animate-pulse" />}>
+                <ContactWorkspaceSection />
+            </Suspense>
         </div>
     );
 }

@@ -94,10 +94,10 @@ export function Footer({ activeEvent }: FooterProps) {
                                 <Phone className="w-4 h-4 text-orange-500 shrink-0 mt-1" />
                                 <div className="space-y-1">
                                     <a href="tel:+84979866162" className="text-slate-300 hover:text-orange-400 transition-colors block">
-                                        0979.866.162 (Ms. Uyên)
+                                        0979.866.162 (Ms. Phụng Uyên)
                                     </a>
                                     <a href="tel:+84976888999" className="text-slate-300 hover:text-orange-400 transition-colors block">
-                                        0976.888.999 (Ms. Hải)
+                                        0976.888.999 (Ms. Minh Hải)
                                     </a>
                                 </div>
                             </li>

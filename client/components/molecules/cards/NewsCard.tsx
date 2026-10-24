@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/atoms';
 import Image from 'next/image';
@@ -13,11 +12,23 @@ interface NewsData {
 interface NewsCardProps {
     news: NewsData;
     readMoreText: string;
+    onClick?: () => void;
 }
 
-export function NewsCard({ news, readMoreText }: NewsCardProps) {
+export function NewsCard({ news, readMoreText, onClick }: NewsCardProps) {
     return (
-        <Card className="h-full flex flex-col group overflow-hidden card-khm cursor-pointer">
+        <Card 
+            onClick={onClick}
+            role={onClick ? "button" : undefined}
+            tabIndex={onClick ? 0 : undefined}
+            onKeyDown={(e) => {
+                if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    onClick();
+                }
+            }}
+            className="h-full flex flex-col group overflow-hidden card-khm cursor-pointer transition-all duration-300 hover:-translate-y-1"
+        >
             <div className="relative h-52 sm:h-56 overflow-hidden">
                 <Image
                     src={news.image}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { CapabilityCard } from '@/components/molecules';
 
 interface CapabilitiesSectionProps {

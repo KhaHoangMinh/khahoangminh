@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { Scissors, Ruler, Truck, Headphones, FileCheck, Award } from 'lucide-react';
 import { useLanguage } from '@/services';
 import { 
@@ -27,7 +26,7 @@ export default function Services() {
                 title={t('servicesPage.hero.title')}
                 highlight={t('servicesPage.hero.highlight')}
                 description={t('servicesPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             <ServicesGridSection 

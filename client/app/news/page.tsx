@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { useLanguage } from "@/services";
 import { 
     PageHero, 
@@ -17,7 +16,7 @@ export default function News() {
                 title={t('newsPage.hero.title')}
                 highlight={t('newsPage.hero.highlight')}
                 description={t('newsPage.hero.subtitle')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/khm-01.jpg"
             />
 
             <NewsGridSection 

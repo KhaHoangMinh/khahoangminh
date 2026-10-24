@@ -1,6 +1,6 @@
 "use client";
 
-import { PremiumHero, LogoMarquee , AboutSection, ProductsSection, FeaturesSection, CtaSection } from '@/components/organisms';
+import { PremiumHero, LogoMarquee, AboutSection, ProductsSection, FeaturesSection, CtaSection } from '@/components/organisms';
 import { useLanguage } from '@/services';
 
 export default function Home() {
@@ -29,19 +29,19 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <PremiumHero 
+            <PremiumHero
                 title={t('homePage.hero.title')}
                 subtitle={t('homePage.hero.subtitle')}
                 description={t('homePage.hero.description')}
                 badgeText={t('homePage.hero.tagline')}
-                backgroundImage="http://khahoangminh.com.vn/upload/hinhanh/ddd_1366x540.jpg"
+                backgroundImage="/img/assets/home/hero-bg.jpg"
             />
 
             {/* Logo Marquee */}
             <LogoMarquee />
 
             {/* About Section */}
-            <AboutSection 
+            <AboutSection
                 intro={t('homePage.about.intro')}
                 name={t('homePage.about.name')}
                 desc1={t('homePage.about.desc1')}
@@ -50,20 +50,20 @@ export default function Home() {
             />
 
             {/* Products Section */}
-            <ProductsSection 
+            <ProductsSection
                 title={t('homePage.products.title')}
                 description={t('homePage.products.description')}
                 products={products}
             />
 
             {/* Features Section */}
-            <FeaturesSection 
+            <FeaturesSection
                 title={t('homePage.features.title')}
                 features={features}
             />
 
             {/* CTA Section */}
-            <CtaSection 
+            <CtaSection
                 title={t('homePage.cta.title')}
                 description={t('homePage.cta.description')}
             />

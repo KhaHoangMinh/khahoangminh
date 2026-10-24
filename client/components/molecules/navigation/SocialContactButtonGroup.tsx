@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { FaFacebook } from 'react-icons/fa';
