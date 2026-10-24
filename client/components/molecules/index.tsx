@@ -39,7 +39,7 @@ export { ActionRedirectCard } from './cards/ActionRedirectCard';
 
 // Navigation & Tools
 export { FloatingSpeedDial } from './navigation/FloatingSpeedDial';
-export { InoxWeightCalculator } from './calculator/InoxWeightCalculator';
+export { InoxCalculatorWidget } from './calculator/InoxCalculatorWidget';
 export { NewsModal } from './cards/NewsModal';
 
 // Legal Page

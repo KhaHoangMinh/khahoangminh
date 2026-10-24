@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Calculator, ArrowUp, MessageSquare, X, ChevronUp, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/services';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/atoms';
-import { InoxWeightCalculator } from '@/components/molecules/calculator/InoxWeightCalculator';
+import { InoxCalculatorWidget } from '@/components/molecules/calculator/InoxCalculatorWidget';
 
 export function FloatingSpeedDial() {
     const { t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [isCalcOpen, setIsCalcOpen] = useState(false);
+    const [calcExpandTrigger, setCalcExpandTrigger] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -84,6 +84,7 @@ export function FloatingSpeedDial() {
                     <button
                         onClick={() => {
                             setIsCalcOpen(true);
+                            setCalcExpandTrigger(prev => prev + 1);
                             setIsOpen(false);
                         }}
                         className="flex items-center gap-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-full pl-4 pr-1.5 py-1.5 shadow-xl hover:shadow-orange-600/25 transition-all duration-200 hover:-translate-y-0.5 group"
@@ -128,20 +129,13 @@ export function FloatingSpeedDial() {
                 </div>
             </aside>
 
-            {/* Inox Weight Calculator Modal Dialog */}
-            <Dialog open={isCalcOpen} onOpenChange={setIsCalcOpen}>
-                <DialogContent 
-                    showCloseButton={false}
-                    className="max-w-2xl w-[95vw] sm:w-full p-0 overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0B0F17] border border-slate-200/90 dark:border-slate-800 shadow-2xl"
-                >
-                    <DialogHeader className="sr-only">
-                        <DialogTitle>{t('calculator.title')}</DialogTitle>
-                    </DialogHeader>
-                    <div className="p-4 sm:p-5 max-h-[85vh] overflow-y-auto">
-                        <InoxWeightCalculator onCloseModal={() => setIsCalcOpen(false)} />
-                    </div>
-                </DialogContent>
-            </Dialog>
+            {/* Inox Weight Calculator Floating Widget (Non-blocking, persistent across scroll & page transitions) */}
+            <InoxCalculatorWidget 
+                isOpen={isCalcOpen}
+                expandTrigger={calcExpandTrigger}
+                onClose={() => setIsCalcOpen(false)}
+                onOpen={() => setIsCalcOpen(true)}
+            />
         </>
     );
 }
